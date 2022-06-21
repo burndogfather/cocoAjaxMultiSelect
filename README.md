@@ -1,4 +1,5 @@
-# cocoAjaxMultiSelect
+# cocoAjaxMultiSelect  
+  
 Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이브러리입니다.  
   
   
@@ -23,7 +24,11 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 [미리선택된 다중선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-is-value.html)  
 [미리선택된 다중선택 코드보기](https://github.com/squarehacker/cocoAjaxMultiSelect/blob/main/example/example-is-value.html)  
    
+   
+   
 ------  
+  
+  
   
 ### 주요기능  
   
@@ -35,7 +40,11 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 - 사전선택 값 설정가능  
   
   
+  
+  
 ------  
+  
+  
   
 ### 다음의 라이브러리가 필요합니다.  
   
@@ -48,7 +57,11 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 ><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>  
 >```
   
+  
+  
 ------  
+  
+  
   
 # 시작하기
   
