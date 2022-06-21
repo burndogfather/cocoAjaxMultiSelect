@@ -67,16 +67,16 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
   
 ### 1. ```<head>``` 태그안에 아래의 코드를 붙입니다.
 ```html
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- UTF-8언어셋 지정 -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+<!-- 종속 라이브러리 -->
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>
-<!-- XEIcon 아이콘 라이브러리 -->
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.css'>
-<!-- cocoAjaxMultiSelect CSS -->
+  
+<!-- cocoAjaxMultiSelect 라이브러리 -->
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-<!-- jQuery 3.5.1~ -->
 <script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
-<!-- cocoAjaxMultiSelect JS -->
 ```
   
   
