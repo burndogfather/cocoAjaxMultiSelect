@@ -68,21 +68,29 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 ### 1. ```<head>``` 태그안에 아래의 코드를 붙입니다.
 ```html
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- UTF-8언어셋 지정 -->
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>
+<!-- XEIcon 아이콘 라이브러리 -->
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.css'>
+<!-- cocoAjaxMultiSelect CSS -->
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+<!-- jQuery 3.5.1~ -->
 <script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
+<!-- cocoAjaxMultiSelect JS -->
 ```
   
   
 ### 2. ```html``` 코드상에 아래코드를 입력합니다.
 ```html
 <input id='test' type='cocoAjaxMultiSelect' value='가을,바다,태양,요셉' placeholder='여러명의 이름을 선택' multiple/>
+<!--
+   <input type='cocoAjaxMultiSelect' /> 으로 사용
+   type : 'cocoAjaxMultiSelect' (필수)
+   value : 사전에 선택될 항목을 쉼표로 구분하여 입력 (선택)
+   placeholder : 미입력된 화면에서 보여줄 text (선택)
+   multiple : 다중선택시 필요 / 미입력시 단일선택으로 적용됨 (선택)
+-->
 ```
-- id를 반드시 등록해야 라이브러리가 정상적으로 매핑됨
-- type은 cocoAjaxMultiSelect
-- value에는 미리 선택되어야할 값을 넣거나 불필요하다면 value를 사용하지 않습니다.
-- 단일선택시 multiple 삭제 / 다중선택시 multiple 추가
 
 ### 3. ```javascript``` 코드상에 아래코드를 입력합니다.
 ```javascript
