@@ -44,7 +44,7 @@ input[type="cocoAjaxMultiSelect"]{
 		+s{
 			font-size: 11px;
 			color:#505050;
-			height:14px;
+			height:10px;
 			margin-left: -70px;
 			text-align:right;
 			text-decoration:none;
@@ -63,6 +63,9 @@ input[type="cocoAjaxMultiSelect"]{
 				margin: 0;
 				padding: 0;
 				list-style: none;
+				li{
+					list-style:none;
+				}
 			}
 			&:before{
 				content:'(';
@@ -110,6 +113,7 @@ input[type="cocoAjaxMultiSelect"]{
 						background-color: #888;
 					}
 					li {
+						list-style:none;
 						height: 34px;
 						line-height: 34px;
 						article{
