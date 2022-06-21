@@ -308,7 +308,6 @@
 					multiple = false;
 				}
 				if(focus == 'on'){
-					
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
 					}
