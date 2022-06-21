@@ -16,15 +16,16 @@
 				ajaxCode: function(input, page, pagging){
 					return new Promise(function(resolve, reject) {
 						$.ajax({
-							url:__API_SERVER__+'?get=ajaxselect_for_demo',
+							url:'https://www.dadolcorp.com/cocoajaxmultiselect_fortest.php',
 							type:'POST',
 							async:false,
 							dataType:'json',
-							data:{searchtxt:input,page:page,pagging:pagging},
+							data:{username:input,page:page,pagging:pagging},
 							error:function(request,status,error){
 								reject(request);
 							}
 						}).done(function(data){
+							console.log(data);
 							resolve(data.dataset);
 						});
 					});

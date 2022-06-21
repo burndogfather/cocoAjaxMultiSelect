@@ -65,6 +65,8 @@ input[type="cocoAjaxMultiSelect"]{
 			}
 			+s{
 				+.ajaxselect_detail {
+					margin: 0;
+					list-style: none;
 					scroll-behavior: smooth;
 					display:block;
 					font-size: 13px;
