@@ -74,7 +74,8 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 <script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
 ```
   
-2. html 코드상에 아래코드를 입력합니다.
+  
+2. ```html``` 코드상에 아래코드를 입력합니다.
 ```html
 <input id='test' type='cocoAjaxMultiSelect' value='가을,바다,태양,요셉' placeholder='여러명의 이름을 선택' multiple/>
 ```
@@ -83,4 +84,34 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 - value에는 미리 선택되어야할 값을 넣거나 불필요하다면 value를 사용하지 않습니다.
 - 단일선택시 multiple 삭제 / 다중선택시 multiple 추가
 
-
+3. ```javascript``` 코드상에 아래코드를 입력합니다.
+```javascript
+$('#test').cocoAjaxMultiSelect({
+    ajaxCode: function(input, page, pagging){
+        return new Promise(function(resolve, reject) {
+            $.ajax({
+                url:'https://www.dadolcorp.com/cocoajaxmultiselect/example/json.php',
+                type:'POST',
+                async:false,
+                dataType:'json',
+                data:{username:input,page:page,pagging:pagging},
+                error:function(request,status,error){
+                    reject(request);
+                }
+            }).done(function(data){
+                resolve(data);
+            });
+        });
+    },
+    checkedCode:function(selectValue){
+        console.log(selectValue);
+    },
+    arrayInKey:'sid',
+    arrayInValue:'username',
+    regularExpression:'(.*?)',
+    delay:600,
+    pageUnit:10,
+    scrollLeftLoad:100,
+    height:300
+});
+```
