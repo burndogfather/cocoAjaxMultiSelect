@@ -1,8 +1,25 @@
 # cocoAjaxMultiSelect  
   
 Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이브러리입니다.  
+  
 ![작동예시](https://user-images.githubusercontent.com/101985768/174756567-a6b35130-d20b-457f-8197-24222906fcb2.gif)  
 
+
+### 주요기능  
+  
+- ```<input/>``` 태그만 사용
+- 검색기능 지원
+- 무한스크롤방식의 페이징 지원
+- 호출-응답 커스텀 가능
+- 콜백코드 커스텀 가능
+- 사전선택 값 설정가능  
+  
+  
+------  
+
+### 데모  
+
+/example 에 데모를 코드와 샘플 데이터베이스도 있어요!😻
   
 [Ajax 다중선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-jquery-multi.html)  
 [Ajax 다중선택 코드보기](https://github.com/squarehacker/cocoAjaxMultiSelect/blob/main/example/example-jquery-multi.html)  
@@ -26,25 +43,7 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 [미리선택된 다중선택 코드보기](https://github.com/squarehacker/cocoAjaxMultiSelect/blob/main/example/example-is-value.html)  
    
    
-   
 ------  
-  
-  
-  
-### 주요기능  
-  
-- ```<input/>``` 태그만 사용
-- 검색기능 지원
-- 무한스크롤방식의 페이징 지원
-- 호출-응답 커스텀 가능
-- 콜백코드 커스텀 가능
-- 사전선택 값 설정가능  
-  
-  
-  
-  
-------  
-  
   
   
 ### 다음의 라이브러리가 필요합니다.  
@@ -68,6 +67,7 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
   
 ### 1. ```<head>``` 태그안에 아래의 코드를 붙입니다.
 ```html
+
 <!-- UTF-8언어셋 지정 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   
@@ -78,12 +78,15 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 <!-- cocoAjaxMultiSelect 라이브러리 -->
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 <script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
+
 ```
   
   
 ### 2. ```html``` 코드상에 아래코드를 입력합니다.
 ```html
 <input id='test' type='cocoAjaxMultiSelect' value='가을,바다,태양,요셉' placeholder='여러명의 이름을 선택' multiple/>
+
+
 <!--
    <input type='cocoAjaxMultiSelect' /> 으로 사용
    
@@ -124,6 +127,8 @@ $('#test').cocoAjaxMultiSelect({
     scrollLeftLoad:100,
     height:300
 });
+
+
 /**
     ajaxCode : 선택창클릭, 키보드입력, 엔터키에 매핑되어 보여줄 데이터를 처리하는 코드 (동기작업 필수)
         - input : 검색창에 입력된 값
