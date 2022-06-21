@@ -9,24 +9,24 @@
 	</head>
 	<body>
 		
-		<input id='jQueryAjax' type='cocoAjaxMultiSelect' placeholder='한명의 이름을 선택'/>
+		<input id='xhr' type='cocoAjaxMultiSelect' placeholder='여러명의 이름을 선택'/>
 		
 		<script type='text/javascript'>
-			$('#jQueryAjax').cocoAjaxMultiSelect({
+			$('#xhr').cocoAjaxMultiSelect({
 				ajaxCode: function(input, page, pagging){
 					return new Promise(function(resolve, reject) {
-						$.ajax({
-							url:'https://www.dadolcorp.com/cocoajaxmultiselect/example/json.php',
-							type:'POST',
-							async:false,
-							dataType:'json',
-							data:{username:input,page:page,pagging:pagging},
-							error:function(request,status,error){
-								reject(request);
-							}
-						}).done(function(data){
+						var xhr = new XMLHttpRequest();
+						xhr.open('POST','https://www.dadolcorp.com/cocoajaxmultiselect/example/json.php', true);
+						xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+						xhr.onload = function () {
+							data = JSON.parse(this.responseText);
 							resolve(data);
-						});
+						};
+						if(input == null){
+							xhr.send('page='+page+'&pagging='+pagging);
+						}else{
+							xhr.send('username='+input+'&page='+page+'&pagging='+pagging);
+						}
 					});
 				},
 				checkedCode:function(selectValue){

@@ -1,10 +1,19 @@
 <?php
 	header('Content-Type: application/json; charset=UTF-8');
 	header('Access-Control-Allow-Origin: *');
+	header('Access-Control-Allow-Credentials: true');
+	header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 	//데이터베이스정보를 수정하여 테스트해주세요
 	//데이터베이스는 testdb.sql 파일을 이용하실 수 있습니다.
 	$dbconn = mysqli_connect('127.0.0.1','db_id','db_pw','db_name', '3306');
 
+
+	//fetch받기
+	$fetchdata = json_decode(file_get_contents('php://input'),true);
+	foreach($fetchdata as $key => $value){
+		$_POST[$key] = $value;
+	}
+	
 	//POST 입력값 searchtext, page, pagging
 	if(isset($_POST['username'])){
 		$searchtxt = $_POST['username'];

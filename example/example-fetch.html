@@ -9,22 +9,17 @@
 	</head>
 	<body>
 		
-		<input id='jQueryAjax' type='cocoAjaxMultiSelect' placeholder='한명의 이름을 선택'/>
+		<input id='fetch' type='cocoAjaxMultiSelect' placeholder='여러명의 이름을 선택'/>
 		
 		<script type='text/javascript'>
-			$('#jQueryAjax').cocoAjaxMultiSelect({
+			$('#fetch').cocoAjaxMultiSelect({
 				ajaxCode: function(input, page, pagging){
 					return new Promise(function(resolve, reject) {
-						$.ajax({
-							url:'https://www.dadolcorp.com/cocoajaxmultiselect/example/json.php',
-							type:'POST',
-							async:false,
-							dataType:'json',
-							data:{username:input,page:page,pagging:pagging},
-							error:function(request,status,error){
-								reject(request);
-							}
-						}).done(function(data){
+						fetch('https://www.dadolcorp.com/cocoajaxmultiselect/example/json.php',{
+							method : 'POST',
+							body : JSON.stringify({'username':input,'page':page,'pagging':pagging}),
+							headers: {'Content-Type': 'application/json'}
+						}).then((response) => response.json()).then((data)=>{
 							resolve(data);
 						});
 					});
