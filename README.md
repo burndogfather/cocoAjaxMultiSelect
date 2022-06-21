@@ -19,6 +19,9 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
   
 [fetch 단일선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-fetch.html)  
 [fetch 단일선택 코드보기](https://github.com/squarehacker/cocoAjaxMultiSelect/blob/main/example/example-fetch.html)  
+  
+[미리선택된 다중선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-is-value.html)  
+[미리선택된 다중선택 코드보기](https://github.com/squarehacker/cocoAjaxMultiSelect/blob/main/example/example-is-value.html)  
    
 ------  
   
@@ -44,5 +47,18 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 ><script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>  
 ><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>  
 >```
+  
+------  
+  
+### 시작하기
+  
+1. ```<head>``` 태그안에 아래의 코드를 붙입니다.
+```html
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.css'>
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
+```
   
 ------  
