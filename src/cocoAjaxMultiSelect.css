@@ -1,5 +1,7 @@
 @charset "UTF-8";
 input[type="cocoAjaxMultiSelect"]  {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 	min-width: 200px;
 	box-sizing: border-box;
 	height: 34px;
@@ -13,6 +15,14 @@ input[type="cocoAjaxMultiSelect"]  {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+input[type="cocoAjaxMultiSelect"]::-webkit-outer-spin-button  {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type="cocoAjaxMultiSelect"]::-webkit-inner-spin-button  {
+	-webkit-appearance: none;
+	margin: 0;
 }
 input[type="cocoAjaxMultiSelect"] + label  {
 	color: #999;
@@ -106,6 +116,8 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail l
 	color: #aaa;
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li input[type="radio"]  {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 	vertical-align: unset;
 	width: 18px;
 	height: 18px;
@@ -117,6 +129,14 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail l
 	color: #1a1a1a;
 	background-color: #fff;
 	border-radius: 18px;
+}
+input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li input[type="radio"]::-webkit-outer-spin-button  {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li input[type="radio"]::-webkit-inner-spin-button  {
+	-webkit-appearance: none;
+	margin: 0;
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li input[type="radio"]:checked  {
 	color: #31408E;
@@ -137,6 +157,8 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail l
 	cursor: pointer;
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li input[type="checkbox"]  {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 	vertical-align: unset;
 	width: 18px;
 	height: 18px;
@@ -148,6 +170,14 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail l
 	color: #1a1a1a;
 	background-color: #fff;
 	border-radius: 4px;
+}
+input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li input[type="checkbox"]::-webkit-outer-spin-button  {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li input[type="checkbox"]::-webkit-inner-spin-button  {
+	-webkit-appearance: none;
+	margin: 0;
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li input[type="checkbox"]:checked  {
 	color: #31408E;
