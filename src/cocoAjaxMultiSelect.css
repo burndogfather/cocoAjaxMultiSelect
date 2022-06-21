@@ -48,7 +48,15 @@ input[type="cocoAjaxMultiSelect"] + label + s  {
 	width: 35px;
 }
 input[type="cocoAjaxMultiSelect"] + label + s + .ajaxselect_detail  {
+	margin: 0;
+	padding: 0;
 	display: none;
+	list-style: none;
+}
+input[type="cocoAjaxMultiSelect"] + label + s + ul  {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 input[type="cocoAjaxMultiSelect"] + label + s:before  {
 	content: "(";
