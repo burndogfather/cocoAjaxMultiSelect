@@ -1,7 +1,8 @@
 # cocoAjaxMultiSelect  
   
 Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이브러리입니다.  
-  
+![작동예시](https://user-images.githubusercontent.com/101985768/174756567-a6b35130-d20b-457f-8197-24222906fcb2.gif)  
+
   
 [Ajax 다중선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-jquery-multi.html)  
 [Ajax 다중선택 코드보기](https://github.com/squarehacker/cocoAjaxMultiSelect/blob/main/example/example-jquery-multi.html)  
