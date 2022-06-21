@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='ko'>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>
+		<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.css'>
+		<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+		<script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
+	</head>
+	<body>
+		
+		<input id='jQueryAjax' type='cocoAjaxMultiSelect' placeholder='한명의 이름을 선택'/>
+		
+		<script type='text/javascript'>
+			$('#jQueryAjax').cocoAjaxMultiSelect({
+				ajaxCode: function(input, page, pagging){
+					return new Promise(function(resolve, reject) {
+						$.ajax({
+							url:'https://www.dadolcorp.com/cocoajaxmultiselect/example/json.php',
+							type:'POST',
+							async:false,
+							dataType:'json',
+							data:{username:input,page:page,pagging:pagging},
+							error:function(request,status,error){
+								reject(request);
+							}
+						}).done(function(data){
+							resolve(data);
+						});
+					});
+				},
+				checkedCode:function(selectValue){
+					console.log(selectValue);
+				},
+				arrayInKey:'sid',
+				arrayInValue:'username',
+				regularExpression:'(.*?)',
+				delay:600,
+				pageUnit:10,
+				scrollLeftLoad:100,
+				height:300
+			});
+		</script>
+	</body>
+</html>
