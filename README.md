@@ -74,4 +74,13 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 <script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
 ```
   
-------  
+2. html 코드상에 아래코드를 입력합니다.
+```html
+<input id='test' type='cocoAjaxMultiSelect' value='가을,바다,태양,요셉' placeholder='여러명의 이름을 선택' multiple/>
+```
+- id를 반드시 등록해야 라이브러리가 정상적으로 매핑됨
+- type은 cocoAjaxMultiSelect
+- value에는 미리 선택되어야할 값을 넣거나 불필요하다면 value를 사용하지 않습니다.
+- 단일선택시 multiple 삭제 / 다중선택시 multiple 추가
+
+
