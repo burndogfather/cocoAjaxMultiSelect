@@ -227,6 +227,36 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail l
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li label:before {
   margin-top: 0;
 }
+.ajaxselect_detail {
+  margin: 0;
+  padding: 0;
+  display: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+.ajaxselect_detail::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background-color: #e5e5e5;
+}
+.ajaxselect_detail::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+}
+.ajaxselect_detail::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #888;
+}
+.ajaxselect_detail li {
+  list-style: none;
+}
+.ajaxselect_detail input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.ajaxselect_detail input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .ajaxselect_over {
   top: 0;
   left: 0;
