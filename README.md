@@ -74,6 +74,7 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 <script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
 ```
   
+  --
   
 2. ```html``` 코드상에 아래코드를 입력합니다.
 ```html
