@@ -21,11 +21,9 @@
 	
 	
 	$sql = "SELECT sid,username FROM cocoajaxmultiselect";
-	
 	if($searchtxt){
 		$sql .= " WHERE username LIKE '%".$searchtxt."%'";
 	}
-	
 	if($page != -1 && $pagging != -1){
 		$page = ( $page - 1 ) * $pagging;
 		$sql .= " LIMIT ".$page.", ".$pagging." ";
@@ -38,5 +36,4 @@
 		array_push($output, array('sid'=>$result['sid'], 'username'=>$result['username']));
 	}
 	echo json_encode($output);
-	
 ?>
