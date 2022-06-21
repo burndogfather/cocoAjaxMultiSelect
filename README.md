@@ -65,7 +65,7 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
   
 # 시작하기
   
-1. ```<head>``` 태그안에 아래의 코드를 붙입니다.
+### 1. ```<head>``` 태그안에 아래의 코드를 붙입니다.
 ```html
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>
@@ -74,9 +74,8 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 <script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
 ```
   
-  ---
   
-2. ```html``` 코드상에 아래코드를 입력합니다.
+### 2. ```html``` 코드상에 아래코드를 입력합니다.
 ```html
 <input id='test' type='cocoAjaxMultiSelect' value='가을,바다,태양,요셉' placeholder='여러명의 이름을 선택' multiple/>
 ```
@@ -85,7 +84,7 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 - value에는 미리 선택되어야할 값을 넣거나 불필요하다면 value를 사용하지 않습니다.
 - 단일선택시 multiple 삭제 / 다중선택시 multiple 추가
 
-3. ```javascript``` 코드상에 아래코드를 입력합니다.
+### 3. ```javascript``` 코드상에 아래코드를 입력합니다.
 ```javascript
 $('#test').cocoAjaxMultiSelect({
     ajaxCode: function(input, page, pagging){
