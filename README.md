@@ -19,7 +19,7 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
   
 [fetch 단일선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-fetch.html)  
 [fetch 단일선택 코드보기](https://github.com/squarehacker/cocoAjaxMultiSelect/blob/main/example/example-fetch.html)  
-  
+   
 ------  
   
 ### 주요기능  
