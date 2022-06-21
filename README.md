@@ -85,6 +85,7 @@ Ajax, xhr, fetch등을 이용하여 다중선택창을 만들수 있는 라이�
 <input id='test' type='cocoAjaxMultiSelect' value='가을,바다,태양,요셉' placeholder='여러명의 이름을 선택' multiple/>
 <!--
    <input type='cocoAjaxMultiSelect' /> 으로 사용
+   
    type : 'cocoAjaxMultiSelect' (필수)
    value : 사전에 선택될 항목을 쉼표로 구분하여 입력 (선택)
    placeholder : 미입력된 화면에서 보여줄 text (선택)
@@ -116,10 +117,29 @@ $('#test').cocoAjaxMultiSelect({
     },
     arrayInKey:'sid',
     arrayInValue:'username',
-    regularExpression:'(.*?)',
+    regularExpression:'[a-z|A-Z|가-힣| ]{2,}',
     delay:600,
     pageUnit:10,
     scrollLeftLoad:100,
     height:300
 });
+/**
+    ajaxCode : 선택창클릭, 키보드입력, 엔터키에 매핑되어 보여줄 데이터를 처리하는 코드 (동기작업 필수)
+        - input : 검색창에 입력된 값
+        - page : 현재페이지 값 (1페이지부터 ++)
+        - pagging : 페이징단위 값
+        - reject() : ajaxCode내에서 요청실패처리
+        - resolve(json데이터) : ajaxCode내에서 요청성공에 대한 동기처리
+        
+    checkedCode : 사용자가 선택항목을 변경시 마다 실행되는 코드
+        - selectValue : 사용자가 선택한 항목들의 배열 값
+    
+    arrayInKey : resolve(json데이터)에 입력되는 ajax결과배열의 key 값 (사용자에게 보여지지 않음)
+    arrayInValue : resolve(json데이터)에 입력되는 ajax결과배열의 value 값 (사용자에게 보여짐)
+    regularExpression : ajax조회하는 검색어의 정규식 조건
+    delay : 잦은호출을 방지하기 위해 키보드입력시 ajax조회 지연시간
+    pageUnit : 한페이지에 보여질 데이터수
+    scrollLeftLoad : 다음페이지로 추가호출할 스크롤길이
+    height : 선택창의 높이
+**/
 ```
