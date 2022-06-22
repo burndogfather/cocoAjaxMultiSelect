@@ -70,7 +70,13 @@
 				
 				if(is_checked == 'checked'){
 					if(multiple){
-						selectedval = selectedval.filter((element) => element !== value);
+						for(let i = 0; i < selectedval.length; i++) {
+						  if(selectedval[i] === value)  {
+							selectedval.splice(i, 1);
+							i--;
+						  }
+						}
+						//selectedval = selectedval.filter((element) => element !== value);
 					}
 					
 				}else{
