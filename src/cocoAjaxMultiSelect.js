@@ -347,7 +347,8 @@
 			$('html').on('click.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let is_checked = $(this).attr('checked');
 				let value = $(this).next('label').text();
-				
+				console.log(is_checked);
+				console.log(value);
 				if(is_checked == 'checked'){
 					if(multiple){
 						for(let i = 0; i < selectedval.length; i++) {
