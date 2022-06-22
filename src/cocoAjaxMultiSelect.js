@@ -60,34 +60,7 @@
 			this.checkboxControl();
 		},
 		
-		//select하단에서 체크박스 선택시
-		checkboxControl:function(){
-			var _this = this;
-			let multiple = this.$element.attr('multiple');
-			$('html').on('click.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
-				let is_checked = $(this).attr('checked');
-				let value = $(this).next('label').text();
-				
-				if(is_checked == 'checked'){
-					if(multiple){
-						for(let i = 0; i < selectedval.length; i++) {
-						  if(selectedval[i] == value)  {
-							selectedval.splice(i, 1);
-							i--;
-						  }
-						}
-					}
-				}else{
-					if(multiple){
-						selectedval.push(value);
-					}else{
-						selectedval = new Array(value);
-					}
-					
-				}
-				_this.settings['checkedCode'](selectedval);
-			});
-		},
+		
 		
 		
 		//select하단 나오기
@@ -362,6 +335,37 @@
 				if($(this).attr('focus') == 'on'){
 					$(this).focus();
 				}
+			});
+		},
+		
+		
+		
+		//select하단에서 체크박스 선택시
+		checkboxControl:function(){
+			var _this = this;
+			let multiple = this.$element.attr('multiple');
+			$('html').on('click.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+				let is_checked = $(this).attr('checked');
+				let value = $(this).next('label').text();
+				
+				if(is_checked == 'checked'){
+					if(multiple){
+						for(let i = 0; i < selectedval.length; i++) {
+						  if(selectedval[i] == value)  {
+							selectedval.splice(i, 1);
+							i--;
+						  }
+						}
+					}
+				}else{
+					if(multiple){
+						selectedval.push(value);
+					}else{
+						selectedval = new Array(value);
+					}
+					
+				}
+				_this.settings['checkedCode'](selectedval);
 			});
 		}
 	});
