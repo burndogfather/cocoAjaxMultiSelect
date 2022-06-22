@@ -88,7 +88,6 @@
 		
 		//select하단 나오기
 		detailshow:function(id, data_arr, multiple, width, top, left){
-			console.log(top);
 			let type = 'checkbox';
 			if(multiple){
 				type = 'checkbox';
