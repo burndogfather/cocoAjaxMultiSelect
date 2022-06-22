@@ -345,27 +345,23 @@
 			var _this = this;
 			let multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
-				let is_checked = $(this).attr('checked');
 				let value = $(this).next('label').text();
-				console.log(is_checked);
-				console.log(value);
-				if(is_checked == 'checked'){
-					if(multiple){
-						for(let i = 0; i < selectedval.length; i++) {
-						  if(selectedval[i] == value)  {
-							selectedval.splice(i, 1);
-							i--;
-						  }
-						}
-					}
-				}else{
+
+				if($(this).is(":checked")){
 					if(multiple){
 						selectedval.push(value);
 					}else{
 						selectedval = new Array(value);
 					}
 					
+				}else{
+					if(multiple){
+						selectedval = selectedval.filter(function(f) { 
+							return f !== value; 
+						});
+					}
 				}
+				
 				_this.settings['checkedCode'](selectedval);
 			});
 		}
