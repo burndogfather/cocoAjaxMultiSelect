@@ -1,11 +1,10 @@
 # cocoAjaxMultiSelect  
 <img src='https://img.shields.io/github/languages/code-size/squarehacker/cocoAjaxMultiSelect' />
    
-Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 만들수 있는 라이브러리입니다.  
+Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 만들수 있는 라이브러리입니다👍  
    
 ![작동예시](https://user-images.githubusercontent.com/101985768/174756567-a6b35130-d20b-457f-8197-24222906fcb2.gif)  
   
- 
 ### 주요기능  
   
 - ```<input/>``` 태그만으로 이용
@@ -16,7 +15,6 @@ Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 
 - 사전선택 값 설정가능  
 - 키보드입력 지연시간 설정가능
 - 키보드입력 정규식조건 설정가능
-  
   
 ------  
 
