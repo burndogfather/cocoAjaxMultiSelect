@@ -24,16 +24,16 @@ Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 
 
 데모코드와 대용량 샘플데이터베이스도 있어요!😻 > [/example](https://github.com/squarehacker/cocoAjaxMultiSelect/tree/main/example)  
   
-[Ajax 다중선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-jquery-multi.html)  
-[Ajax 단일선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-jquery.html)  
+[Ajax 다중선택 데모](https://git.coco.sqs.kr/cocoajaxmultiselect/example/example-jquery-multi.html)  
+[Ajax 단일선택 데모](https://git.coco.sqs.kr/cocoajaxmultiselect/example/example-jquery.html)  
   
-[xhr 다중선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-xhr-multi.html)  
-[xhr 단일선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-xhr.html)  
+[xhr 다중선택 데모](https://git.coco.sqs.kr/cocoajaxmultiselect/example/example-xhr-multi.html)  
+[xhr 단일선택 데모](https://git.coco.sqs.kr/cocoajaxmultiselect/example/example-xhr.html)  
   
-[fetch 다중선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-fetch-multi.html)  
-[fetch 단일선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-fetch.html)  
+[fetch 다중선택 데모](https://git.coco.sqs.kr/cocoajaxmultiselect/example/example-fetch-multi.html)  
+[fetch 단일선택 데모](https://git.coco.sqs.kr/cocoajaxmultiselect/example/example-fetch.html)  
   
-[미리선택된 다중선택 데모](https://www.dadolcorp.com/cocoajaxmultiselect/example/example-is-value.html)  
+[미리선택된 다중선택 데모](https://git.coco.sqs.kr/cocoajaxmultiselect/example/example-is-value.html)  
    
 ------  
   
@@ -49,11 +49,11 @@ Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 
   
 <!-- 종속 라이브러리 -->
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.css'>
+<link rel='stylesheet' href='https://git.coco.sqs.kr/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.css'>
   
 <!-- cocoAjaxMultiSelect 라이브러리 -->
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-<script src='https://cdn.jsdelivr.net/gh/squarehacker/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.min.js'></script>
+<script src='https://git.coco.sqs.kr/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.js'></script>
 
 ```
   
@@ -79,7 +79,7 @@ $('#test').cocoAjaxMultiSelect({
     ajaxCode: function(input, page, pagging){
         return new Promise(function(resolve, reject) {
             $.ajax({
-                url:'https://www.dadolcorp.com/cocoajaxmultiselect/example/json.php',
+                url:'https://git.coco.sqs.kr/cocoajaxmultiselect/example/json.php',
                 type:'POST',
                 async:false,
                 dataType:'json',

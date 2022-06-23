@@ -4,7 +4,6 @@
 	header('Access-Control-Allow-Credentials: true');
 	header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 
-	//데이터베이스는 testdb.sql 파일을 이용하실 수 있습니다.
 	$dbconn = mysqli_connect('127.0.0.1','db_id','db_pw','db_name', '3306');
 	//데이터베이스 아이피, 데이터베이스 이름, 데이터베이스 패스워드, 데이터베이스명, 포트번호
 
