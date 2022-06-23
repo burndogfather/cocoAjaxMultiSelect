@@ -3,10 +3,7 @@
 	header('Access-Control-Allow-Origin: *');
 	header('Access-Control-Allow-Credentials: true');
 	header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-
-	$dbconn = mysqli_connect('db','git.coco','password','git.coco', '3306');
-	//데이터베이스 아이피, 데이터베이스 이름, 데이터베이스 패스워드, 데이터베이스명, 포트번호
-
+	
 	//fetch받기
 	$fetchdata = json_decode(file_get_contents('php://input'),true);
 	foreach($fetchdata as $key => $value){
@@ -37,6 +34,8 @@
 	}
 	
 	$output = array();
+	$dbconn = mysqli_connect('db.sqs.kr','git.coco','password','git.coco', '3306');
+	//데이터베이스 아이피, 데이터베이스 이름, 데이터베이스 패스워드, 데이터베이스명, 포트번호
 	$query = mysqli_query($dbconn,$sql);
 	while($result = mysqli_fetch_array($query)){
 		array_push($output, array('sid'=>$result['sid'], 'username'=>$result['username']));
