@@ -38,9 +38,8 @@
 		$sql .= " LIMIT ".$page.", ".$pagging." ";
 	}
 	
-	$query = mysqli_query($dbconn,$sql);
-	
 	$output = array();
+	$query = mysqli_query($dbconn,$sql);
 	while($result = mysqli_fetch_array($query)){
 		array_push($output, array('sid'=>$result['sid'], 'username'=>$result['username']));
 	}
