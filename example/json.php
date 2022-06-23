@@ -1,13 +1,14 @@
 <?php
 	header('Content-Type: application/json; charset=UTF-8');
 	header('Access-Control-Allow-Origin: *');
-	header('Access-Control-Allow-Credentials: true');
 	header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 	
 	//fetch받기
 	$fetchdata = json_decode(file_get_contents('php://input'),true);
-	foreach($fetchdata as $key => $value){
-		$_POST[$key] = $value;
+	if(is_array($fetchdata)){
+		foreach($fetchdata as $key => $value){
+			$_POST[$key] = $value;
+		}
 	}
 	
 	//POST 입력값 searchtext, page, pagging
