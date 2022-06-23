@@ -28,7 +28,6 @@
 		$pagging = -1;
 	}
 	
-	
 	$sql = "SELECT sid,username FROM cocoajaxmultiselect";
 	if($searchtxt){
 		$sql .= " WHERE username LIKE '%".$searchtxt."%'";
