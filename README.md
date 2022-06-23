@@ -2,6 +2,7 @@
 <img src='https://img.shields.io/github/languages/code-size/squarehacker/cocoAjaxMultiSelect' />
    
 Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 만들수 있는 라이브러리입니다👍  
+검색창이나 서브데이터를 불러와야하는 화면에서 편리하게 이용할 수 있어요!
    
 ![작동예시](https://user-images.githubusercontent.com/101985768/174756567-a6b35130-d20b-457f-8197-24222906fcb2.gif)  
   
@@ -11,7 +12,7 @@ Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 
 - 검색기능 지원
 - 무한스크롤방식의 페이징 지원
 - 호출-응답 커스텀 가능
-- 콜백코드 커스텀 가능
+- 사용자 선택에 따른 콜백 작성가능
 - 사전선택 값 설정가능  
 - 키보드입력 지연시간 설정가능
 - 키보드입력 정규식조건 설정가능
@@ -37,7 +38,7 @@ Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 
   
   
   
-# 시작하기
+# 시작하기 (1~4단계)  
   
 ### 1. ```<head>``` 태그안에 아래의 코드를 붙입니다.
 ```html
@@ -47,10 +48,10 @@ Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 
   
 <!-- 종속 라이브러리 -->
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>
-<link rel='stylesheet' href='https://git.coco.sqs.kr/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.css'>
-  
-<!-- cocoAjaxMultiSelect 라이브러리 -->
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+
+<!-- cocoAjaxMultiSelect 라이브러리 -->
+<link rel='stylesheet' href='https://git.coco.sqs.kr/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.css'>
 <script src='https://git.coco.sqs.kr/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.js'></script>
 
 ```
@@ -122,4 +123,51 @@ $('#test').cocoAjaxMultiSelect({
     scrollLeftLoad : 다음페이지로 추가호출할 스크롤길이
     height : 선택창의 높이
 **/
+```
+  
+  
+### 4. 데이터는 이런형태의 JSON이 반환되어야 합니다.  
+```json
+[
+  {
+    "sid": "2022062114201723174",
+    "username": "가람"
+  },
+  {
+    "sid": "2022062114202055377",
+    "username": "가빈"
+  },
+  {
+    "sid": "2022062114201649568",
+    "username": "가온"
+  },
+  {
+    "sid": "2022062114201994983",
+    "username": "가을"
+  },
+  {
+    "sid": "2022062114201757668",
+    "username": "강"
+  },
+  {
+    "sid": "2022062114201635586",
+    "username": "강민"
+  },
+  {
+    "sid": "2022062114201878478",
+    "username": "강빈"
+  },
+  {
+    "sid": "2022062114201887455",
+    "username": "강산"
+  },
+  {
+    "sid": "2022062114201696158",
+    "username": "강우"
+  },
+  {
+    "sid": "2022062114201922411",
+    "username": "강유"
+  }
+]
 ```
