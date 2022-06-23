@@ -4,7 +4,7 @@
 	header('Access-Control-Allow-Credentials: true');
 	header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 
-	$dbconn = mysqli_connect('127.0.0.1','db_id','db_pw','db_name', '3306');
+	$dbconn = mysqli_connect('db','git.coco','password','git.coco', '3306');
 	//데이터베이스 아이피, 데이터베이스 이름, 데이터베이스 패스워드, 데이터베이스명, 포트번호
 
 	//fetch받기
