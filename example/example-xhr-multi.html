@@ -15,7 +15,7 @@
 			$('#xhr').cocoAjaxMultiSelect({
 				ajaxCode: function(input, page, pagging){
 					return new Promise(function(resolve, reject) {
-						var xhr = new XMLHttpRequest();
+						let xhr = new XMLHttpRequest();
 						xhr.open('POST','https://git.coco.sqs.kr/cocoAjaxMultiSelect/example/json.php', true);
 						xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 						xhr.onload = function () {
