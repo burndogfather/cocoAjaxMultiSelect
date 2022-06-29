@@ -396,7 +396,6 @@
 							return f !== value; 
 						});
 					}
-					multiple = null;
 				}
 				
 				_this.settings['checkedCode'](selectedval);
