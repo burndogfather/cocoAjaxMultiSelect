@@ -75,7 +75,6 @@
 			}else{
 				type = 'radio';
 			}
-			multiple = null;
 			
 			let detail_li = '';
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
@@ -95,7 +94,6 @@
 				viewCnt++;
 				detail_li += "<li><article>검색결과가 없습니다</article></li>";
 			}
-			type = null;
 			
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
 				detail_li += "</ul>";
@@ -104,8 +102,8 @@
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
 			
-			var _this = this;
-			var id = $(this.element).attr('id');
+			let _this = this;
+			let id = $(this.element).attr('id');
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
@@ -138,7 +136,7 @@
 		
 		//스크롤링하면 추가 데이터 넣기
 		moreshow:function(id, data_arr, type){
-			var _this = this;
+			let _this = this;
 			let data_lengh = data_arr.length;
 			return new Promise(function(resolve, reject) {
 				if(data_lengh > 0 && canScrollAjax){
@@ -167,7 +165,7 @@
 		
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
-			var _this = this;
+			let _this = this;
 			$('html').on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']", function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
@@ -213,7 +211,7 @@
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
-					for(var i=0; i<selectedval.length; i++){
+					for(let i=0; i<selectedval.length; i++){
 						values += selectedval[i];
 						if(i < selectedval.length - 1){
 							values += ',';
@@ -245,7 +243,7 @@
 		
 		//키보드입력시
 		inputListener:function(){
-			var _this = this;
+			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
 			$('html').on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
@@ -290,7 +288,7 @@
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
 					}
-					var keypromise = new Promise((resolve, reject) => {
+					let keypromise = new Promise((resolve, reject) => {
 						if(inputReg.test($(this).val()) || $(this).val() == ''){
 							termTimeout = setTimeout(function(){
 								termTimeout = null;
@@ -324,7 +322,7 @@
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
 					}
-					var key = event.keyCode;
+					let key = event.keyCode;
 					if(key != ''){
 						event.returnValue = false;
 					}
@@ -348,7 +346,7 @@
 		
 		//select하단에서 체크박스 선택시
 		checkboxControl:function(){
-			var _this = this;
+			let _this = this;
 			let multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let value = $(this).next('label').text();
