@@ -22,7 +22,7 @@ input[type="cocoAjaxMultiSelect"]{
 		-webkit-appearance: none;
 		margin: 0;
 	}
-	+label {
+	+aside {
 		color: #999;
 		font-size: 12px;
 		font-weight: 400;
@@ -92,7 +92,7 @@ input[type="cocoAjaxMultiSelect"]{
 		
 	}
 	&[focus="on"]{
-		+ label {
+		+ aside {
 			&:before {
 				content: "\e97a";
 			}
@@ -161,7 +161,7 @@ input[type="cocoAjaxMultiSelect"]{
 								color: #31408E;
 								border: 3px solid #31408E;
 								+ {
-									label {
+									aside {
 										&:before {
 											content: '\e92b';
 											font-family: xeicon !important;
@@ -206,7 +206,7 @@ input[type="cocoAjaxMultiSelect"]{
 								color: #31408E;
 								border: 3px solid #31408E;
 								+ {
-									label {
+									aside {
 										&:before {
 											content: '\e92d';
 											font-family: xeicon !important;
@@ -223,7 +223,7 @@ input[type="cocoAjaxMultiSelect"]{
 								}
 							}
 						}
-						label {
+						aside {
 							color: #999;
 							font-size: 12px;
 							font-weight: 400;

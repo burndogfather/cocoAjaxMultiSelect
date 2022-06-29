@@ -39,8 +39,8 @@
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
-			$(this.element).after("<label for='"+id+"'></label>");
-			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
+			$(this.element).after("<aside for='"+id+"'></aside>");
+			$("aside[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple == 'multiple'){
 				if(value != ''){
 					$("s[for='"+id+"']").text(value.split(',').length);
@@ -85,9 +85,9 @@
 				if(data_arr.length > 0){
 					for(let i=0; i<data_arr.length; i++){
 						if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-							detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+							detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
 						}else{
-							detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+							detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
 						}
 						viewCnt++;
 					}
@@ -160,9 +160,9 @@
 					let more_detail_li = '';
 					for(let i=0; i<data_lengh; i++){
 						if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
-							more_detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
+							more_detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
 						}else{
-							more_detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
+							more_detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
 						}
 					}
 					$(".ajaxselect_detail[for='"+id+"']").append(more_detail_li).promise().done(function(){
@@ -397,7 +397,7 @@
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
-				let value = $(this).next('label').text();
+				let value = $(this).next('aside').text();
 
 				if($(this).is(":checked")){
 					if(multiple){
