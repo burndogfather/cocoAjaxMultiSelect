@@ -167,6 +167,7 @@
 						}
 					});
 					data_lengh = null;
+					more_detail_li = null;
 				}
 			});
 			return null;
@@ -174,7 +175,7 @@
 		
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
-			var _this = this;
+			let _this = this;
 			$('html').on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']", function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
