@@ -44,7 +44,6 @@
 			if(multiple == 'multiple'){
 				if(value != ''){
 					$("s[for='"+id+"']").text(value.split(',').length);
-					
 				}else{
 					$("s[for='"+id+"']").hide();
 					$("s[for='"+id+"']").text('');
@@ -53,6 +52,7 @@
 			}else{
 				$("s[for='"+id+"']").hide();
 			}
+			multiple = null;
 			id = null;
 			
 			
@@ -75,6 +75,7 @@
 			}else{
 				type = 'radio';
 			}
+			multiple = null;
 			
 			let detail_li = '';
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
@@ -94,6 +95,7 @@
 				viewCnt++;
 				detail_li += "<li><article>검색결과가 없습니다</article></li>";
 			}
+			type = null;
 			
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
 				detail_li += "</ul>";
@@ -101,6 +103,7 @@
 			}else{
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
+			detail_li = null;
 			
 			var _this = this;
 			var id = $(this.element).attr('id');
