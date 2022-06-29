@@ -157,6 +157,7 @@
 						}
 					}
 					$(".ajaxselect_detail[for='"+id+"']").append(more_detail_li).promise().done(function(){
+						more_detail_li = null;
 						if(data_lengh >= _this.settings['pageUnit']){
 							canScrollAjax = true;
 							resolve();
@@ -193,6 +194,7 @@
 				}
 				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
+					focus = null;
 					//닫힌상태에서 열기
 					$(this).attr('autocomplete','off');
 					$(this).val('');//입력값 초기화 > 검색어를 입력할 수 있도록
@@ -207,6 +209,7 @@
 						}else{
 							canScrollAjax = false;
 						}
+						_this = null;
 					});
 				}
 			});
