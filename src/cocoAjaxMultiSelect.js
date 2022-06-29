@@ -130,6 +130,8 @@
 									//더이상출력할 페이지가 없음.
 									canScrollAjax = false;
 								}
+							}else{
+								canScrollAjax = false;
 							}
 						});
 					}
@@ -208,12 +210,16 @@
 						_this.$element.before("<div for='"+id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
 						id = null;
-						
-						if(data.length >= _this.settings['pageUnit']){
-							canScrollAjax = true;
+						if(data){
+							if(data.length >= _this.settings['pageUnit']){
+								canScrollAjax = true;
+							}else{
+								canScrollAjax = false;
+							}
 						}else{
 							canScrollAjax = false;
 						}
+						
 					});
 					searchtext = null;
 				}
