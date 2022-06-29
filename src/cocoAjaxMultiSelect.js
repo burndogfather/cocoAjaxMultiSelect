@@ -287,6 +287,9 @@
 						_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 							searchtext = $(this).val();
 							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
+							multiple = null;
+							id = null;
+							
 							if(data.length >= _this.settings['pageUnit']){
 								canScrollAjax = true;
 							}else{
@@ -327,6 +330,7 @@
 						_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 							searchtext = $(this).val();
 							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
+							multiple = null;
 							if(data.length >= _this.settings['pageUnit']){
 								canScrollAjax = true;
 							}else{
