@@ -48,7 +48,7 @@ input[type="cocoAjaxMultiSelect"] + label + s {
   font-size: 11px;
   color: #505050;
   height: 20px;
-  position:fixed;
+  position:absolute;
   margin-top:8px;
   margin-left: -70px;
   text-align: right;
