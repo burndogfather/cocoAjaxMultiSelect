@@ -344,12 +344,16 @@
 							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
 							id = null;
 							
-							
-							if(data.length >= _this.settings['pageUnit']){
-								canScrollAjax = true;
+							if(data){
+								if(data.length >= _this.settings['pageUnit']){
+									canScrollAjax = true;
+								}else{
+									canScrollAjax = false;
+								}
 							}else{
 								canScrollAjax = false;
 							}
+							
 						});
 					}).catch(function(err){
 						if(termTimeout != null){
