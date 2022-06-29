@@ -226,7 +226,7 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + aside + figure + .ajaxselect_det
   text-overflow: ellipsis;
   padding: 0;
 }
-input[type="cocoAjaxMultiSelect"][focus="on"] + aside + figure + .ajaxselect_detail li aside:before {
+input[type="cocoAjaxMultiSelect"][focus="on"] + aside + s + .ajaxselect_detail li aside:before {
   margin-top: 0;
 }
 .ajaxselect_detail {
