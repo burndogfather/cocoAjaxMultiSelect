@@ -143,7 +143,7 @@
 		
 		//스크롤링하면 추가 데이터 넣기
 		moreshow:function(id, data_arr, type){
-			var _this = this;
+			let _this = this;
 			let data_lengh = data_arr.length;
 			return new Promise(function(resolve, reject) {
 				if(data_lengh > 0 && canScrollAjax){
@@ -166,6 +166,7 @@
 							reject();
 						}
 					});
+					data_lengh = null;
 				}
 			});
 			return null;
