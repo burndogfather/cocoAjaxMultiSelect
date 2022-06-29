@@ -40,7 +40,7 @@
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
 			$(this.element).after("<aside for='"+id+"'></aside>");
-			$("aside[for='"+id+"']").after("<figure for='"+id+"'></s>");
+			$("aside[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple == 'multiple'){
 				if(value != ''){
 					$("s[for='"+id+"']").text(value.split(',').length);
