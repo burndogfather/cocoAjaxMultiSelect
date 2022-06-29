@@ -78,8 +78,9 @@
 			
 			let detail_li = '';
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
-				detail_li += "<ul for='"+id+"' class='ajaxselect_detail' style='max-height:"+this.settings['height']+"'>";	
+				detail_li += "<ul for='"+id+"' class='ajaxselect_detail'>";	
 			}
+			$(".ajaxselect_detail[for='"+id+"']").css({'maxHeight':this.settings['height']});
 			viewCnt = 0;
 			if(data_arr){
 				if(data_arr.length > 0){

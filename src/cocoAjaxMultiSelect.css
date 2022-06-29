@@ -104,7 +104,6 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail {
   scroll-behavior: smooth;
   display: block;
   font-size: 13px;
-  max-height: 100px;
   overflow-y: scroll;
   border: 1px solid #e5e5e5;
   padding: 6px 15px;
