@@ -70,6 +70,7 @@
 		//select하단 나오기
 		detailshow:function(id, data_arr, multiple, width, top, left){
 			let type = 'checkbox';
+			let _this = this;
 			if(multiple){
 				type = 'checkbox';
 			}else{
@@ -104,8 +105,6 @@
 			}
 			detail_li = null;
 			
-			let _this = this;
-			let id = $(this.element).attr('id');
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
@@ -117,6 +116,7 @@
 							if(data.length > 0){
 								//현재페이지에 이어서 출력
 								_this.moreshow(id, data, type).then(()=>{
+									_this = null;
 									resolve();
 								}).catch(function(err){
 									if(termTimeout != null){
@@ -130,6 +130,7 @@
 							}
 						});
 					}
+					
 				});
 			});
 			$(".ajaxselect_detail[for='"+id+"']").css({top:top, left:left, width:width}); //불러온트리의 위치를 보정
