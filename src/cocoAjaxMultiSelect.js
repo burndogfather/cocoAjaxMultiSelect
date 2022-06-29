@@ -52,8 +52,6 @@
 			}else{
 				$("s[for='"+id+"']").hide();
 			}
-			id = null;
-			multiple = null;
 			
 			this.clickListener();
 			this.closeListener();
@@ -74,7 +72,6 @@
 			}else{
 				type = 'radio';
 			}
-			multiple = null;
 			
 			let detail_li = '';
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
@@ -102,7 +99,6 @@
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
 			
-			detail_li = null;
 			
 			let _this = this;
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
@@ -129,10 +125,6 @@
 							}
 						});
 					}
-					resultViewHeight = null;
-					detailViewHeight = null;
-					scrollTop = null;
-					viewCnt = null;
 				});
 			});
 			$(".ajaxselect_detail[for='"+id+"']").css({top:top, left:left, width:width}); //불러온트리의 위치를 보정
@@ -168,8 +160,6 @@
 					});
 				}
 			});
-			data_lengh = null;
-			_this = null;
 			return null;
 		},
 		
@@ -188,14 +178,11 @@
 				let value = $(this).val();
 				if(value != ''){
 					selectedval = value.split(',');
-					searchtext = null;
 				}else{
 					selectedval = new Array();
 				}
-				value = null
 				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
-					focus = null;
 					//닫힌상태에서 열기
 					$(this).attr('autocomplete','off');
 					$(this).val('');//입력값 초기화 > 검색어를 입력할 수 있도록
@@ -205,8 +192,6 @@
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						_this.$element.before("<div for='"+id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
-						multiple = null;
-						id = null;
 						if(data.length >= _this.settings['pageUnit']){
 							canScrollAjax = true;
 						}else{
@@ -233,7 +218,6 @@
 						}
 					}
 					$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
-					values = null;
 					if(multiple == 'multiple'){
 						if(selectedval.length > 0){
 							$("s[for='"+overfor+"']").text(selectedval.length);
@@ -244,17 +228,14 @@
 					}else{
 						$("s[for='"+overfor+"']").hide();
 					}
-					multiple = null;
 					
 					$("input[type='cocoAjaxMultiSelect']").removeAttr('focusd');
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
 					$(".ajaxselect_detail[for='"+overfor+"']").remove();
 					$(".ajaxselect_over[for='"+overfor+"']").remove();
-					overfor = null;
 				}
 				page = 1;
 				canScrollAjax = true;
-				searchtext = null;
 				$(this).remove();
 			});
 			return null;
