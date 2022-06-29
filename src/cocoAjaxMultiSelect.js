@@ -341,6 +341,7 @@
 					}).catch(function(err){
 						if(termTimeout != null){
 							clearTimeout(termTimeout); 
+							termTimeout = null;
 						}
 						canScrollAjax = true;
 					});
@@ -349,6 +350,7 @@
 					//열고 닫힌뒤 키보드입력시 입력막기
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
+						termTimeout = null;
 					}
 					if(event.keyCode != ''){
 						event.returnValue = false;
@@ -376,7 +378,7 @@
 		
 		//select하단에서 체크박스 선택시
 		checkboxControl:function(){
-			var _this = this;
+			let _this = this;
 			let multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let value = $(this).next('label').text();
@@ -394,6 +396,7 @@
 							return f !== value; 
 						});
 					}
+					multiple = null;
 				}
 				
 				_this.settings['checkedCode'](selectedval);
