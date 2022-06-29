@@ -81,19 +81,22 @@
 				detail_li += "<ul for='"+id+"' class='ajaxselect_detail' style='max-height:"+this.settings['height']+"'>";	
 			}
 			viewCnt = 0;
-			if(data_arr.length > 0){
-				for(let i=0; i<data_arr.length; i++){
-					if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-						detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
-					}else{
-						detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+			if(data_arr){
+				if(data_arr.length > 0){
+					for(let i=0; i<data_arr.length; i++){
+						if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+							detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+						}else{
+							detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+						}
+						viewCnt++;
 					}
+				}else{
 					viewCnt++;
+					detail_li += "<li><article>검색결과가 없습니다</article></li>";
 				}
-			}else{
-				viewCnt++;
-				detail_li += "<li><article>검색결과가 없습니다</article></li>";
 			}
+			
 			
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
 				detail_li += "</ul>";
