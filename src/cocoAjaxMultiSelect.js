@@ -1,6 +1,6 @@
 ;(function($){
 	"use strict";
-	var pluginName = 'cocoAjaxMultiSelect',
+	let pluginName = 'cocoAjaxMultiSelect',
 	page = 1,
 	searchtext = null,
 	termTimeout = null,
@@ -44,13 +44,17 @@
 			if(multiple == 'multiple'){
 				if(value != ''){
 					$("s[for='"+id+"']").text(value.split(',').length);
+					
 				}else{
 					$("s[for='"+id+"']").hide();
 					$("s[for='"+id+"']").text('');
 				}
+				value = null;
 			}else{
 				$("s[for='"+id+"']").hide();
 			}
+			id = null;
+			
 			
 			
 			this.clickListener();
