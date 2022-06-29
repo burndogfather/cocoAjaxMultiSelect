@@ -101,6 +101,8 @@
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
 			
+			detail_li = null;
+			
 			let _this = this;
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
