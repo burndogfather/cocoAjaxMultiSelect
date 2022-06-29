@@ -108,7 +108,7 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail {
   overflow-y: scroll;
   border: 1px solid #e5e5e5;
   padding: 6px 15px;
-  position: fixed;
+  position: absolute;
   top: 31px;
   z-index: 2;
   background-color: #fff;
