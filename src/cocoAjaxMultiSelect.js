@@ -162,7 +162,7 @@
 		
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
-			var _this = this;
+			let _this = this;
 			$('html').on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']", function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
@@ -240,7 +240,7 @@
 		
 		//키보드입력시
 		inputListener:function(){
-			var _this = this;
+			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
 			$('html').on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
@@ -343,7 +343,7 @@
 		
 		//select하단에서 체크박스 선택시
 		checkboxControl:function(){
-			var _this = this;
+			let _this = this;
 			let multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let value = $(this).next('label').text();
