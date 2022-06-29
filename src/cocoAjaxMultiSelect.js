@@ -312,6 +312,7 @@
 				if(focus == 'on'){
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
+						termTimeout = null;
 					}
 					var keypromise = new Promise((resolve, reject) => {
 						if(inputReg.test($(this).val()) || $(this).val() == ''){
@@ -328,6 +329,7 @@
 							searchtext = $(this).val();
 							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
 							id = null;
+							multiple = null;
 							
 							
 							if(data.length >= _this.settings['pageUnit']){
@@ -355,6 +357,7 @@
 					$(this).blur();
 				}
 				focus = null;
+				multiple = null;
 			});
 			return null;
 		},
