@@ -129,6 +129,11 @@
 							}
 						});
 					}
+					canScrollAjax = null;
+					resultViewHeight = null;
+					detailViewHeight = null;
+					scrollTop = null;
+					_this = null;
 					viewCnt = null;
 				});
 			});
