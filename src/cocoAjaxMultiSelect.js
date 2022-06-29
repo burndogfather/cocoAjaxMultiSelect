@@ -192,6 +192,7 @@
 				}else{
 					selectedval = new Array();
 				}
+				value = null;
 				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
@@ -203,6 +204,9 @@
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						_this.$element.before("<div for='"+id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
+						id = null;
+						multiple = null;
+						
 						if(data.length >= _this.settings['pageUnit']){
 							canScrollAjax = true;
 						}else{
@@ -210,6 +214,7 @@
 						}
 					});
 				}
+				focus = null;
 			});
 			return null;
 			
