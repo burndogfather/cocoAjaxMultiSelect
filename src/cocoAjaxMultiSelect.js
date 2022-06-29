@@ -266,7 +266,7 @@
 		
 		//키보드입력시
 		inputListener:function(){
-			var _this = this;
+			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
 			$('html').on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
@@ -296,6 +296,7 @@
 							}
 						});
 					}
+					focus = null;
 				}
 			});
 			$('html').on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
@@ -326,6 +327,9 @@
 						_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 							searchtext = $(this).val();
 							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
+							id = null;
+							
+							
 							if(data.length >= _this.settings['pageUnit']){
 								canScrollAjax = true;
 							}else{
@@ -350,6 +354,7 @@
 					canScrollAjax = true;
 					$(this).blur();
 				}
+				focus = null;
 			});
 			return null;
 		},
