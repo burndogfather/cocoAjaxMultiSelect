@@ -144,7 +144,7 @@
 					
 				});
 			});
-			$(".ajaxselect_detail[for='"+id+"']").css({top:top, left:left, width:width}); //불러온트리의 위치를 보정
+			$(".ajaxselect_detail[for='"+id+"']").css({top:top, left:left, width:width, 'max-height':this.settings['height']}); //불러온트리의 위치를 보정
 			$("s[for='"+id+"']").hide();
 			return null;
 		},
