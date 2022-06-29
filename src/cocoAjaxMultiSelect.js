@@ -75,6 +75,7 @@
 			}else{
 				type = 'radio';
 			}
+			multiple = null;
 			
 			let detail_li = '';
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
@@ -101,9 +102,10 @@
 			}else{
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
+			detail_li = null;
 			
-			var _this = this;
-			var id = $(this.element).attr('id');
+			let _this = this;
+			let id = $(this.element).attr('id');
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
@@ -335,6 +337,7 @@
 					$(this).blur();
 				}
 			});
+			return null;
 		},
 		
 		//select화면을 선택해도 포커스를 강제하기
@@ -344,6 +347,7 @@
 					$(this).focus();
 				}
 			});
+			return null;
 		},
 		
 		
@@ -372,6 +376,7 @@
 				
 				_this.settings['checkedCode'](selectedval);
 			});
+			return null;
 		}
 	});
 	
