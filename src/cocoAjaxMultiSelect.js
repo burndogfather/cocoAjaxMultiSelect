@@ -212,7 +212,6 @@
 						}else{
 							canScrollAjax = false;
 						}
-						_this = null;
 					});
 				}
 			});
@@ -234,6 +233,7 @@
 						}
 					}
 					$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
+					values = null;
 					if(multiple == 'multiple'){
 						if(selectedval.length > 0){
 							$("s[for='"+overfor+"']").text(selectedval.length);
@@ -246,10 +246,11 @@
 					}
 					multiple = null;
 					
-					$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
+					$("input[type='cocoAjaxMultiSelect']").removeAttr('focusd');
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
 					$(".ajaxselect_detail[for='"+overfor+"']").remove();
 					$(".ajaxselect_over[for='"+overfor+"']").remove();
+					overfor = null;
 				}
 				page = 1;
 				canScrollAjax = true;
