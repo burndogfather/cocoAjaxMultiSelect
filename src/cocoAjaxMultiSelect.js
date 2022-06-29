@@ -116,12 +116,12 @@
 							if(data.length > 0){
 								//현재페이지에 이어서 출력
 								_this.moreshow(id, data, type).then(()=>{
-									_this = null;
 									resolve();
 								}).catch(function(err){
 									if(termTimeout != null){
 										clearTimeout(termTimeout); 
 									}
+									termTimeout = null;
 									canScrollAjax = false;
 								});
 							}else{
@@ -130,6 +130,9 @@
 							}
 						});
 					}
+					scrollTop = null;
+					detailViewHeight = null;
+					resultViewHeight = null;
 					
 				});
 			});
