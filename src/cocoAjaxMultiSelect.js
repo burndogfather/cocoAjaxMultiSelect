@@ -54,7 +54,6 @@
 			
 			id = null;
 			value = null;
-			multiple = null;
 			
 			this.clickListener();
 			this.closeListener();
@@ -76,7 +75,6 @@
 			}else{
 				type = 'radio';
 			}
-			multiple = null;
 			
 			let detail_li = '';
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
@@ -207,7 +205,6 @@
 						_this.$element.before("<div for='"+id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
 						id = null;
-						multiple = null;
 						
 						if(data.length >= _this.settings['pageUnit']){
 							canScrollAjax = true;
@@ -249,7 +246,6 @@
 					}else{
 						$("s[for='"+overfor+"']").hide();
 					}
-					multiple = null;
 					
 					$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
@@ -331,7 +327,6 @@
 							searchtext = $(this).val();
 							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
 							id = null;
-							multiple = null;
 							
 							
 							if(data.length >= _this.settings['pageUnit']){
@@ -361,7 +356,6 @@
 					$(this).blur();
 				}
 				focus = null;
-				multiple = null;
 			});
 			return null;
 		},
