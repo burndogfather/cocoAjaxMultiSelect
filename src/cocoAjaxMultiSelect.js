@@ -1,6 +1,6 @@
 ;(function($){
 	"use strict";
-	var pluginName = 'cocoAjaxMultiSelect',
+	let pluginName = 'cocoAjaxMultiSelect',
 	page = 1,
 	searchtext = null,
 	termTimeout = null,
@@ -207,7 +207,7 @@
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
-					for(var i=0; i<selectedval.length; i++){
+					for(let i=0; i<selectedval.length; i++){
 						values += selectedval[i];
 						if(i < selectedval.length - 1){
 							values += ',';
@@ -318,8 +318,7 @@
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
 					}
-					var key = event.keyCode;
-					if(key != ''){
+					if(event.keyCode != ''){
 						event.returnValue = false;
 					}
 					canScrollAjax = true;
