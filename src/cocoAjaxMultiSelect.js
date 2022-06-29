@@ -103,7 +103,6 @@
 			}else{
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
-			detail_li = null;
 			
 			var _this = this;
 			var id = $(this.element).attr('id');
