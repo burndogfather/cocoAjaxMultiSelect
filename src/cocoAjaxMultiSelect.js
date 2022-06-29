@@ -52,8 +52,8 @@
 			}else{
 				$("s[for='"+id+"']").hide();
 			}
-			
-			
+			id = null;
+			multiple = null;
 			
 			this.clickListener();
 			this.closeListener();
@@ -73,6 +73,7 @@
 			}else{
 				type = 'radio';
 			}
+			multiple = null;
 			
 			let detail_li = '';
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
@@ -92,6 +93,7 @@
 				viewCnt++;
 				detail_li += "<li><article>검색결과가 없습니다</article></li>";
 			}
+			type = null;
 			
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
 				detail_li += "</ul>";
