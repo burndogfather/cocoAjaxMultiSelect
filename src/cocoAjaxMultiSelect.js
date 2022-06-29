@@ -93,7 +93,6 @@
 				viewCnt++;
 				detail_li += "<li><article>검색결과가 없습니다</article></li>";
 			}
-			type = null;
 			
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
 				detail_li += "</ul>";
