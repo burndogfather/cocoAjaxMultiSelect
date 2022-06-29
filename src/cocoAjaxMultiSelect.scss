@@ -41,7 +41,7 @@ input[type="cocoAjaxMultiSelect"]{
 			margin-left: -23px;
 			margin-top: -12px;
 		}
-		+s{
+		+figure{
 			position:absolute;
 			margin-top:8px;
 			font-size: 11px;
@@ -99,7 +99,7 @@ input[type="cocoAjaxMultiSelect"]{
 			&:hover{
 				cursor:pointer;
 			}
-			+s{
+			+figure{
 				+.ajaxselect_detail {
 					margin: 0;
 					list-style: none;
