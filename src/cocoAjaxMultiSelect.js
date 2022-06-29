@@ -235,6 +235,8 @@
 						}
 					}
 					$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
+					values = null;
+					
 					if(multiple == 'multiple'){
 						if(selectedval.length > 0){
 							$("s[for='"+overfor+"']").text(selectedval.length);
@@ -251,6 +253,8 @@
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
 					$(".ajaxselect_detail[for='"+overfor+"']").remove();
 					$(".ajaxselect_over[for='"+overfor+"']").remove();
+					overfor = null;
+					
 				}
 				page = 1;
 				canScrollAjax = true;
@@ -262,7 +266,7 @@
 		
 		//키보드입력시
 		inputListener:function(){
-			var _this = this;
+			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
 			$('html').on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
