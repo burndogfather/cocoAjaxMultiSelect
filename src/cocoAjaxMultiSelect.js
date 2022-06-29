@@ -317,7 +317,6 @@
 					var keypromise = new Promise((resolve, reject) => {
 						if(inputReg.test($(this).val()) || $(this).val() == ''){
 							termTimeout = setTimeout(function(){
-								termTimeout = null;
 								resolve();
 							}, _this.settings['delay']);
 						}else{
