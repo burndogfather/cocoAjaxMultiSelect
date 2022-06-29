@@ -113,20 +113,22 @@
 					if(canScrollAjax && scrollTop + _this.settings['scrollLeftLoad'] >= resultViewHeight - detailViewHeight && viewCnt >= _this.settings['pageUnit']){
 						page++;
 						_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
-							if(data.length > 0){
-								//현재페이지에 이어서 출력
-								_this.moreshow(id, data, type).then(()=>{
-									resolve();
-								}).catch(function(err){
-									if(termTimeout != null){
-										clearTimeout(termTimeout); 
-									}
-									termTimeout = null;
+							if(data){
+								if(data.length > 0){
+									//현재페이지에 이어서 출력
+									_this.moreshow(id, data, type).then(()=>{
+										resolve();
+									}).catch(function(err){
+										if(termTimeout != null){
+											clearTimeout(termTimeout); 
+										}
+										termTimeout = null;
+										canScrollAjax = false;
+									});
+								}else{
+									//더이상출력할 페이지가 없음.
 									canScrollAjax = false;
-								});
-							}else{
-								//더이상출력할 페이지가 없음.
-								canScrollAjax = false;
+								}
 							}
 						});
 					}
