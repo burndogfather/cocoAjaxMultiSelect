@@ -213,6 +213,7 @@
 							canScrollAjax = false;
 						}
 					});
+					searchtext = null;
 				}
 				focus = null;
 			});
@@ -244,6 +245,7 @@
 					}else{
 						$("s[for='"+overfor+"']").hide();
 					}
+					multiple = null;
 					
 					$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
