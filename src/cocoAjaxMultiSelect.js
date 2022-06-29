@@ -270,8 +270,7 @@
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
 			$('html').on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
-				let keycode = e.keyCode;
-				if(keycode == 13){
+				if(e.keyCode == 13){
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
 					}
@@ -295,8 +294,8 @@
 							}
 						});
 					}
+					focus = null;
 				}
-				return null;
 			});
 			$('html').on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				page = 1;
@@ -321,6 +320,7 @@
 						}else{
 							reject();
 						}
+						inputReg = null;
 					});
 					
 					keypromise.then(()=>{
