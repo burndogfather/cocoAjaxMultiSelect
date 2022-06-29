@@ -52,8 +52,6 @@
 			}else{
 				$("s[for='"+id+"']").hide();
 			}
-			multiple = null;
-			id = null;
 			
 			
 			
@@ -103,7 +101,6 @@
 			}
 			
 			let _this = this;
-			let id = $(this.element).attr('id');
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
@@ -165,7 +162,7 @@
 		
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
-			let _this = this;
+			var _this = this;
 			$('html').on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']", function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
@@ -211,7 +208,7 @@
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
-					for(let i=0; i<selectedval.length; i++){
+					for(var i=0; i<selectedval.length; i++){
 						values += selectedval[i];
 						if(i < selectedval.length - 1){
 							values += ',';
@@ -243,7 +240,7 @@
 		
 		//키보드입력시
 		inputListener:function(){
-			let _this = this;
+			var _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
 			$('html').on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
@@ -288,7 +285,7 @@
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
 					}
-					let keypromise = new Promise((resolve, reject) => {
+					var keypromise = new Promise((resolve, reject) => {
 						if(inputReg.test($(this).val()) || $(this).val() == ''){
 							termTimeout = setTimeout(function(){
 								termTimeout = null;
@@ -322,7 +319,7 @@
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
 					}
-					let key = event.keyCode;
+					var key = event.keyCode;
 					if(key != ''){
 						event.returnValue = false;
 					}
@@ -346,7 +343,7 @@
 		
 		//select하단에서 체크박스 선택시
 		checkboxControl:function(){
-			let _this = this;
+			var _this = this;
 			let multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let value = $(this).next('label').text();
