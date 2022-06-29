@@ -52,12 +52,16 @@
 				$("s[for='"+id+"']").hide();
 			}
 			
+			id = null;
+			value = null;
+			multiple = null;
 			
 			this.clickListener();
 			this.closeListener();
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
+			return null;
 		},
 		
 		
@@ -128,6 +132,7 @@
 			});
 			$(".ajaxselect_detail[for='"+id+"']").css({top:top, left:left, width:width}); //불러온트리의 위치를 보정
 			$("s[for='"+id+"']").hide();
+			return null;
 		},
 		
 		//스크롤링하면 추가 데이터 넣기
@@ -157,6 +162,7 @@
 					});
 				}
 			});
+			return null;
 		},
 		
 		//클릭시 하단에 select화면이 나옴
@@ -197,6 +203,7 @@
 					});
 				}
 			});
+			return null;
 			
 		},
 		
@@ -235,6 +242,7 @@
 				searchtext = null;
 				$(this).remove();
 			});
+			return null;
 		},
 		
 		//키보드입력시
@@ -269,6 +277,7 @@
 						});
 					}
 				}
+				return null;
 			});
 			$('html').on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				page = 1;
