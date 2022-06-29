@@ -211,7 +211,6 @@
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						_this.$element.before("<div for='"+id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
-						console.log($(this).position().top);
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 						id = null;
 						if(data){
@@ -297,7 +296,7 @@
 					if(focus == 'on'){
 						_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 							searchtext = $(this).val();
-							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
+							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 							multiple = null;
 							if(data){
 								if(data.length >= _this.settings['pageUnit']){
@@ -342,7 +341,7 @@
 					keypromise.then(()=>{
 						_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 							searchtext = $(this).val();
-							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).offset().top+32, $(this).offset().left);
+							_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 							id = null;
 							
 							if(data){
