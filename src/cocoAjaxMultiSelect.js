@@ -208,7 +208,7 @@
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
-					for(var i=0; i<selectedval.length; i++){
+					for(let i=0; i<selectedval.length; i++){
 						values += selectedval[i];
 						if(i < selectedval.length - 1){
 							values += ',';
@@ -285,7 +285,7 @@
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
 					}
-					var keypromise = new Promise((resolve, reject) => {
+					let keypromise = new Promise((resolve, reject) => {
 						if(inputReg.test($(this).val()) || $(this).val() == ''){
 							termTimeout = setTimeout(function(){
 								termTimeout = null;
@@ -319,7 +319,7 @@
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
 					}
-					var key = event.keyCode;
+					let key = event.keyCode;
 					if(key != ''){
 						event.returnValue = false;
 					}
