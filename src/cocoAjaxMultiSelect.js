@@ -95,6 +95,9 @@
 					viewCnt++;
 					detail_li += "<li><article>검색결과가 없습니다</article></li>";
 				}
+			}else{
+				viewCnt++;
+				detail_li += "<li><article>검색결과가 없습니다</article></li>";
 			}
 			
 			
