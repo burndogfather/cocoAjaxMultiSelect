@@ -129,7 +129,6 @@
 							}
 						});
 					}
-					
 					resultViewHeight = null;
 					detailViewHeight = null;
 					scrollTop = null;
@@ -168,6 +167,8 @@
 					});
 				}
 			});
+			data_lengh = null;
+			_this = null;
 			return null;
 		},
 		
