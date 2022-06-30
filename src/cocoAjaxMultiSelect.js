@@ -394,11 +394,10 @@
 		
 		//select하단에서 체크박스 선택시
 		checkboxControl:function(){
-			var _this = this;
-			var multiple = this.$element.attr('multiple');
+			let _this = this;
+			let multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
-				var value = $(this).next('aside').text();
-				console.log(value);
+				let value = $(this).next('aside').text();
 				if($(this).is(":checked")){
 					if(multiple){
 						selectedval.push(value);
@@ -416,6 +415,7 @@
 				
 				_this.settings['checkedCode'](selectedval);
 			});
+			return null;
 		}
 	});
 	
