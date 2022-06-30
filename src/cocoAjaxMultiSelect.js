@@ -52,15 +52,17 @@
 				$("s[for='"+id+"']").hide();
 			}
 			
-			id = null;
-			value = null;
-			multiple = null;
 			
-			this.clickListener();
+			
+			this.clickListener(id);
 			this.closeListener();
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
+			
+			id = null;
+			value = null;
+			multiple = null;
 			return null;
 		},
 		
@@ -199,11 +201,10 @@
 		},
 		
 		//클릭시 하단에 select화면이 나옴
-		clickListener:function(){
+		clickListener:function(_id){
 			let _this = this;
-			$('html').on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']", function(){
+			$('html').on('click.cocoAjaxMultiSelect',"#"+_id+"[type='cocoAjaxMultiSelect']", function(){
 				let focus = $(this).attr('focus');
-				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
 				if(multiple == 'multiple'){
 					multiple = true;
@@ -227,9 +228,8 @@
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
-						_this.$element.before("<div for='"+id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
-						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
-						id = null;
+						_this.$element.before("<div for='"+_id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
+						_this.detailshow(_id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 						if(data){
 							if(data.length >= _this.settings['pageUnit']){
 								canScrollAjax = true;
