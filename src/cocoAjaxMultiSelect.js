@@ -54,6 +54,7 @@
 			
 			id = null;
 			value = null;
+			multiple = null;
 			
 			this.clickListener();
 			this.closeListener();
@@ -433,6 +434,9 @@
 				_this.settings['checkedCode'](selectedval);
 			});
 		}
+		_this = null;
+		multiple = null;
+		return null;
 	});
 	
 	//함수실행@@
