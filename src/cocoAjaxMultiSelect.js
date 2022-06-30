@@ -433,7 +433,6 @@
 				_this.settings['checkedCode'](selectedval);
 				
 			});
-			
 			return null;
 		}
 	});
