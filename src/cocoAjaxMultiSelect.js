@@ -78,10 +78,11 @@
 				if(data_arr.length > 0){
 					if(multiple){
 						for(let i=0; i<data_arr.length; i++){
+							detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
 							if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+								$(".ajaxselect_detail[for='"+id+"'] > li > id='"+data_arr[i][String(this.settings['arrayInKey'])]+"'").prop('checked', true);
 							}else{
-								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+								$(".ajaxselect_detail[for='"+id+"'] > li > id='"+data_arr[i][String(this.settings['arrayInKey'])]+"'").prop('checked', false);
 							}
 							viewCnt++;
 						}
