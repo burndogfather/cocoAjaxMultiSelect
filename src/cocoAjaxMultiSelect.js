@@ -62,7 +62,7 @@
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
-			
+			this.checkboxCilck();
 			return null;
 		},
 		
@@ -410,7 +410,7 @@
 		},
 		
 		//select하단에서 체크박스 선택시
-		checkboxControl:function(){
+		checkboxCilck:function(){
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				console.log('click');
 			});
