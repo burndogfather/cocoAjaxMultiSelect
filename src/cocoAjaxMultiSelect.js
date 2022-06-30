@@ -60,6 +60,7 @@
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
+			return null;
 		},
 		
 		
