@@ -60,7 +60,6 @@
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
-			return null;
 		},
 		
 		
@@ -412,7 +411,6 @@
 						});
 					}
 				}
-				
 				_this.settings['checkedCode'](selectedval);
 			});
 		}
