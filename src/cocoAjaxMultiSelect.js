@@ -407,10 +407,6 @@
 			return null;
 		},
 		
-		checkboxChange:function(){
-			console.log('test!');	
-		},
-		
 		//select하단에서 체크박스 선택시
 		checkboxControl:function(){
 			let _this = this;
