@@ -56,13 +56,12 @@
 			value = null;
 			multiple = null;
 			
+			
 			this.clickListener();
 			this.closeListener();
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
-			
-			
 			
 			return null;
 		},
@@ -412,11 +411,17 @@
 		
 		//select하단에서 체크박스 선택시
 		checkboxControl:function(){
+			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+				console.log('click');
+			});
+		},
+		
+		//select하단에서 체크박스 선택시
+		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(e){
-				console.log('test!!!');
-				console.log(e);
+			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+				console.log('change');
 				let value = $(this).next('aside').text();
 				if($(this).is(":checked")){
 					
