@@ -68,14 +68,7 @@
 		
 		//select하단 나오기
 		detailshow:function(id, data_arr, multiple, width, top, left){
-			let type = 'checkbox';
 			let _this = this;
-			if(multiple){
-				type = 'checkbox';
-			}else{
-				type = 'radio';
-			}
-			
 			let detail_li = '';
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
 				detail_li += "<ul for='"+id+"' class='ajaxselect_detail' style='max-height="+this.settings['height']+"'>";	
@@ -83,14 +76,26 @@
 			viewCnt = 0;
 			if(data_arr){
 				if(data_arr.length > 0){
-					for(let i=0; i<data_arr.length; i++){
-						if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-							detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
-						}else{
-							detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+					if(multiple){
+						for(let i=0; i<data_arr.length; i++){
+							if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+							}else{
+								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+							}
+							viewCnt++;
 						}
-						viewCnt++;
+					}else{
+						for(let i=0; i<data_arr.length; i++){
+							if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+								detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+							}else{
+								detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+							}
+							viewCnt++;
+						}
 					}
+					
 				}else{
 					viewCnt++;
 					detail_li += "<li><article>검색결과가 없습니다</article></li>";
@@ -120,7 +125,7 @@
 							if(data){
 								if(data.length > 0){
 									//현재페이지에 이어서 출력
-									_this.moreshow(id, data, type).then(()=>{
+									_this.moreshow(id, data, multiple).then(()=>{
 										resolve();
 									}).catch(function(err){
 										if(termTimeout != null){
@@ -150,7 +155,7 @@
 		},
 		
 		//스크롤링하면 추가 데이터 넣기
-		moreshow:function(id, data_arr, type){
+		moreshow:function(id, data_arr, multiple){
 			let _this = this;
 			let data_lengh = data_arr.length;
 			return new Promise(function(resolve, reject) {
@@ -158,13 +163,24 @@
 					canScrollAjax = false;
 					viewCnt = data_lengh + viewCnt;
 					let more_detail_li = '';
-					for(let i=0; i<data_lengh; i++){
-						if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
-							more_detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
-						}else{
-							more_detail_li += "<li><input type='"+type+"' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
+					if(multiple){
+						for(let i=0; i<data_lengh; i++){
+							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
+							}else{
+								more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
+							}
+						}
+					}else{
+						for(let i=0; i<data_lengh; i++){
+							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
+							}else{
+								more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
+							}
 						}
 					}
+					
 					$(".ajaxselect_detail[for='"+id+"']").append(more_detail_li).promise().done(function(){
 						if(data_lengh >= _this.settings['pageUnit']){
 							canScrollAjax = true;
