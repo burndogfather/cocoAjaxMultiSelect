@@ -411,7 +411,7 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] > li > input",function(){
+			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] > li > input",function(){
 				console.log('test!!!');
 				console.log(this);
 				let value = $(this).next('aside').text();
