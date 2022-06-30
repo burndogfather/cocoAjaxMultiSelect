@@ -416,19 +416,19 @@
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let value = $(this).next('aside').text();
 				if($(this).is(":checked")){
-					
 					if(multiple){
 						selectedval.push(value);
 					}else{
 						selectedval = new Array(value);
 					}
-					
+					value = null;
 				}else{
 					if(multiple){
 						selectedval = selectedval.filter(function(f) { 
 							return f !== value; 
 						});
 					}
+					multiple = null;
 				}
 				_this.settings['checkedCode'](selectedval);
 				
