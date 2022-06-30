@@ -39,8 +39,8 @@
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
-			$(this.element).after("<aside for='"+id+"'></aside>");
-			$("aside[for='"+id+"']").after("<s for='"+id+"'></s>");
+			$(this.element).after("<label for='"+id+"'></label>");
+			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple == 'multiple'){
 				if(value != ''){
 					$("s[for='"+id+"']").text(value.split(',').length);
@@ -81,18 +81,18 @@
 					if(multiple){
 						for(let i=0; i<data_arr.length; i++){
 							if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
 							}else{
-								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
 							}
 							viewCnt++;
 						}
 					}else{
 						for(let i=0; i<data_arr.length; i++){
 							if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-								detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+								detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
 							}else{
-								detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
+								detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
 							}
 							viewCnt++;
 						}
@@ -168,17 +168,17 @@
 					if(multiple){
 						for(let i=0; i<data_lengh; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
-								more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
+								more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 							}else{
-								more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
+								more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 							}
 						}
 					}else{
 						for(let i=0; i<data_lengh; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
-								more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
+								more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 							}else{
-								more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</aside></li>";
+								more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 							}
 						}
 					}
@@ -414,7 +414,7 @@
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
-				let value = $(this).next('aside').text();
+				let value = $(this).next('label').text();
 				if($(this).is(":checked")){
 					if(multiple){
 						selectedval.push(value);
