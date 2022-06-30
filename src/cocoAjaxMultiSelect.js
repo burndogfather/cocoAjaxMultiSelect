@@ -416,6 +416,7 @@
 				console.log(this);
 				let value = $(this).next('aside').text();
 				if($(this).is(":checked")){
+					
 					if(multiple){
 						selectedval.push(value);
 					}else{
