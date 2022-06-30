@@ -259,7 +259,7 @@
 					}
 					$("#"+String(_id)+"[type='cocoAjaxMultiSelect']").val(values);
 					values = null;
-					
+					console.log(_multiple);
 					if(_multiple == 'multiple'){
 						if(selectedval.length > 0){
 							$("s[for='"+_id+"']").text(selectedval.length);
@@ -279,7 +279,6 @@
 				}
 				page = 1;
 				canScrollAjax = true;
-				searchtext = null;
 				$(this).remove();
 			});
 			return null;
