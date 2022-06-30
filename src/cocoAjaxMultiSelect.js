@@ -55,7 +55,7 @@
 			
 			
 			this.clickListener(id, value, multiple);
-			this.closeListener();
+			this.closeListener(id, multiple);
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
@@ -247,11 +247,9 @@
 		},
 		
 		//다른영역을 클릭하면 select화면이 나타나지 않음
-		closeListener:function(){
-			let multiple = this.$element.attr('multiple');
-			$('html').on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
-				let overfor = $(this).attr('for');
-				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
+		closeListener:function(_id, _multiple){
+			$('html').on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+_id+"']",function(){
+				if(typeof _id != 'undefined' && _id != null && _id != ''){
 					let values = '';
 					for(let i=0; i<selectedval.length; i++){
 						values += selectedval[i];
@@ -259,25 +257,24 @@
 							values += ',';
 						}
 					}
-					$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
+					$("#"+String(_id)+"[type='cocoAjaxMultiSelect']").val(values);
 					values = null;
 					
-					if(multiple == 'multiple'){
+					if(_multiple == 'multiple'){
 						if(selectedval.length > 0){
-							$("s[for='"+overfor+"']").text(selectedval.length);
-							$("s[for='"+overfor+"']").show();
+							$("s[for='"+_id+"']").text(selectedval.length);
+							$("s[for='"+_id+"']").show();
 						}else{
-							$("s[for='"+overfor+"']").hide();
+							$("s[for='"+_id+"']").hide();
 						}
 					}else{
-						$("s[for='"+overfor+"']").hide();
+						$("s[for='"+_id+"']").hide();
 					}
 					
 					$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
-					$(".ajaxselect_detail[for='"+overfor+"']").remove();
-					$(".ajaxselect_over[for='"+overfor+"']").remove();
-					overfor = null;
+					$(".ajaxselect_detail[for='"+_id+"']").remove();
+					$(".ajaxselect_over[for='"+_id+"']").remove();
 					
 				}
 				page = 1;
