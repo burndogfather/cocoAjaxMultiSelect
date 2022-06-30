@@ -80,9 +80,9 @@
 						for(let i=0; i<data_arr.length; i++){
 							detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><aside for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</aside></li>";
 							if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-								$(".ajaxselect_detail[for='"+id+"'] > li > id='"+data_arr[i][String(this.settings['arrayInKey'])]+"'").prop('checked', true);
+								$(".ajaxselect_detail[for='"+id+"'] > li > #"+data_arr[i][String(this.settings['arrayInKey'])]).prop('checked', true);
 							}else{
-								$(".ajaxselect_detail[for='"+id+"'] > li > id='"+data_arr[i][String(this.settings['arrayInKey'])]+"'").prop('checked', false);
+								$(".ajaxselect_detail[for='"+id+"'] > li > #"+data_arr[i][String(this.settings['arrayInKey'])]).prop('checked', false);
 							}
 							viewCnt++;
 						}
