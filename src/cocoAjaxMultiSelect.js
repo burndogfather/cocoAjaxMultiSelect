@@ -39,7 +39,6 @@
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
-			let _this = this;
 			$(this.element).after("<aside for='"+id+"'></aside>");
 			$("aside[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple == 'multiple'){
@@ -53,41 +52,15 @@
 				$("s[for='"+id+"']").hide();
 			}
 			
-			
+			id = null;
+			value = null;
+			multiple = null;
 			
 			this.clickListener();
 			this.closeListener();
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
-			
-			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+id+"'] input",function(e){
-				console.log('test!!!');
-				console.log(e);
-				let value = $(this).next('aside').text();
-				if($(this).is(":checked")){
-					
-					if(multiple){
-						selectedval.push(value);
-					}else{
-						selectedval = new Array(value);
-					}
-					
-				}else{
-					if(multiple){
-						selectedval = selectedval.filter(function(f) { 
-							return f !== value; 
-						});
-					}
-				}
-				_this.settings['checkedCode'](selectedval);
-				
-			});
-			
-			id = null;
-			value = null;
-			multiple = null;
-			
 			return null;
 		},
 		
