@@ -55,7 +55,7 @@
 			
 			
 			this.clickListener(id, value, multiple);
-			this.closeListener(id, multiple);
+			this.closeListener(id);
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
@@ -247,7 +247,8 @@
 		},
 		
 		//다른영역을 클릭하면 select화면이 나타나지 않음
-		closeListener:function(_id, _multiple){
+		closeListener:function(_id){
+			let multiple = this.$element.attr('multiple');
 			$('html').on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+_id+"']",function(){
 				if(typeof _id != 'undefined' && _id != null && _id != ''){
 					let values = '';
@@ -257,10 +258,10 @@
 							values += ',';
 						}
 					}
-					$("#"+String(_id)+"[type='cocoAjaxMultiSelect']").val(values);
+					$("#"+_id+"[type='cocoAjaxMultiSelect']").val(values);
 					values = null;
-					console.log(_multiple);
-					if(_multiple == 'multiple'){
+					
+					if(multiple == 'multiple'){
 						if(selectedval.length > 0){
 							$("s[for='"+_id+"']").text(selectedval.length);
 							$("s[for='"+_id+"']").show();
@@ -279,6 +280,7 @@
 				}
 				page = 1;
 				canScrollAjax = true;
+				searchtext = null;
 				$(this).remove();
 			});
 			return null;
