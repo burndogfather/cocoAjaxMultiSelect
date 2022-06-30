@@ -39,6 +39,7 @@
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
+			let _this = this;
 			$(this.element).after("<aside for='"+id+"'></aside>");
 			$("aside[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple == 'multiple'){
@@ -52,16 +53,15 @@
 				$("s[for='"+id+"']").hide();
 			}
 			
-			id = null;
-			value = null;
-			multiple = null;
+			
 			
 			this.clickListener();
 			this.closeListener();
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
-			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(e){
+			
+			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+id+"'] input",function(e){
 				console.log('test!!!');
 				console.log(e);
 				let value = $(this).next('aside').text();
@@ -83,6 +83,10 @@
 				_this.settings['checkedCode'](selectedval);
 				
 			});
+			
+			id = null;
+			value = null;
+			multiple = null;
 			
 			return null;
 		},
