@@ -398,7 +398,7 @@
 			var multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				var value = $(this).next('aside').text();
-
+				console.log(value);
 				if($(this).is(":checked")){
 					if(multiple){
 						selectedval.push(value);
