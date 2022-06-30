@@ -54,7 +54,7 @@
 			
 			
 			
-			this.clickListener(id);
+			this.clickListener(id, value, multiple);
 			this.closeListener();
 			this.inputListener();
 			this.holdonFocus();
@@ -201,24 +201,21 @@
 		},
 		
 		//클릭시 하단에 select화면이 나옴
-		clickListener:function(_id){
+		clickListener:function(_id, _value, _multiple){
 			let _this = this;
 			$('html').on('click.cocoAjaxMultiSelect',"#"+_id+"[type='cocoAjaxMultiSelect']", function(){
 				let focus = $(this).attr('focus');
-				let multiple = $(this).attr('multiple');
-				if(multiple == 'multiple'){
-					multiple = true;
+				if(_multiple == 'multiple'){
+					_multiple = true;
 				}else{
-					multiple = false;
+					_multiple = false;
 				}
-				let value = $(this).val();
-				if(value != ''){
-					selectedval = value.split(',');
+				if(_value != ''){
+					selectedval = _value.split(',');
 					searchtext = null;
 				}else{
 					selectedval = new Array();
 				}
-				value = null;
 				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
@@ -229,7 +226,7 @@
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						_this.$element.before("<div for='"+_id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
-						_this.detailshow(_id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
+						_this.detailshow(_id, data, _multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 						if(data){
 							if(data.length >= _this.settings['pageUnit']){
 								canScrollAjax = true;
