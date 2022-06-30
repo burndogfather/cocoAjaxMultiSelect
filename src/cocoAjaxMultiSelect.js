@@ -432,11 +432,11 @@
 					}
 				}
 				_this.settings['checkedCode'](selectedval);
+				
 			});
+			
+			return null;
 		}
-		_this = null;
-		multiple = null;
-		return null;
 	});
 	
 	//함수실행@@
