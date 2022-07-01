@@ -427,10 +427,8 @@
 							return f !== value; 
 						});
 					}
-					
 				}
 				_this.settings['checkedCode'](selectedval);
-				
 			});
 			return null;
 		}
