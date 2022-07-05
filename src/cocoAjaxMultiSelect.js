@@ -429,7 +429,7 @@
 						});
 					}
 				}
-				_this.settings['checkedCode'](selectedval, $(_this));
+				_this.settings['checkedCode'](selectedval, _this);
 			});
 			return null;
 		}
