@@ -415,6 +415,7 @@
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
 			$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+				let __this = _this;
 				let value = $(this).next('label').text();
 				if($(this).is(":checked")){
 					if(multiple){
@@ -429,7 +430,7 @@
 						});
 					}
 				}
-				_this.settings['checkedCode'](selectedval, _this);
+				_this.settings['checkedCode'](selectedval, __this);
 			});
 			return null;
 		}
