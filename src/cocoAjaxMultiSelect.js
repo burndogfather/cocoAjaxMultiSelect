@@ -41,6 +41,7 @@
 			let id = $(this.element).attr('id');
 			$(".ajaxselect_detail[for='"+id+"']").off();
 			$("#"+id+"[type='cocoAjaxMultiSelect']").off();
+			$(".ajaxselect_over[for='"+id+"']").off();
 			
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
@@ -63,7 +64,7 @@
 			
 			
 			this.clickListener();
-			this.closeListener();
+			
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
@@ -234,6 +235,7 @@
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
+						_this.closeListener();
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 						id = null;
 						if(data){
@@ -259,7 +261,9 @@
 		closeListener:function(){
 			let multiple = this.$element.attr('multiple');
 			
-			$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
+			$(".ajaxselect_over[for='"+id+"']").on('click',function(){
+				
+			//$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
