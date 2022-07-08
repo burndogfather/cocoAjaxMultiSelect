@@ -1,6 +1,6 @@
 ;(function($, window, document, undefined){
 	"use strict";
-	let pluginName = 'cocoAjaxMultiSelect',
+	var pluginName = 'cocoAjaxMultiSelect',
 	page = 1,
 	searchtext = null,
 	termTimeout = null,
