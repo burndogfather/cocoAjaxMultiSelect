@@ -449,8 +449,8 @@
 	//함수실행@@
 	$.fn[ pluginName ] = function(options){
 		return this.each(function() {
-			if(!$.data(this, "plugin_" + pluginName)){
-			$.data(this, "plugin_" + pluginName,
+			if(!$.data(this, pluginName)){
+			$.data(this, pluginName,
 				new cocoAjaxMultiSelect(this, options));
 			}
 		});
