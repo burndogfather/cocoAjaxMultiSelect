@@ -122,7 +122,8 @@
 			}
 			detail_li = null;
 			
-			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
+			$(document).on('scroll.cocoAjaxMultiSelect', ".ajaxselect_detail[for='"+id+"']", function(){
+			//$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
 					let detailViewHeight = _this.settings['height'];
