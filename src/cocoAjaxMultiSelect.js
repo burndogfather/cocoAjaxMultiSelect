@@ -38,18 +38,6 @@
 	$.extend(cocoAjaxMultiSelect.prototype,{
 		init: function(){
 			
-			let all_element = $._data($(document)[0],'events');
-			for(let event in all_element){
-				console.log(all_element);
-				for(let e=0; e<all_element[event].length; e++){
-					if(all_element[event][e].namespace == 'cocoAjaxMultiSelect'){
-						document.removeEventListener(event, all_element[event][e].handler);
-					}
-				}
-			}
-			event = null;
-			all_element = null;
-			
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
