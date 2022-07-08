@@ -39,9 +39,9 @@
 		init: function(){
 			
 			let id = $(this.element).attr('id');
-			$(".ajaxselect_detail[for='"+id+"']").off();
-			$("#"+id+"[type='cocoAjaxMultiSelect']").off();
-			$(".ajaxselect_over[for='"+id+"']").off();
+			//$(".ajaxselect_detail[for='"+id+"']").off();
+			//$("#"+id+"[type='cocoAjaxMultiSelect']").off();
+			//$(".ajaxselect_over[for='"+id+"']").off();
 			
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
@@ -208,7 +208,8 @@
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
 			let _this = this;
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('click',function(){
+			//$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('click',function(){
+			$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
@@ -428,8 +429,8 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			$(".ajaxselect_detail[for='"+this.$element.attr('id')+"']").on('change',function(){
-			//$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+			//$(".ajaxselect_detail[for='"+this.$element.attr('id')+"']").on('change',function(){
+			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let __this = _this;
 				let value = $(this).next('label').text();
 				if($(this).is(":checked")){
