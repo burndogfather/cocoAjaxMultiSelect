@@ -266,9 +266,7 @@
 		//다른영역을 클릭하면 select화면이 나타나지 않음
 		closeListener:function(){
 			let multiple = this.$element.attr('multiple');
-			$(".ajaxselect_over").bind('click',function(){
-				console.log('test!!!!');
-			//$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
+			$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
@@ -321,8 +319,7 @@
 			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('keypress',function(e){
-			//$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
+			$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
 				if(e.keyCode == 13){
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
@@ -356,8 +353,7 @@
 					focus = null;
 				}
 			});
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('input',function(event){
-			//$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+			$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				page = 1;
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
@@ -426,8 +422,7 @@
 		
 		//select화면을 선택해도 포커스를 강제하기
 		holdonFocus:function(){
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('blur',function(){
-			//$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
+			$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
 				if($(this).attr('focus') == 'on'){
 					$(this).focus();
 				}
@@ -440,8 +435,7 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			$(".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input").on('change',function(){
-			//$('html').on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let __this = _this;
 				let value = $(this).next('label').text();
 				if($(this).is(":checked")){
