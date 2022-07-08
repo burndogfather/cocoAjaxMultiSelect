@@ -221,6 +221,7 @@
 				}else{
 					selectedval = new Array();
 				}
+				value = null;
 				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
@@ -233,16 +234,18 @@
 						$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
 						$(".ajaxselect_over[for='"+id+"']").off().on('click',function(){
 						//$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
+							let values = '';
 							console.log(selectedval);
 							if(selectedval !== undefined){
 								//모달창을 제대로 닫을때
 								for(let i=0; i<selectedval.length; i++){
-									value += selectedval[i];
+									values += selectedval[i];
 									if(i < selectedval.length - 1){
-										value += ',';
+										values += ',';
 									}
 								}
-								$("#"+id+"[type='cocoAjaxMultiSelect']").val(value);
+								$("#"+id+"[type='cocoAjaxMultiSelect']").val(values);
+								values = null;
 								
 								if(multiple == 'multiple'){
 									if(selectedval.length > 0){
