@@ -203,7 +203,7 @@
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
 			let _this = this;
-			$('html').on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']", function(){
+			$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']", function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
@@ -255,7 +255,7 @@
 		//다른영역을 클릭하면 select화면이 나타나지 않음
 		closeListener:function(){
 			let multiple = this.$element.attr('multiple');
-			$('html').on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
+			$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
@@ -308,7 +308,7 @@
 			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
-			$('html').on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
+			$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
 				if(e.keyCode == 13){
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
@@ -342,7 +342,7 @@
 					focus = null;
 				}
 			});
-			$('html').on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+			$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				page = 1;
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
@@ -411,7 +411,7 @@
 		
 		//select화면을 선택해도 포커스를 강제하기
 		holdonFocus:function(){
-			$('html').on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
+			$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
 				if($(this).attr('focus') == 'on'){
 					$(this).focus();
 				}
