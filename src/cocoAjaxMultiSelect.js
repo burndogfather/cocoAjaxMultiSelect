@@ -44,7 +44,7 @@
 			let all_element = $._data($(document)[0],'events');
 			for(let event in all_element){
 				for(let e=0; e<all_element[event].length; e++){
-					console.log(all_element[event][e]);
+					console.log(all_element[event][e].selector);
 					if(all_element[event][e].namespace == 'cocoAjaxMultiSelect'){
 						document.removeEventListener(event, all_element[event][e].handler);
 					}
