@@ -221,7 +221,6 @@
 				}else{
 					selectedval = new Array();
 				}
-				value = null;
 				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
@@ -232,50 +231,43 @@
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
-						$(".ajaxselect_over[for='"+this.$element.attr('id')+"']").off().on('click',function(){
+						$(".ajaxselect_over[for='"+id+"']").off().on('click',function(){
 						//$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
-							let overfor = $(this).attr('for');
-							if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
-								let values = '';
-								console.log(selectedval);
-								if(selectedval !== undefined){
-									//모달창을 제대로 닫을때
-									for(let i=0; i<selectedval.length; i++){
-										values += selectedval[i];
-										if(i < selectedval.length - 1){
-											values += ',';
-										}
+							console.log(selectedval);
+							if(selectedval !== undefined){
+								//모달창을 제대로 닫을때
+								for(let i=0; i<selectedval.length; i++){
+									value += selectedval[i];
+									if(i < selectedval.length - 1){
+										value += ',';
 									}
-									$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
-									values = null;
-									
-									if(multiple == 'multiple'){
-										if(selectedval.length > 0){
-											$("s[for='"+overfor+"']").text(selectedval.length);
-											$("s[for='"+overfor+"']").show();
-										}else{
-											$("s[for='"+overfor+"']").hide();
-										}
+								}
+								$("#"+id+"[type='cocoAjaxMultiSelect']").val(value);
+								
+								if(multiple == 'multiple'){
+									if(selectedval.length > 0){
+										$("s[for='"+id+"']").text(selectedval.length);
+										$("s[for='"+id+"']").show();
 									}else{
-										$("s[for='"+overfor+"']").hide();
+										$("s[for='"+id+"']").hide();
 									}
 								}else{
-									//모달창을 제대로 닫지 않고 SPA로 페이지이동 발생시
-									//$(".ajaxselect_detail[for='"+overfor+"']")
-									
-									$("s[for='"+overfor+"']").hide();
+									$("s[for='"+id+"']").hide();
 								}
+							}else{
+								//모달창을 제대로 닫지 않고 SPA로 페이지이동 발생시
+								//$(".ajaxselect_detail[for='"+overfor+"']")
 								
-								$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
-								$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
-								$(".ajaxselect_detail[for='"+overfor+"']").remove();
-								$(".ajaxselect_over[for='"+overfor+"']").remove();
-								overfor = null;
-								
+								$("s[for='"+id+"']").hide();
 							}
+							
+							$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
+							$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
+							$(".ajaxselect_detail[for='"+id+"']").remove();
+							$(".ajaxselect_over[for='"+id+"']").remove();
+								
 							page = 1;
 							canScrollAjax = true;
-							searchtext = null;
 							$(this).remove();
 						});
 						
