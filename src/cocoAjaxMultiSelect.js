@@ -1,4 +1,4 @@
-;(function($){
+;(function($, window, document, undefined){
 	"use strict";
 	let pluginName = 'cocoAjaxMultiSelect',
 	page = 1,
@@ -455,4 +455,4 @@
 			}
 		});
 	};
-})(jQuery);
+})(jQuery, window, document);
