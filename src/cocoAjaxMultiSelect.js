@@ -40,24 +40,6 @@
 			
 			let id = $(this.element).attr('id');
 			
-			let all_element = $._data($(document)[0],'events');
-			for(let event in all_element){
-				for(let e=0; e<all_element[event].length; e++){
-					if(all_element[event][e].selector !== undefined){
-						console.log(all_element[event][e].selector);
-						console.log(id);
-						if(all_element[event][e].selector.indexOf(id) !== -1){
-							console.log(id);
-						}
-					}
-					
-					if(all_element[event][e].namespace == 'cocoAjaxMultiSelect'){
-						document.removeEventListener(event, all_element[event][e].handler);
-					}
-				}
-			}
-			event = null;
-			all_element = null;
 			
 			
 			let value = $(this.element).val();
