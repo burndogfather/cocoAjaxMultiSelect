@@ -204,7 +204,7 @@
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
 			let _this = this;
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('click',function(){
+			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").off().on('click',function(){
 			//$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']", function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
