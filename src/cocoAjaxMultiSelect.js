@@ -266,7 +266,7 @@
 		//다른영역을 클릭하면 select화면이 나타나지 않음
 		closeListener:function(){
 			let multiple = this.$element.attr('multiple');
-			$(".ajaxselect_over[for='"+this.$element.attr('id')+"']").bind('click',function(){
+			$(".ajaxselect_over").bind('click',function(){
 				console.log('test!!!!');
 			//$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
 				let overfor = $(this).attr('for');
