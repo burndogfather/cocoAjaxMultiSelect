@@ -259,6 +259,7 @@
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
+					console.log(selectedval);
 					for(let i=0; i<selectedval.length; i++){
 						values += selectedval[i];
 						if(i < selectedval.length - 1){
