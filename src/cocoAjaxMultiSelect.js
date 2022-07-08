@@ -226,7 +226,7 @@
 					selectedval = new Array();
 				}
 				value = null;
-				
+				console.log(selectedval);
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
 					$(this).attr('autocomplete','off');
@@ -267,7 +267,7 @@
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
-					console.log(selectedval);
+					
 					if(selectedval !== undefined){
 						//모달창을 제대로 닫을때
 						for(let i=0; i<selectedval.length; i++){
