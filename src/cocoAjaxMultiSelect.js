@@ -37,6 +37,16 @@
 	//호출할 수 있도록 프로토타이핑
 	$.extend(cocoAjaxMultiSelect.prototype,{
 		init: function(){
+			
+			let all_element = $._data($(document)[0],'events');
+			for(let event in all_element){
+				for(let e=0; e<all_element[event].length; e++){
+					if(all_element[event][e].namespace == cocoAjaxMultiSelect){
+						document.removeEventListener(event, all_element[event][e].handler);
+					}
+				}
+			}
+			
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
