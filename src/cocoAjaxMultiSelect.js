@@ -244,6 +244,8 @@
 										values += ',';
 									}
 								}
+								console.log(values);
+								console.log($("#"+id+"[type='cocoAjaxMultiSelect']"));
 								$("#"+id+"[type='cocoAjaxMultiSelect']").val(values);
 								values = null;
 								
