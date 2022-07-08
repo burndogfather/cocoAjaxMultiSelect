@@ -280,11 +280,9 @@
 						}else{
 							$("s[for='"+overfor+"']").hide();
 						}
+					}else{
+						$("s[for='"+overfor+"']").hide();
 					}
-					
-					
-					
-					
 					
 					$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
