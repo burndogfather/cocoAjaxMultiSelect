@@ -39,8 +39,20 @@
 		init: function(){
 			
 			let id = $(this.element).attr('id');
-			$(".ajaxselect_detail[for='"+id+"']").off();
-			$("#"+id+"[type='cocoAjaxMultiSelect']").off();
+			
+			
+			let all_element = $._data($(document)[0],'events');
+			for(let event in all_element){
+				for(let e=0; e<all_element[event].length; e++){
+					if(all_element[event][e].namespace == 'cocoAjaxMultiSelect'){
+						document.removeEventListener(event, all_element[event][e].handler);
+					}
+				}
+			}
+			event = null;
+			all_element = null;
+			
+			
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
 			$(this.element).after("<label for='"+id+"'></label>");
@@ -206,7 +218,7 @@
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
 			let _this = this;
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('click',function(){
+			$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
