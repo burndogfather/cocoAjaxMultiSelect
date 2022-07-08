@@ -39,6 +39,7 @@
 		init: function(){
 			
 			let id = $(this.element).attr('id');
+			$(".ajaxselect_detail[for='"+id+"']").off();
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
 			$(this.element).after("<label for='"+id+"'></label>");
@@ -204,7 +205,7 @@
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
 			let _this = this;
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").off().on('click',function(){
+			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('click',function(){
 			//$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']", function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
