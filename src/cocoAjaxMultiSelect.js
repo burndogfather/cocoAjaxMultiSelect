@@ -226,7 +226,6 @@
 					selectedval = new Array();
 				}
 				value = null;
-				console.log(selectedval);
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
 					$(this).attr('autocomplete','off');
