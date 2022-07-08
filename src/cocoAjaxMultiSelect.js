@@ -282,6 +282,7 @@
 							$("s[for='"+overfor+"']").hide();
 						}
 					}else{
+						//모달창을 제대로 닫지 않고 SPA로 페이지이동 발생시
 						$("s[for='"+overfor+"']").hide();
 					}
 					
