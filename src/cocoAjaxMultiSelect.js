@@ -353,6 +353,8 @@
 				}
 			});
 			$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+				event.stopImmediatePropagation();
+				event.stopPropagation();
 				page = 1;
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
@@ -421,7 +423,9 @@
 		
 		//select화면을 선택해도 포커스를 강제하기
 		holdonFocus:function(){
-			$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
+			$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+				event.stopImmediatePropagation();
+				event.stopPropagation();
 				if($(this).attr('focus') == 'on'){
 					$(this).focus();
 				}
@@ -434,7 +438,9 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
+				event.stopImmediatePropagation();
+				event.stopPropagation();
 				let __this = _this;
 				let value = $(this).next('label').text();
 				if($(this).is(":checked")){
