@@ -229,7 +229,8 @@
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
-						_this.$element.before("<div for='"+id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
+						$('body').append("<div for='"+id+"' class='ajaxselect_over'></div>");
+						//_this.$element.before("<div for='"+id+"' class='ajaxselect_over'></div>"); //닫는화면 불러오기
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 						id = null;
 						if(data){
