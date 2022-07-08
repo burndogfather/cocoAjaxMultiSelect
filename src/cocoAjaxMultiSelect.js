@@ -235,7 +235,7 @@
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>").promise().done(function(){
-							_this.closeListener();
+							_this.closeListener(id);
 						});
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 						id = null;
@@ -259,7 +259,7 @@
 		},
 		
 		//다른영역을 클릭하면 select화면이 나타나지 않음
-		closeListener:function(){
+		closeListener:function(id){
 			let multiple = this.$element.attr('multiple');
 			
 			$(".ajaxselect_over[for='"+id+"']").on('click',function(){
