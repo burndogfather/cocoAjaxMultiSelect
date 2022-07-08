@@ -39,8 +39,8 @@
 		init: function(){
 			
 			let id = $(this.element).attr('id');
-			//$(".ajaxselect_detail[for='"+id+"']").off();
-			//$("#"+id+"[type='cocoAjaxMultiSelect']").off();
+			$(".ajaxselect_detail[for='"+id+"']").off();
+			$("#"+id+"[type='cocoAjaxMultiSelect']").off();
 			//$(".ajaxselect_over[for='"+id+"']").off();
 			
 			let value = $(this.element).val();
@@ -208,8 +208,8 @@
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
 			let _this = this;
-			//$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('click',function(){
-			$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
+			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('click',function(){
+			//$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
@@ -310,8 +310,8 @@
 			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
-			//$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('keypress',function(e){
-			$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
+			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('keypress',function(e){
+			//$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
 				if(e.keyCode == 13){
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
@@ -345,8 +345,8 @@
 					focus = null;
 				}
 			});
-			//$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('input',function(event){
-			$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('input',function(event){
+			//$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				page = 1;
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
@@ -429,8 +429,8 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			//$(".ajaxselect_detail[for='"+this.$element.attr('id')+"']").on('change',function(){
-			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+			$(".ajaxselect_detail[for='"+this.$element.attr('id')+"']").on('change',function(){
+			//$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let __this = _this;
 				let value = $(this).next('label').text();
 				if($(this).is(":checked")){
