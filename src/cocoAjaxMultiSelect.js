@@ -1,4 +1,4 @@
-;(function($){
+;(function($, window, document, undefined){
 	"use strict";
 	var pluginName = 'cocoAjaxMultiSelect',
 	page = 1,
@@ -41,8 +41,6 @@
 			let id = $(this.element).attr('id');
 			$(".ajaxselect_detail[for='"+id+"']").off();
 			$("#"+id+"[type='cocoAjaxMultiSelect']").off();
-			//$(".ajaxselect_over[for='"+id+"']").off();
-			
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
 			$(this.element).after("<label for='"+id+"'></label>");
@@ -121,7 +119,7 @@
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
 			detail_li = null;
-
+			
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
@@ -209,7 +207,6 @@
 		clickListener:function(){
 			let _this = this;
 			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('click',function(){
-			//$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
@@ -260,6 +257,7 @@
 		//다른영역을 클릭하면 select화면이 나타나지 않음
 		closeListener:function(){
 			let multiple = this.$element.attr('multiple');
+			
 			$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
@@ -287,6 +285,9 @@
 							$("s[for='"+overfor+"']").hide();
 						}
 					}else{
+						//모달창을 제대로 닫지 않고 SPA로 페이지이동 발생시
+						//$(".ajaxselect_detail[for='"+overfor+"']")
+						
 						$("s[for='"+overfor+"']").hide();
 					}
 					
@@ -310,8 +311,7 @@
 			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('keypress',function(e){
-			//$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
+			$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
 				if(e.keyCode == 13){
 					if(termTimeout != null){
 						clearTimeout(termTimeout); 
@@ -345,8 +345,7 @@
 					focus = null;
 				}
 			});
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('input',function(event){
-			//$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+			$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				page = 1;
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
@@ -415,7 +414,6 @@
 		
 		//select화면을 선택해도 포커스를 강제하기
 		holdonFocus:function(){
-			//$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('blur',function(){
 			$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
 				if($(this).attr('focus') == 'on'){
 					$(this).focus();
@@ -429,8 +427,7 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			$(".ajaxselect_detail[for='"+this.$element.attr('id')+"']").on('change',function(){
-			//$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let __this = _this;
 				let value = $(this).next('label').text();
 				if($(this).is(":checked")){
@@ -461,4 +458,4 @@
 			}
 		});
 	};
-})(jQuery);
+})(jQuery, window, document);
