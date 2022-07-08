@@ -267,6 +267,7 @@
 		closeListener:function(){
 			let multiple = this.$element.attr('multiple');
 			$(".ajaxselect_over[for='"+this.$element.attr('id')+"']").on('click',function(){
+				console.log('test!!!!');
 			//$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
