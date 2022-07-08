@@ -414,7 +414,8 @@
 		
 		//select화면을 선택해도 포커스를 강제하기
 		holdonFocus:function(){
-			$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
+			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").on('blur',function(){
+			//$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(){
 				if($(this).attr('focus') == 'on'){
 					$(this).focus();
 				}
@@ -427,7 +428,8 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
+			$(".ajaxselect_detail[for='"+this.$element.attr('id')+"']").on('change',function(){
+			//$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(){
 				let __this = _this;
 				let value = $(this).next('label').text();
 				if($(this).is(":checked")){
