@@ -260,25 +260,31 @@
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
 					console.log(selectedval);
-					for(let i=0; i<selectedval.length; i++){
-						values += selectedval[i];
-						if(i < selectedval.length - 1){
-							values += ',';
+					if(selectedval !== undefined){
+						for(let i=0; i<selectedval.length; i++){
+							values += selectedval[i];
+							if(i < selectedval.length - 1){
+								values += ',';
+							}
 						}
-					}
-					$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
-					values = null;
-					
-					if(multiple == 'multiple'){
-						if(selectedval.length > 0){
-							$("s[for='"+overfor+"']").text(selectedval.length);
-							$("s[for='"+overfor+"']").show();
+						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
+						values = null;
+						
+						if(multiple == 'multiple'){
+							if(selectedval.length > 0){
+								$("s[for='"+overfor+"']").text(selectedval.length);
+								$("s[for='"+overfor+"']").show();
+							}else{
+								$("s[for='"+overfor+"']").hide();
+							}
 						}else{
 							$("s[for='"+overfor+"']").hide();
 						}
-					}else{
-						$("s[for='"+overfor+"']").hide();
 					}
+					
+					
+					
+					
 					
 					$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
