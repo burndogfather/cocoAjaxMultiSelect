@@ -261,6 +261,7 @@
 					let values = '';
 					console.log(selectedval);
 					if(selectedval !== undefined){
+						//모달창을 제대로 닫을때
 						for(let i=0; i<selectedval.length; i++){
 							values += selectedval[i];
 							if(i < selectedval.length - 1){
