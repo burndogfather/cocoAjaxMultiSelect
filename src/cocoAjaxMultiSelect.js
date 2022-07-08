@@ -62,7 +62,7 @@
 			
 			
 			this.clickListener();
-			this.closeListener();
+			
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
@@ -232,7 +232,7 @@
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
-						$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
+						$('body').prepend("<div for='"+id+"' class='ajaxselect_over' onclick='this.closeListener(this);'></div>");
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 						id = null;
 						if(data){
@@ -255,10 +255,10 @@
 		},
 		
 		//다른영역을 클릭하면 select화면이 나타나지 않음
-		closeListener:function(){
+		closeListener:function(this){
 			let multiple = this.$element.attr('multiple');
 			
-			$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
+			//$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(){
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
@@ -299,7 +299,7 @@
 				canScrollAjax = true;
 				searchtext = null;
 				$(this).remove();
-			});
+			//});
 			return null;
 		},
 		
