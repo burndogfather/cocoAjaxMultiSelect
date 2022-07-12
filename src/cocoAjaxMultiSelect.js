@@ -235,7 +235,7 @@
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						//$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
-						//console.log($(_this.element));
+						console.log(id);
 						$(_this.element).before("<div for='"+id+"' class='ajaxselect_over'></div>");
 						if($(document).find('.ajaxselect_over').length == 0){
 							$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
