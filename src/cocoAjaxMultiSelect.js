@@ -236,7 +236,7 @@
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						//$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
 						console.log($(document).find('.ajaxselect_over'));
-						$(_this.element).before("<div for='"+id+"' class='ajaxselect_over'></div>");
+						$(_this.element).insertBefore("<div for='"+id+"' class='ajaxselect_over'></div>");
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 						id = null;
 						if(data){
