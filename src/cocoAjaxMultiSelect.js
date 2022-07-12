@@ -237,7 +237,9 @@
 						//$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
 						console.log($(_this.element));
 						$(_this.element).before("<div for='"+id+"' class='ajaxselect_over'></div>");
-						console.log($(document).find('.ajaxselect_over').length);
+						if($(document).find('.ajaxselect_over').length == 0){
+							$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
+						}
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 						id = null;
 						if(data){
