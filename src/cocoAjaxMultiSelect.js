@@ -280,9 +280,11 @@
 								values += ',';
 							}
 						}
-						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
+						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).then(function(){
+							_this.settings['blurCode'](selectedval, __this);
+						});
 						values = null;
-						_this.settings['blurCode'](selectedval, __this);
+						
 						if(multiple == 'multiple'){
 							if(selectedval.length > 0){
 								$("s[for='"+overfor+"']").text(selectedval.length);
