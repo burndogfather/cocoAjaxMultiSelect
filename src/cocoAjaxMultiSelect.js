@@ -280,7 +280,7 @@
 								values += ',';
 							}
 						}
-						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).then(function(){
+						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
 							_this.settings['blurCode'](values, _this);
 						});
 						
