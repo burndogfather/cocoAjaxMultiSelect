@@ -13,12 +13,12 @@
 			throw "stop"; 
 		}, //ajax 호출코드 반드시 동기방식으로 사용해야함.
 		checkedCode:function(selectValue, _this){
-			console.log(selectValue);
-			console.log(_this);
+			//console.log(selectValue);
+			//console.log(_this);
 		}, //체크를 선택하거나 해지할때 호출할 수 있는 콜백코드
 		blurCode:function(values, _this){
-			console.log(values);
-			console.log(_this);
+			//console.log(values);
+			//console.log(_this);
 		}, //셀렉트창을 빠져나올때 호출할 수 있는 콜백코드
 		'arrayInKey':'uuid', //배열이나 객체의 변수의 key값
 		'arrayInValue':'name', //배열이나 객체의 변수의 value값
