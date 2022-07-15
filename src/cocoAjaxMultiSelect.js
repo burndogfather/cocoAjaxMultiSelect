@@ -280,8 +280,10 @@
 								values += ',';
 							}
 						}
-						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
-						_this.settings['blurCode'](values, _this);
+						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).then(function(){
+							_this.settings['blurCode'](values, _this);
+						});
+						
 						values = null;
 						
 						if(multiple == 'multiple'){
