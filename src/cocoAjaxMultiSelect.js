@@ -282,7 +282,7 @@
 						}
 						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
 						values = null;
-						
+						_this.settings['blurCode'](selectedval, __this);
 						if(multiple == 'multiple'){
 							if(selectedval.length > 0){
 								$("s[for='"+overfor+"']").text(selectedval.length);
@@ -304,7 +304,7 @@
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
 					$(".ajaxselect_detail[for='"+overfor+"']").remove();
 					$(".ajaxselect_over[for='"+overfor+"']").remove();
-					_this.settings['blurCode'](selectedval, __this);
+					
 					overfor = null;
 					
 				}
