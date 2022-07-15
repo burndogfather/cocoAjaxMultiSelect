@@ -96,7 +96,7 @@ $('#test').cocoAjaxMultiSelect({
     },
     blurCode:function(values, _this){
       console.log(values);
-    }
+    },
     arrayInKey:'sid',
     arrayInValue:'username',
     regularExpression:'[a-z|A-Z|가-힣| ]{2,}',
@@ -136,6 +136,11 @@ $('#test').cocoAjaxMultiSelect({
   
 ### 4. 데이터는 이런형태의 JSON이 반환되어야 합니다.  
 ```json
+/*
+  설정값이 다음의 조건이 되어있어야 합니다.
+  arrayInKey:'sid',
+  arrayInValue:'username'
+*/
 [
   {
     "sid": "2022062114201723174",
