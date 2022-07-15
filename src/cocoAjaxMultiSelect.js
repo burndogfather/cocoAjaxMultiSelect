@@ -281,7 +281,7 @@
 							}
 						}
 						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
-						_this.settings['blurCode'](values, __this);
+						_this.settings['blurCode'](values, _this);
 						values = null;
 						
 						if(multiple == 'multiple'){
