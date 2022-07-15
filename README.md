@@ -91,9 +91,12 @@ $('#test').cocoAjaxMultiSelect({
             });
         });
     },
-    checkedCode:function(selectValue){
+    checkedCode:function(selectValue, _this){
         console.log(selectValue);
     },
+    blurCode:function(values, _this){
+      console.log(values);
+    }
     arrayInKey:'sid',
     arrayInValue:'username',
     regularExpression:'[a-z|A-Z|가-힣| ]{2,}',
