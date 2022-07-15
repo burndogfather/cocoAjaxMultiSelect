@@ -117,6 +117,11 @@ $('#test').cocoAjaxMultiSelect({
         
     checkedCode : 사용자가 선택항목을 변경시 마다 실행되는 코드
         - selectValue : 사용자가 선택한 항목들의 배열 값
+        - _this : 현재의 input태그의 Element  
+        
+    blurCode : 사용자가 선택후 Select를 닫을때 실행되는 코드
+        - values : 사용자가 선택한 항목들의 실제 input에 들어가는 값 (쉼표로 구분한다)
+        - _this : 현재의 input태그의 Element  
     
     arrayInKey : resolve(json데이터)에 입력되는 ajax결과배열의 key 값 (사용자에게 보여지지 않음)
     arrayInValue : resolve(json데이터)에 입력되는 ajax결과배열의 value 값 (사용자에게 보여짐)
