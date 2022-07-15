@@ -16,8 +16,8 @@
 			console.log(selectValue);
 			console.log(_this);
 		}, //체크를 선택하거나 해지할때 호출할 수 있는 콜백코드
-		blurCode:function(selectValue, _this){
-			console.log(selectValue);
+		blurCode:function(values, _this){
+			console.log(values);
 			console.log(_this);
 		}, //셀렉트창을 빠져나올때 호출할 수 있는 콜백코드
 		'arrayInKey':'uuid', //배열이나 객체의 변수의 key값
@@ -280,9 +280,8 @@
 								values += ',';
 							}
 						}
-						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).then(function(){
-							_this.settings['blurCode'](selectedval, __this);
-						});
+						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values);
+						_this.settings['blurCode'](values, __this);
 						values = null;
 						
 						if(multiple == 'multiple'){
