@@ -264,7 +264,7 @@
 		//다른영역을 클릭하면 select화면이 나타나지 않음
 		closeListener:function(){
 			let multiple = this.$element.attr('multiple');
-			
+			let _this = this;
 			$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
@@ -304,6 +304,7 @@
 					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
 					$(".ajaxselect_detail[for='"+overfor+"']").remove();
 					$(".ajaxselect_over[for='"+overfor+"']").remove();
+					_this.settings['blurCode'](selectedval, __this);
 					overfor = null;
 					
 				}
