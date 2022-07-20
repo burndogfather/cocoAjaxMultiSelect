@@ -230,9 +230,10 @@
 					for(let i=0; i<selectedval.length; i++){
 						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
 							console.log(typeof(selectedArray));
-							console.log(data[0][String(_this.settings['arrayInKey'])]);
-							//selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
-							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = 'test';
+							if(typeof(selectedArray) === 'undefined'){
+								selectedArray = new Array();
+							}
+							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
 						});
 					}
 					console.log(selectedArray);
