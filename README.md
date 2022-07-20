@@ -91,11 +91,11 @@ $('#test').cocoAjaxMultiSelect({
             });
         });
     },
-    checkedCode:function(selectValue, _this){
-        console.log(selectValue);
+    checkedCode:function(selectedArray, _this){
+        console.log(selectedArray);
     },
-    blurCode:function(values, _this){
-      console.log(values);
+    blurCode:function(selectedArray, _this){
+      console.log(selectedArray);
     },
     arrayInKey:'sid',
     arrayInValue:'username',
@@ -116,11 +116,11 @@ $('#test').cocoAjaxMultiSelect({
         - resolve(json데이터) : ajaxCode내에서 요청성공에 대한 동기처리
         
     checkedCode : 사용자가 선택항목을 변경시 마다 실행되는 코드
-        - selectValue : 사용자가 선택한 항목들의 배열 값
+        - selectedArray : 사용자가 선택한 항목들의 key-value 형태의 배열
         - _this : 현재의 input태그의 Element  
         
     blurCode : 사용자가 선택후 Select를 닫을때 실행되는 코드
-        - values : 사용자가 선택한 항목들의 실제 input에 들어가는 값 (쉼표로 구분한다)
+        - selectedArray : 사용자가 선택한 항목들의 key-value 형태의 배열
         - _this : 현재의 input태그의 Element  
     
     arrayInKey : resolve(json데이터)에 입력되는 ajax결과배열의 key 값 (사용자에게 보여지지 않음)
