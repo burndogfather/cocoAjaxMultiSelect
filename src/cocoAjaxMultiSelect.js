@@ -458,6 +458,8 @@
 						selectedval.push(value);
 					}else{
 						selectedval = new Array(value);
+						selectedArray = new Array();
+						selectedArray[key] = value;
 					}
 				}else{
 					if(multiple){
