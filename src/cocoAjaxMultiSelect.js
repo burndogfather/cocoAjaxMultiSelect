@@ -233,6 +233,7 @@
 							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
 						});
 					}
+					console.log(selectedArray);
 				}else{
 					selectedval = new Array();
 					selectedArray = new Array();
