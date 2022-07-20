@@ -466,6 +466,9 @@
 						selectedval = selectedval.filter(function(f) { 
 							return f !== value; 
 						});
+						if(selectedArray[key]){
+							delete selectedArray[key];
+						}
 					}
 				}
 				_this.settings['checkedCode'](selectedArray, __this);
