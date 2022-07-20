@@ -5,7 +5,7 @@
 	searchtext = null,
 	termTimeout = null,
 	selectedval,
-	selectedArry,
+	selectedArray,
 	canScrollAjax = true,
 	viewCnt = 0,
 	defaults = {
