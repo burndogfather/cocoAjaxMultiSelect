@@ -452,6 +452,7 @@
 				event.stopPropagation();
 				let __this = _this;
 				let value = $(this).next('label').text();
+				let key = $(this).attr('id');
 				if($(this).is(":checked")){
 					if(multiple){
 						selectedval.push(value);
