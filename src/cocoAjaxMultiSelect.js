@@ -229,6 +229,7 @@
 					searchtext = null;
 				}else{
 					selectedval = new Array();
+					selectedArray = new Array();
 				}
 				value = null;
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
@@ -458,7 +459,6 @@
 						selectedval.push(value);
 					}else{
 						selectedval = new Array(value);
-						selectedArray = new Array();
 						selectedArray[key] = value;
 					}
 				}else{
