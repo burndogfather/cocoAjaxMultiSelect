@@ -230,6 +230,7 @@
 					for(let i=0; i<selectedval.length; i++){
 						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
 							console.log(data);
+							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = String(_this.settings['arrayInValue']);
 						});
 					}
 				}else{
