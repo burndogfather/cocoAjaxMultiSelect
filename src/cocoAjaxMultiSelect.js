@@ -459,8 +459,8 @@
 						selectedval.push(value);
 					}else{
 						selectedval = new Array(value);
-						selectedArray[key] = value;
 					}
+					selectedArray[key] = value;
 				}else{
 					if(multiple){
 						selectedval = selectedval.filter(function(f) { 
@@ -468,7 +468,7 @@
 						});
 					}
 				}
-				_this.settings['checkedCode'](selectedval, __this);
+				_this.settings['checkedCode'](selectedArray, __this);
 			});
 			return null;
 		}
