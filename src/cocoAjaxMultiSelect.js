@@ -227,6 +227,11 @@
 				if(value != ''){
 					selectedval = value.split(',');
 					searchtext = null;
+					for(let i=0; i<selectedval.length; i++){
+						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
+							console.log(data);
+						});
+					}
 				}else{
 					selectedval = new Array();
 					selectedArray = new Array();
