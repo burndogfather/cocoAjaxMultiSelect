@@ -228,9 +228,10 @@
 					selectedval = value.split(',');
 					searchtext = null;
 					for(let i=0; i<selectedval.length; i++){
-						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
+						let data = _this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
 							console.log(data);
-							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
+							//selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
+							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = 'test';
 						});
 					}
 					console.log(selectedArray);
