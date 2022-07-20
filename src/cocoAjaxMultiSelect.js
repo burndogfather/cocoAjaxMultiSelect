@@ -229,14 +229,12 @@
 					searchtext = null;
 					for(let i=0; i<selectedval.length; i++){
 						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
-							console.log(typeof(selectedArray));
 							if(typeof(selectedArray) === 'undefined'){
 								selectedArray = new Array();
 							}
 							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
 						});
 					}
-					console.log(selectedArray);
 				}else{
 					selectedval = new Array();
 					selectedArray = new Array();
