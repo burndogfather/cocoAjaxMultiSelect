@@ -232,7 +232,9 @@
 							if(typeof(selectedArray) === 'undefined'){
 								selectedArray = new Array();
 							}
-							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
+							selectedArray[i] = new Array();
+							selectedArray[i][data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
+							//selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
 						});
 					}
 				}else{
