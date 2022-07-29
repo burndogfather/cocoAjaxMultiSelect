@@ -230,14 +230,14 @@
 					for(let i=0; i<selectedval.length; i++){
 						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
 							if(typeof(selectedArray) === 'undefined'){
-								selectedArray = new Array();
+								selectedArray = new Object();
 							}
 							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
 						});
 					}
 				}else{
 					selectedval = new Array();
-					selectedArray = new Array();
+					selectedArray = new Object();
 				}
 				value = null;
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
