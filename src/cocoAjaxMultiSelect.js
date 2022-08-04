@@ -465,10 +465,13 @@
 				if($(this).is(":checked")){
 					if(multiple){
 						selectedval.push(value);
+						selectedArray[key] = value;
 					}else{
 						selectedval = new Array(value);
+						selectedArray = new Array();
+						selectedArray[key] = value;
 					}
-					selectedArray[key] = value;
+					
 				}else{
 					if(multiple){
 						selectedval = selectedval.filter(function(f) { 
