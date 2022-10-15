@@ -498,6 +498,7 @@
 		});
 	};
 	$.fn[ pluginName ].reload = function(){
-		console.log('test');
+		console.log(pluginName);
+		$.fn[ pluginName ].prototype.init();
 	};
 })(jQuery, window, document);
