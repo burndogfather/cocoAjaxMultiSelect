@@ -497,4 +497,5 @@
 			}
 		});
 	};
+	$.fn[ pluginName ].prototype.reload = 'bar';
 })(jQuery, window, document);
