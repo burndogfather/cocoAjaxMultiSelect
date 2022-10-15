@@ -42,10 +42,7 @@
 	//호출할 수 있도록 프로토타이핑
 	$.extend(cocoAjaxMultiSelect.prototype,{
 		init: function(){
-			console.log('test!');
 			let id = $(this.element).attr('id');
-			
-			
 			
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
@@ -496,10 +493,5 @@
 				new cocoAjaxMultiSelect(this, options));
 			}
 		});
-	};
-	$.fn[ pluginName ].reload = function(){
-		console.log(pluginName);
-		pluginName.prototype.init();
-		$.fn[ pluginName ].prototype.init();
 	};
 })(jQuery, window, document);
