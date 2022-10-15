@@ -38,7 +38,7 @@
 		this._name = pluginName;
 		this.init();
 	};
-	
+	cocoAjaxMultiSelect.prototype.foo = 'bar';
 	
 	//호출할 수 있도록 프로토타이핑
 	$.extend(cocoAjaxMultiSelect.prototype,{
