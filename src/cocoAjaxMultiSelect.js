@@ -499,6 +499,7 @@
 	};
 	$.fn[ pluginName ].reload = function(){
 		console.log(pluginName);
+		pluginName.prototype.init();
 		$.fn[ pluginName ].prototype.init();
 	};
 })(jQuery, window, document);
