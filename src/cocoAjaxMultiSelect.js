@@ -141,6 +141,7 @@
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
 			
+			//스크롤이 생기지 않는 환경에서는 다음페이지까지도 불러와본다.
 			if($(".ajaxselect_detail[for='"+id+"']").prop("scrollHeight") === $(".ajaxselect_detail[for='"+id+"']").prop("clientHeight")){
 				_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 					if(data){
