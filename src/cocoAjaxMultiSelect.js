@@ -485,8 +485,8 @@
 					console.log(selectedArray);
 					_this.settings['checkedCode'](selectedArray, __this);
 					
-					console.log($(this));
-					let overfor = $(this).attr('for');
+					console.log($(this).parent());
+					let overfor = $(this).parent().attr('for');
 					if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 						let values = '';
 						
