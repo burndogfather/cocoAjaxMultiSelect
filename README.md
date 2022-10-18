@@ -190,12 +190,7 @@ $('#test').cocoAjaxMultiSelect({
 
 ### 새로운기능 
   
-- Ajax 검색결과를 이미지형태로도 제공할 수 있습니다.
+- Ajax 검색결과를 이미지형태로도 제공할 수 있습니다. (arrayInImage 옵션추가)
 <img src="https://user-images.githubusercontent.com/115865056/196459743-d56e1f08-1b43-4e2b-84d7-c9e636ba6a59.png">
-
-```javascript  
-  //ajax결과데이터내 imageurl을 갖는 키 값이 http~로 시작하는 URL인 경우 가능합니다.
-  arrayInImage:'imageurl'
-```  
 
 
