@@ -329,7 +329,8 @@
 			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
-			$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
+			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").keypress(function(e){
+			//$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
 				e.stopImmediatePropagation();
 				e.stopPropagation();
 				if(e.keyCode == 13){
