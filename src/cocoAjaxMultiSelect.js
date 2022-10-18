@@ -210,9 +210,6 @@
 				}else{
 					multiple = false;
 				}
-				if(_this.settings['arrayInKey']){
-					multiple = false;
-				}
 				let value = $(this).val();
 				if(value != ''){
 					selectedval = value.split(',');
@@ -280,7 +277,7 @@
 						});
 						
 						
-						if(multiple == 'multiple'){
+						if(multiple === 'multiple'){
 							if(selectedval.length > 0){
 								$("s[for='"+overfor+"']").text(selectedval.length);
 								$("s[for='"+overfor+"']").show();
@@ -330,9 +327,6 @@
 					}else{
 						multiple = false;
 					}
-					if(_this.settings['arrayInKey']){
-						multiple = false;
-					}
 					if(focus == 'on'){
 						_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 							searchtext = $(this).val();
@@ -362,9 +356,6 @@
 				if(multiple === 'multiple'){
 					multiple = true;
 				}else{
-					multiple = false;
-				}
-				if(_this.settings['arrayInKey']){
 					multiple = false;
 				}
 				if(focus == 'on'){
