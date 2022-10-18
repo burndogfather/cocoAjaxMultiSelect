@@ -484,6 +484,48 @@
 					selectedArray[key] = value;
 					console.log(selectedArray);
 					_this.settings['checkedCode'](selectedArray, __this);
+					
+					console.log($(this));
+					let overfor = $(this).attr('for');
+					if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
+						let values = '';
+						
+						if(selectedval !== undefined){
+							//모달창을 제대로 닫을때
+							for(let i=0; i<selectedval.length; i++){
+								values += selectedval[i];
+								if(i < selectedval.length - 1){
+									values += ',';
+								}
+							}
+							$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
+								_this.settings['blurCode'](selectedArray, _this);
+							});
+							
+							
+							if(multiple === 'multiple'){
+								if(selectedval.length > 0){
+									$("s[for='"+overfor+"']").text(selectedval.length);
+									$("s[for='"+overfor+"']").show();
+								}else{
+									$("s[for='"+overfor+"']").hide();
+								}
+							}else{
+								$("s[for='"+overfor+"']").hide();
+							}
+						}else{
+							$("s[for='"+overfor+"']").hide();
+						}
+						
+						$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
+						$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
+						$(".ajaxselect_detail[for='"+overfor+"']").remove();
+						$(".ajaxselect_over[for='"+overfor+"']").remove();
+						
+					}
+					page = 1;
+					canScrollAjax = true;
+					$(this).remove();
 				});
 			}else{
 				$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
