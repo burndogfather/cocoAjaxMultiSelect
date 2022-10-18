@@ -141,6 +141,7 @@
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
 			
+			console.log($(".ajaxselect_detail[for='"+id+"']"));
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
