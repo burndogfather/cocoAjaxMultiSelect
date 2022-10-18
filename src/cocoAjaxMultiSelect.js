@@ -146,7 +146,7 @@
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
 					let detailViewHeight = _this.settings['height'];
 					let resultViewHeight = $(".ajaxselect_detail[for='"+id+"'] li").outerHeight() * viewCnt;
-					console.log(canScrollAjax);
+					console.log(canScrollAjax, scrollTop+_this.settings['scrollLeftLoad'], resultViewHeight - detailViewHeight );
 					if(canScrollAjax && ( scrollTop + _this.settings['scrollLeftLoad'] >= resultViewHeight - detailViewHeight && viewCnt >= _this.settings['pageUnit'] || $(".ajaxselect_detail[for='"+id+"']").prop("scrollHeight") === $(".ajaxselect_detail[for='"+id+"']").prop("clientHeight") ) ){
 						page++;
 						_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
