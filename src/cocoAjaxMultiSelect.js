@@ -258,11 +258,12 @@
 					selectedval = value.split(',');
 					for(let i=0; i<selectedval.length; i++){
 						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
+							console.log(data);
 							if(typeof(selectedArray) === 'undefined'){
 								selectedArray = new Array();
 							}
-							console.log(data);
-							selectedArray[data[0][String(_this.settings['arrayInKey'])]] = data[0][String(_this.settings['arrayInValue'])];
+							
+							selectedArray[data[i][String(_this.settings['arrayInKey'])]] = data[i][String(_this.settings['arrayInValue'])];
 						});
 					}
 				}else{
