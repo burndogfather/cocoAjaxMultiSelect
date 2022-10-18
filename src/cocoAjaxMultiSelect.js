@@ -78,7 +78,7 @@
 			let _this = this;
 			let detail_li = '';
 			if($(".ajaxselect_detail[for='"+id+"']").length == 0){
-				detail_li += "<ul for='"+id+"' class='ajaxselect_detail' style='max-height="+this.settings['height']+"'>";	
+				detail_li += "<ul for='"+id+"' class='ajaxselect_detail' style='height="+this.settings['height']+"'>";	
 			}
 			viewCnt = 0;
 			if(data_arr){
@@ -173,7 +173,7 @@
 					
 				});
 			});
-			$(".ajaxselect_detail[for='"+id+"']").css({top:top, left:left, width:width, 'max-height':this.settings['height']}); //불러온트리의 위치를 보정
+			$(".ajaxselect_detail[for='"+id+"']").css({top:top, left:left, width:width, height:this.settings['height']}); //불러온트리의 위치를 보정
 			$("s[for='"+id+"']").hide();
 		},
 		
