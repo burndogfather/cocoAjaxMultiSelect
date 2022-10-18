@@ -31,12 +31,14 @@
 	};
 	//메인함수
 	function cocoAjaxMultiSelect(element, options) {
+		console.log('test!');
 		this.element = element;
 		this.$element = $(element);
 		this.settings = $.extend( {}, defaults, options );
 		this._defaults = defaults;
 		this._name = pluginName;
 		this.init();
+		
 	};
 	
 	//호출할 수 있도록 프로토타이핑
@@ -64,12 +66,12 @@
 			multiple = null;
 			
 			
+			
 			this.clickListener();
 			this.closeListener();
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
-			return null;
 		},
 		
 		
