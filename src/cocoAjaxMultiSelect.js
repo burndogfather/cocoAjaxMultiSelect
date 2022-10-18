@@ -472,34 +472,40 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
-				event.stopImmediatePropagation();
-				event.stopPropagation();
-				let __this = _this;
-				let value = $(this).next('label').text();
-				let key = $(this).attr('id');
-				if($(this).is(":checked")){
-					if(multiple){
-						selectedval.push(value);
-						selectedArray[key] = value;
+			if(_this.settings['arrayInImage']){
+				$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] li",function(event){
+					console.log('!!!');
+				});
+			}else{
+				$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
+					event.stopImmediatePropagation();
+					event.stopPropagation();
+					let __this = _this;
+					let value = $(this).next('label').text();
+					let key = $(this).attr('id');
+					if($(this).is(":checked")){
+						if(multiple){
+							selectedval.push(value);
+							selectedArray[key] = value;
+						}else{
+							selectedval = new Array(value);
+							selectedArray = new Array();
+							selectedArray[key] = value;
+						}
+						
 					}else{
-						selectedval = new Array(value);
-						selectedArray = new Array();
-						selectedArray[key] = value;
-					}
-					
-				}else{
-					if(multiple){
-						selectedval = selectedval.filter(function(f) { 
-							return f !== value; 
-						});
-						if(selectedArray[key]){
-							delete selectedArray[key];
+						if(multiple){
+							selectedval = selectedval.filter(function(f) { 
+								return f !== value; 
+							});
+							if(selectedArray[key]){
+								delete selectedArray[key];
+							}
 						}
 					}
-				}
-				_this.settings['checkedCode'](selectedArray, __this);
-			});
+					_this.settings['checkedCode'](selectedArray, __this);
+				});
+			}
 		}
 	});
 	
