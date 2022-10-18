@@ -479,6 +479,19 @@
 					let __this = _this;
 					let value = $(this).next('label').text();
 					let key = $(this).attr('id');
+					selectedval = new Array(value);
+					selectedArray = new Array();
+					selectedArray[key] = value;
+					console.log(selectedArray);
+					_this.settings['checkedCode'](selectedArray, __this);
+				});
+			}else{
+				$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
+					event.stopImmediatePropagation();
+					event.stopPropagation();
+					let __this = _this;
+					let value = $(this).next('label').text();
+					let key = $(this).attr('id');
 					if($(this).is(":checked")){
 						if(multiple){
 							selectedval.push(value);
@@ -499,19 +512,6 @@
 							}
 						}
 					}
-					_this.settings['checkedCode'](selectedArray, __this);
-				});
-			}else{
-				$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
-					event.stopImmediatePropagation();
-					event.stopPropagation();
-					let __this = _this;
-					let value = $(this).next('label').text();
-					let key = $(this).attr('id');
-					selectedval = new Array(value);
-					selectedArray = new Array();
-					selectedArray[key] = value;
-					console.log(selectedArray);
 					_this.settings['checkedCode'](selectedArray, __this);
 				});
 			}
