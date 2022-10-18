@@ -451,7 +451,8 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
+			//$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
+			$(".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input").change(function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				let __this = _this;
