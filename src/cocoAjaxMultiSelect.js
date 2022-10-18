@@ -191,9 +191,18 @@
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_lengh; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
-								more_detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/></li>";
+								if(data_arr[i][String(_this.settings['arrayInImage'])]){
+									more_detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/></li>";
+								}else{
+									more_detail_li += "<li>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+								}
+								
 							}else{
-								more_detail_li += "<li>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+								if(data_arr[i][String(_this.settings['arrayInImage'])]){
+									more_detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/></li>";
+								}else{
+									more_detail_li += "<li>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+								}
 							}
 						}
 					}else{
