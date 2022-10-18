@@ -259,7 +259,7 @@
 					console.log(selectedval);
 					for(let i=0; i<selectedval.length; i++){
 						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
-							console.log(data);
+							console.log(data.length);
 							if(typeof(selectedArray) === 'undefined'){
 								selectedArray = new Array();
 							}
