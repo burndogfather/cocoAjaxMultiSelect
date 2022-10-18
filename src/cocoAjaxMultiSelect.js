@@ -23,6 +23,7 @@
 		}, //셀렉트창을 빠져나올때 호출할 수 있는 콜백코드
 		'arrayInKey':'uuid', //배열이나 객체의 변수의 key값
 		'arrayInValue':'name', //배열이나 객체의 변수의 value값
+		'arrayInImage':false, //이미지로 대체되는 경우 value값
 		'regularExpression':'[a-z|A-Z|가-힣| ]{2,}', //입력값이 정규식에 해당되면 ajax 호출을 실행한다.
 		'delay':700, //마지막검색이 수행된 직후 200ms 뒤에 검색할 수 있다.
 		'pageUnit':20, //pagging이 true일경우, 한번에 출력할 갯수
