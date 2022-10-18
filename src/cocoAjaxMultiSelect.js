@@ -503,16 +503,6 @@
 							});
 							
 							
-							if(multiple === 'multiple'){
-								if(selectedval.length > 0){
-									$("s[for='"+overfor+"']").text(selectedval.length);
-									$("s[for='"+overfor+"']").show();
-								}else{
-									$("s[for='"+overfor+"']").hide();
-								}
-							}else{
-								$("s[for='"+overfor+"']").hide();
-							}
 						}else{
 							$("s[for='"+overfor+"']").hide();
 						}
