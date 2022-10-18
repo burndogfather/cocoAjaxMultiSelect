@@ -436,7 +436,8 @@
 		
 		//select화면을 선택해도 포커스를 강제하기
 		holdonFocus:function(){
-			$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").blur(function(event) {
+			//$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				if($(this).attr('focus') == 'on'){
