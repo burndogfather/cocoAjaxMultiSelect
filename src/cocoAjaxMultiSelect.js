@@ -1,4 +1,3 @@
-console.log('awdawd');
 ;(function($, window, document, undefined){
 	"use strict";
 	var pluginName = 'cocoAjaxMultiSelect',
@@ -48,9 +47,6 @@ console.log('awdawd');
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
-			if(this.settings['arrayInKey']){
-				multiple = false;
-			}
 			$(this.element).after("<label for='"+id+"'></label>");
 			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple === 'multiple'){
