@@ -139,9 +139,10 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .img:hover{
   cursor: pointer;
-  opacity: 0.3;
   font-size:14px;
-  color:#000;
+  color:#fff;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li article {
   font-size: 11px;
