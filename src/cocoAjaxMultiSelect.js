@@ -88,13 +88,13 @@
 						for(let i=0; i<data_arr.length; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'></li>";
+									detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
 									detail_li += "<li class='img'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}else{
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'></li>";
+									detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
 									detail_li += "<li class='img'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
@@ -192,14 +192,14 @@
 						for(let i=0; i<data_lengh; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									more_detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/></li>";
+									more_detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
 									more_detail_li += "<li class='img'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 								
 							}else{
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									more_detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/></li>";
+									more_detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
 									more_detail_li += "<li class='img'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
