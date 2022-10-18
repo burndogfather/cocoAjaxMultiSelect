@@ -453,6 +453,7 @@
 		//select하단에서 체크박스 선택시
 		checkboxControl:function(){
 			let _this = this;
+			console.log(_this);
 			let multiple = this.$element.attr('multiple');
 			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
 				event.stopImmediatePropagation();
