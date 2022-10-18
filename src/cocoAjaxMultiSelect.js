@@ -88,15 +88,15 @@
 						for(let i=0; i<data_arr.length; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}else{
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"'  name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}
 							viewCnt++;
