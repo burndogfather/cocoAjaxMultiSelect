@@ -1,3 +1,4 @@
+console.log('awdawd');
 ;(function($, window, document, undefined){
 	"use strict";
 	var pluginName = 'cocoAjaxMultiSelect',
@@ -472,7 +473,6 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			console.log(_this.settings['arrayInImage']);
 			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
