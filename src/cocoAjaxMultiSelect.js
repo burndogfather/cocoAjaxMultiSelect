@@ -87,9 +87,9 @@
 					if(_this.settings['arrayInKey']){
 						for(let i=0; i<data_arr.length; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
-								detail_li += "<li><img src='"+data_arr[i][String(_this.settings['arrayInImage'])]+"' /></li>";
+								detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'></li>";
 							}else{
-								detail_li += "<li><img src='"+data_arr[i][String(_this.settings['arrayInImage'])]+"' /></li>";
+								detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'></li>";
 							}
 						}
 					}else{
