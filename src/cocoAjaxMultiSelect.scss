@@ -131,9 +131,11 @@ input[type="cocoAjaxMultiSelect"]{
 						list-style:none;
 						height: 34px;
 						line-height: 34px;
-						background-repeat: no-repeat;
-						background-size: cover;
-						background-position: center;
+						.img{
+							background-repeat: no-repeat;
+							background-size: cover;
+							background-position: center;
+						}
 						article{
 							font-size:11px;
 							color:#aaa;
