@@ -169,9 +169,9 @@
 					if(_this.settings['arrayInKey']){
 						for(let i=0; i<data_lengh; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
-								more_detail_li += "<li><img src='"+data_arr[i][String(_this.settings['arrayInImage'])]+" />'</li>";
+								more_detail_li += "<li><img src='"+data_arr[i][String(_this.settings['arrayInImage'])]+"' /></li>";
 							}else{
-								more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
+								more_detail_li += "<li><img src='"+data_arr[i][String(_this.settings['arrayInImage'])]+"' /></li>";
 							}
 						}
 					}else{
