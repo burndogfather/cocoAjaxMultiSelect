@@ -134,9 +134,11 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background:rgba(0, 0, 0, 0.5);
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .img:hover{
-  background:rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  background-blend-mode: multiply;
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li article {
   font-size: 11px;
