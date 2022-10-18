@@ -99,6 +99,7 @@
 									detail_li += "<li>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}
+							viewCnt++;
 						}
 					}else{
 						if(multiple){
@@ -146,7 +147,6 @@
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
 					let detailViewHeight = _this.settings['height'];
 					let resultViewHeight = $(".ajaxselect_detail[for='"+id+"'] li").outerHeight() * viewCnt;
-					console.log(canScrollAjax, scrollTop+_this.settings['scrollLeftLoad'], resultViewHeight - detailViewHeight );
 					if(canScrollAjax && ( scrollTop + _this.settings['scrollLeftLoad'] >= resultViewHeight - detailViewHeight && viewCnt >= _this.settings['pageUnit'] || $(".ajaxselect_detail[for='"+id+"']").prop("scrollHeight") === $(".ajaxselect_detail[for='"+id+"']").prop("clientHeight") ) ){
 						page++;
 						_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
@@ -191,7 +191,7 @@
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_lengh; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
-								more_detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"/></li>";
+								more_detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/></li>";
 							}else{
 								more_detail_li += "<li>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 							}
