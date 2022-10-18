@@ -141,7 +141,7 @@
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
 			
-			console.log($(".ajaxselect_detail[for='"+id+"']"));
+			console.log($(".ajaxselect_detail[for='"+id+"']").prop("clientHeight"));
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
