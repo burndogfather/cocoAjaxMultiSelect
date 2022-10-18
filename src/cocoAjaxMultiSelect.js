@@ -192,16 +192,16 @@
 						for(let i=0; i<data_lengh; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									more_detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									more_detail_li += "<li class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 								
 							}else{
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									more_detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'/>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									more_detail_li += "<li class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}
 						}
