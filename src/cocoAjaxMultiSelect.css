@@ -136,6 +136,9 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .
   background-position: center;
   text-align: center;
   font-size:0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .img:hover{
@@ -143,17 +146,20 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .
   font-size:14px;
   color:#fff;
   font-weight: 700;
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .nonimg{
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .nonimg:hover{
   cursor: pointer;
   font-size:14px;
   color:#fff;
   font-weight: 700;
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li article {
   font-size: 11px;
