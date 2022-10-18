@@ -482,10 +482,8 @@
 					selectedval = new Array(value);
 					selectedArray = new Array();
 					selectedArray[key] = value;
-					console.log(selectedArray);
 					_this.settings['checkedCode'](selectedArray, __this);
 					
-					console.log($(this).parent());
 					let overfor = $(this).parent().attr('for');
 					if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 						let values = '';
@@ -525,7 +523,7 @@
 					}
 					page = 1;
 					canScrollAjax = true;
-					$(this).remove();
+					$(this).parent().remove();
 				});
 			}else{
 				$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
