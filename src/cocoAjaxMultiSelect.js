@@ -141,37 +141,13 @@
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
 			
-			//스크롤이 생기지 않는 환경에서는 다음페이지까지도 불러와본다.
-			if($(".ajaxselect_detail[for='"+id+"']").prop("scrollHeight") === $(".ajaxselect_detail[for='"+id+"']").prop("clientHeight")){
-				_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
-					if(data){
-						if(data.length > 0){
-							//현재페이지에 이어서 출력
-							_this.moreshow(id, data, multiple).then(()=>{
-								resolve();
-							}).catch(function(err){
-								if(termTimeout != null){
-									clearTimeout(termTimeout); 
-								}
-								termTimeout = null;
-								canScrollAjax = false;
-							});
-						}else{
-							//더이상출력할 페이지가 없음.
-							canScrollAjax = false;
-						}
-					}else{
-						canScrollAjax = false;
-					}
-				});
-			}
-			
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
 					let detailViewHeight = _this.settings['height'];
 					let resultViewHeight = $(".ajaxselect_detail[for='"+id+"'] li").outerHeight() * viewCnt;
-					if(canScrollAjax && scrollTop + _this.settings['scrollLeftLoad'] >= resultViewHeight - detailViewHeight && viewCnt >= _this.settings['pageUnit']){
+					console.log(canScrollAjax);
+					if(canScrollAjax && ( scrollTop + _this.settings['scrollLeftLoad'] >= resultViewHeight - detailViewHeight && viewCnt >= _this.settings['pageUnit'] || $(".ajaxselect_detail[for='"+id+"']").prop("scrollHeight") === $(".ajaxselect_detail[for='"+id+"']").prop("clientHeight") ) ){
 						page++;
 						_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 							if(data){
