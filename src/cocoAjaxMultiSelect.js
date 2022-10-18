@@ -254,8 +254,9 @@
 					multiple = false;
 				}
 				let value = $(this).val();
-				if(value != ''){
+				if(value !== ''){
 					selectedval = value.split(',');
+					console.log(selectedval);
 					for(let i=0; i<selectedval.length; i++){
 						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
 							console.log(data);
