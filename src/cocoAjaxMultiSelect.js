@@ -88,15 +88,15 @@
 						for(let i=0; i<data_arr.length; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}else{
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}
 							viewCnt++;
@@ -508,26 +508,10 @@
 					let __this = _this;
 					let value = $(this).next('label').text();
 					let key = $(this).attr('id');
-					if($(this).is(":checked")){
-						if(multiple){
-							selectedval.push(value);
-							selectedArray[key] = value;
-						}else{
-							selectedval = new Array(value);
-							selectedArray = new Array();
-							selectedArray[key] = value;
-						}
-						
-					}else{
-						if(multiple){
-							selectedval = selectedval.filter(function(f) { 
-								return f !== value; 
-							});
-							if(selectedArray[key]){
-								delete selectedArray[key];
-							}
-						}
-					}
+					selectedval = new Array(value);
+					selectedArray = new Array();
+					selectedArray[key] = value;
+					console.log(selectedArray);
 					_this.settings['checkedCode'](selectedArray, __this);
 				});
 			}
