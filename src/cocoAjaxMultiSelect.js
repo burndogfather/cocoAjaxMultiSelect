@@ -205,9 +205,12 @@
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
-				if(multiple == 'multiple'){
+				if(multiple === 'multiple'){
 					multiple = true;
 				}else{
+					multiple = false;
+				}
+				if(_this.settings['arrayInKey']){
 					multiple = false;
 				}
 				let value = $(this).val();
@@ -322,9 +325,12 @@
 					let focus = $(this).attr('focus');
 					let id = $(this).attr('id');
 					let multiple = $(this).attr('multiple');
-					if(multiple == 'multiple'){
+					if(multiple === 'multiple'){
 						multiple = true;
 					}else{
+						multiple = false;
+					}
+					if(_this.settings['arrayInKey']){
 						multiple = false;
 					}
 					if(focus == 'on'){
@@ -353,9 +359,12 @@
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
-				if(multiple == 'multiple'){
+				if(multiple === 'multiple'){
 					multiple = true;
 				}else{
+					multiple = false;
+				}
+				if(_this.settings['arrayInKey']){
 					multiple = false;
 				}
 				if(focus == 'on'){
