@@ -135,10 +135,13 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .
   background-size: cover;
   background-position: center;
   text-align: center;
+  font-size:0;
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail .img:hover{
   cursor: pointer;
   opacity: 0.3;
+  font-size:14px;
+  color:#000;
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li article {
   font-size: 11px;
