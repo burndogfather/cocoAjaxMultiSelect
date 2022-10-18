@@ -329,8 +329,7 @@
 			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").keypress(function(e){
-			//$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
+			$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
 				e.stopImmediatePropagation();
 				e.stopPropagation();
 				if(e.keyCode == 13){
@@ -437,8 +436,7 @@
 		
 		//select화면을 선택해도 포커스를 강제하기
 		holdonFocus:function(){
-			$("#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']").blur(function(event) {
-			//$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+			$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				if($(this).attr('focus') == 'on'){
@@ -453,8 +451,7 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
-			//$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
-			$(".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input").change(function(event){
+			$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				let __this = _this;
