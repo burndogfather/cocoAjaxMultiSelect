@@ -490,7 +490,7 @@
 	$.fn[ pluginName ] = function(options){
 		return this.each(function() {
 			if(!$.data(this, pluginName)){
-				$.data(this, pluginName,new cocoAjaxMultiSelect(this, options));
+				$.data(this, pluginName, new cocoAjaxMultiSelect(this, options));
 			}
 		});
 	};
