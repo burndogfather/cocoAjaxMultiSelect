@@ -472,7 +472,9 @@
 		checkboxControl:function(){
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
+			console.log('!!!');
 			if(_this.settings['arrayInImage']){
+				console.log('!!!');
 				$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] li",function(event){
 					console.log('!!!');
 				});
