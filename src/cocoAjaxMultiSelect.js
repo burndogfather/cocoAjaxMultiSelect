@@ -141,7 +141,29 @@
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
 			
-			console.log($(".ajaxselect_detail[for='"+id+"']").prop("scrollHeight"), $(".ajaxselect_detail[for='"+id+"']").prop("clientHeight"));
+			if($(".ajaxselect_detail[for='"+id+"']").prop("scrollHeight") === $(".ajaxselect_detail[for='"+id+"']").prop("clientHeight")){
+				_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
+					if(data){
+						if(data.length > 0){
+							//현재페이지에 이어서 출력
+							_this.moreshow(id, data, multiple).then(()=>{
+								resolve();
+							}).catch(function(err){
+								if(termTimeout != null){
+									clearTimeout(termTimeout); 
+								}
+								termTimeout = null;
+								canScrollAjax = false;
+							});
+						}else{
+							//더이상출력할 페이지가 없음.
+							canScrollAjax = false;
+						}
+					}else{
+						canScrollAjax = false;
+					}
+				});
+			}
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
 					let scrollTop = $(".ajaxselect_detail[for='"+id+"']").scrollTop();
