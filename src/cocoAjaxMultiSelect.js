@@ -87,9 +87,17 @@
 					if(_this.settings['arrayInKey']){
 						for(let i=0; i<data_arr.length; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
-								detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'></li>";
+								if(data_arr[i][String(_this.settings['arrayInImage'])]){
+									detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'></li>";
+								}else{
+									detail_li += "<li>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+								}
 							}else{
-								detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'></li>";
+								if(data_arr[i][String(_this.settings['arrayInImage'])]){
+									detail_li += "<li style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'></li>";
+								}else{
+									detail_li += "<li>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+								}
 							}
 						}
 					}else{
