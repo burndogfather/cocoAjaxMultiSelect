@@ -83,25 +83,38 @@
 			viewCnt = 0;
 			if(data_arr){
 				if(data_arr.length > 0){
-					if(multiple){
+					
+					if(_this.settings['arrayInKey']){
 						for(let i=0; i<data_arr.length; i++){
-							if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								detail_li += "<li><img src='"+data_arr[i][String(_this.settings['arrayInImage'])]+"' /></li>";
 							}else{
-								detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								detail_li += "<li><img src='"+data_arr[i][String(_this.settings['arrayInImage'])]+"' /></li>";
 							}
-							viewCnt++;
 						}
 					}else{
-						for(let i=0; i<data_arr.length; i++){
-							if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-								detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
-							}else{
-								detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+						if(multiple){
+							for(let i=0; i<data_arr.length; i++){
+								if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								}else{
+									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								}
+								viewCnt++;
 							}
-							viewCnt++;
+						}else{
+							for(let i=0; i<data_arr.length; i++){
+								if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								}else{
+									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								}
+								viewCnt++;
+							}
 						}
 					}
+					
+					
 					
 				}else{
 					viewCnt++;
