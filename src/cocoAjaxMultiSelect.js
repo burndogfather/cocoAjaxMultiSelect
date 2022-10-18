@@ -84,7 +84,7 @@
 			if(data_arr){
 				if(data_arr.length > 0){
 					
-					if(_this.settings['arrayInKey']){
+					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_arr.length; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
@@ -187,7 +187,7 @@
 					viewCnt = data_lengh + viewCnt;
 					let more_detail_li = '';
 					
-					if(_this.settings['arrayInKey']){
+					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_lengh; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								more_detail_li += "<li><img src='"+data_arr[i][String(_this.settings['arrayInImage'])]+"' /></li>";
