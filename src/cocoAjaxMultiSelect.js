@@ -59,10 +59,6 @@
 				$("s[for='"+id+"']").hide();
 			}
 			
-			id = null;
-			value = null;
-			multiple = null;
-			
 			this.clickListener();
 			this.closeListener();
 			this.inputListener();
@@ -119,7 +115,6 @@
 			}else{
 				$(".ajaxselect_detail[for='"+id+"']").html(detail_li);
 			}
-			detail_li = null;
 			
 			$(".ajaxselect_detail[for='"+id+"']").scroll(function(){
 				return new Promise(function(resolve, reject) {
@@ -150,15 +145,11 @@
 							}
 						});
 					}
-					scrollTop = null;
-					detailViewHeight = null;
-					resultViewHeight = null;
 					
 				});
 			});
 			$(".ajaxselect_detail[for='"+id+"']").css({top:top, left:left, width:width, 'max-height':this.settings['height']}); //불러온트리의 위치를 보정
 			$("s[for='"+id+"']").hide();
-			return null;
 		},
 		
 		//스크롤링하면 추가 데이터 넣기
@@ -197,11 +188,8 @@
 							reject();
 						}
 					});
-					data_lengh = null;
-					more_detail_li = null;
 				}
 			});
-			return null;
 		},
 		
 		//클릭시 하단에 select화면이 나옴
@@ -262,7 +250,6 @@
 				}
 				focus = null;
 			});
-			return null;
 			
 		},
 		
@@ -321,7 +308,6 @@
 				searchtext = null;
 				$(this).remove();
 			});
-			return null;
 		},
 		
 		//키보드입력시
@@ -431,7 +417,6 @@
 				}
 				focus = null;
 			});
-			return null;
 		},
 		
 		//select화면을 선택해도 포커스를 강제하기
@@ -443,7 +428,6 @@
 					$(this).focus();
 				}
 			});
-			return null;
 		},
 		
 		
@@ -479,7 +463,6 @@
 				}
 				_this.settings['checkedCode'](selectedArray, __this);
 			});
-			return null;
 		}
 	});
 	
