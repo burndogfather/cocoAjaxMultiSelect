@@ -50,6 +50,7 @@
 			if(this.settings['arrayInKey']){
 				multiple = false;
 			}
+			$(this.element).attr('autocomplete', 'off');
 			$(this.element).after("<label for='"+id+"'></label>");
 			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple === 'multiple'){
