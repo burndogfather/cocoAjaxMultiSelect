@@ -264,6 +264,7 @@
 								selectedArray = new Array();
 							}
 							if(data.length > 0){
+								console.log(data);
 								selectedArray[data[i][String(_this.settings['arrayInKey'])]] = data[i][String(_this.settings['arrayInValue'])];
 							}
 						});
