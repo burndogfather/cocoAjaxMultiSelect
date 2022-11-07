@@ -264,11 +264,9 @@
 								selectedArray = new Array();
 							}
 							if(data.length > 0){
-								
 								for(let d=0; d<data.length; d++){
 									selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
 								}
-								
 							}
 							
 						});
