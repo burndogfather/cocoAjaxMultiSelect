@@ -263,15 +263,14 @@
 							if(typeof(selectedArray) === 'undefined'){
 								selectedArray = new Array();
 							}
-							if(typeof data === 'object'){
-								data = Object.entries(data);
-							}
-							console.log(data);
-							if(data.length > 0){
-								
-								console.log(data[i], data);
-								selectedArray[data[i][String(_this.settings['arrayInKey'])]] = data[i][String(_this.settings['arrayInValue'])];
-							}
+							console.log(typeof data);
+							//if(typeof data === 'array'){
+								if(data.length > 0){
+									console.log(data[i], data);
+									selectedArray[data[i][String(_this.settings['arrayInKey'])]] = data[i][String(_this.settings['arrayInValue'])];
+								}
+							//}
+							
 						});
 					}
 				}else{
