@@ -263,6 +263,7 @@
 							if(typeof(selectedArray) === 'undefined'){
 								selectedArray = new Array();
 							}
+							console.log(data);
 							if(data.length > 0){
 								
 								console.log(data[i], data);
