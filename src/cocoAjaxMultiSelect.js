@@ -257,6 +257,7 @@
 				}else{
 					multiple = false;
 				}
+				let value = $(this).val();
 				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
@@ -264,6 +265,26 @@
 					$(this).val('');//입력값 초기화 > 검색어를 입력할 수 있도록
 					$(this).attr('readonly', false);//키보드입력가능하게
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
+					
+					if(value !== ''){
+						selectedval = value.split(',');
+						for(let i=0; i<selectedval.length; i++){
+							_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
+								if(typeof(selectedArray) === 'undefined'){
+									selectedArray = new Array();
+								}
+								if(data.length > 0){
+									for(let d=0; d<data.length; d++){
+										selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+									}
+								}
+								
+							});
+						}
+					}else{
+						selectedval = new Array();
+						selectedArray = new Array();
+					}
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						//$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
@@ -291,27 +312,7 @@
 						
 					});
 				}else{
-					let value = $(this).val();
 					
-					if(value !== ''){
-						selectedval = value.split(',');
-						for(let i=0; i<selectedval.length; i++){
-							_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
-								if(typeof(selectedArray) === 'undefined'){
-									selectedArray = new Array();
-								}
-								if(data.length > 0){
-									for(let d=0; d<data.length; d++){
-										selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
-									}
-								}
-								
-							});
-						}
-					}else{
-						selectedval = new Array();
-						selectedArray = new Array();
-					}
 				}
 			});
 			
@@ -322,7 +323,6 @@
 			let multiple = this.$element.attr('multiple');
 			let _this = this;
 			$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(event){
-				console.log(selectedval);
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				let overfor = $(this).attr('for');
