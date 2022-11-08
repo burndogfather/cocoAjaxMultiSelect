@@ -70,6 +70,7 @@
 			this.inputListener();
 			this.holdonFocus();
 			this.checkboxControl();
+			this.searchBtn();
 		},
 		
 		
@@ -475,6 +476,7 @@
 		},
 		
 		
+		
 		//select하단에서 체크박스 선택시
 		checkboxControl:function(){
 			let _this = this;
@@ -553,6 +555,14 @@
 				});
 			}
 			
+		},
+		
+		//검색버튼
+		searchBtn:function(){
+			let _this = this;
+			$(document).on('click.cocoAjaxMultiSelect',"label[for='"+this.$element.attr('id')+"']",function(event){
+				console.log('test!');
+			});
 		}
 	});
 	
