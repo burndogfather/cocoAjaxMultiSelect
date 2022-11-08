@@ -561,11 +561,16 @@
 		searchBtn:function(){
 			let _this = this;
 			$(document).on('click.cocoAjaxMultiSelect',"label[for='"+this.$element.attr('id')+"']",function(event){
+				let id = $(this).attr('id');
+				let multiple = $(this).attr('multiple');
+				if(multiple === 'multiple'){
+					multiple = true;
+				}else{
+					multiple = false;
+				}
 				_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 					searchtext = $(this).val();
 					_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
-				
-					
 					if(data){
 						if(data.length >= _this.settings['pageUnit']){
 							canScrollAjax = true;
@@ -579,6 +584,10 @@
 				});
 			});
 		}
+		
+		
+		
+		
 	});
 	
 	//함수실행@@
