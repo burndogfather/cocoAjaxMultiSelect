@@ -319,6 +319,7 @@
 			let multiple = this.$element.attr('multiple');
 			let _this = this;
 			$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(event){
+				console.log(selectedval);
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				let overfor = $(this).attr('for');
