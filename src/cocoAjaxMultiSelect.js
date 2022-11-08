@@ -561,6 +561,8 @@
 		searchBtn:function(){
 			let _this = this;
 			$(document).on('click.cocoAjaxMultiSelect',"label[for='"+this.$element.attr('id')+"']",function(event){
+				page = 1;
+				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
 				if(multiple === 'multiple'){
@@ -568,20 +570,23 @@
 				}else{
 					multiple = false;
 				}
-				_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
-					searchtext = $(this).val();
-					_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
-					if(data){
-						if(data.length >= _this.settings['pageUnit']){
-							canScrollAjax = true;
+				if(focus == 'on'){
+					_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
+						searchtext = $(this).val();
+						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
+				
+						if(data){
+							if(data.length >= _this.settings['pageUnit']){
+								canScrollAjax = true;
+							}else{
+								canScrollAjax = false;
+							}
 						}else{
 							canScrollAjax = false;
 						}
-					}else{
-						canScrollAjax = false;
-					}
-					
-				});
+						
+					});
+				}
 			});
 		}
 		
