@@ -568,15 +568,16 @@
 				let id = $(_this.element).attr('id');
 				let value = $(_this.element).val();
 				let multiple = $(_this.element).attr('multiple');
+				console.log(multiple);
+				console.log(_this.settings['arrayInKey']);
 				if(_this.settings['arrayInKey']){
 					multiple = false;
 				}
-				console.log(multiple);
+				
 				let searchtext = $(_this.element).val();
 				if(focus === 'on' && searchtext.length > 0){
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
-						console.log(data);
-						console.log(searchtext);
+						
 						_this.detailshow(id, data, multiple, $(_this.element).outerWidth()-30, $(_this.element).position().top+32, $(_this.element).position().left);
 				
 						if(data){
