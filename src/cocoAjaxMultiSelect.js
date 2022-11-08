@@ -294,6 +294,7 @@
 						);
 						let overheight = scrollHeight + document.documentElement.scrollHeight - document.documentElement.clientHeight;
 						
+						console.log($(".ajaxselect_detail[for='"+id+"']"));
 						$(".ajaxselect_detail[for='"+id+"']").after("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
 						//$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
 						
