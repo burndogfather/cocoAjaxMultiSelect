@@ -562,18 +562,20 @@
 			let _this = this;
 			$(document).on('click.cocoAjaxMultiSelect',"label[for='"+this.$element.attr('id')+"']",function(event){
 				page = 1;
-				let focus = $(this).attr('focus');
-				let id = $(this).attr('id');
-				let multiple = $(this).attr('multiple');
+				let focus = $(_this).attr('focus');
+				let id = $(_this).attr('id');
+				let multiple = $(_this).attr('multiple');
 				if(multiple === 'multiple'){
 					multiple = true;
 				}else{
 					multiple = false;
 				}
-				if(focus == 'on'){
-					_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
-						searchtext = $(this).val();
+				console.log(id);
+				if(focus === 'on'){
+					_this.settings['ajaxCode']($(_this).val(), page, _this.settings['pageUnit']).then((data)=>{
 						console.log(data);
+						searchtext = $(this).val();
+						
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 				
 						if(data){
