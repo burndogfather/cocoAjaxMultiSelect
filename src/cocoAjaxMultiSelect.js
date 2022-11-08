@@ -573,6 +573,7 @@
 				if(focus == 'on'){
 					_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 						searchtext = $(this).val();
+						console.log(data);
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 				
 						if(data){
