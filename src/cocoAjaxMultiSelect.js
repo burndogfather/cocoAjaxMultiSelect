@@ -257,30 +257,7 @@
 				}else{
 					multiple = false;
 				}
-				let value = $(this).val();
-				if(focus !== 'on'){
-					return null;
-				}
-				console.log(value);
-				if(value !== ''){
-					selectedval = value.split(',');
-					for(let i=0; i<selectedval.length; i++){
-						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
-							if(typeof(selectedArray) === 'undefined'){
-								selectedArray = new Array();
-							}
-							if(data.length > 0){
-								for(let d=0; d<data.length; d++){
-									selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
-								}
-							}
-							
-						});
-					}
-				}else{
-					selectedval = new Array();
-					selectedArray = new Array();
-				}
+				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
 					$(this).attr('autocomplete','off');
@@ -313,6 +290,28 @@
 						}
 						
 					});
+				}else{
+					let value = $(this).val();
+					
+					if(value !== ''){
+						selectedval = value.split(',');
+						for(let i=0; i<selectedval.length; i++){
+							_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
+								if(typeof(selectedArray) === 'undefined'){
+									selectedArray = new Array();
+								}
+								if(data.length > 0){
+									for(let d=0; d<data.length; d++){
+										selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+									}
+								}
+								
+							});
+						}
+					}else{
+						selectedval = new Array();
+						selectedArray = new Array();
+					}
 				}
 			});
 			
