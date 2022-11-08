@@ -566,26 +566,6 @@
 			$(document).on('click.cocoAjaxMultiSelect',"label[for='"+this.$element.attr('id')+"']",function(event){
 				let focus = $(_this.element).attr('focus');
 				let id = $(_this.element).attr('id');
-				let value = $(_this.element).val();
-				if(value !== ''){
-					selectedval = value.split(',');
-					for(let i=0; i<selectedval.length; i++){
-						_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
-							if(typeof(selectedArray) === 'undefined'){
-								selectedArray = new Array();
-							}
-							if(data.length > 0){
-								for(let d=0; d<data.length; d++){
-									selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
-								}
-							}
-							
-						});
-					}
-				}else{
-					selectedval = new Array();
-					selectedArray = new Array();
-				}
 				let multiple = $(_this.element).attr('multiple');
 				if(multiple === 'multiple'){
 					multiple = true;
