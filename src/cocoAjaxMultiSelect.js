@@ -258,6 +258,9 @@
 					multiple = false;
 				}
 				let value = $(this).val();
+				if(focus !== 'on'){
+					return null;
+				}
 				console.log(value);
 				if(value !== ''){
 					selectedval = value.split(',');
