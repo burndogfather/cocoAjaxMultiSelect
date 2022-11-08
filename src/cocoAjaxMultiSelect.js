@@ -294,9 +294,7 @@
 						);
 						let overheight = scrollHeight + document.documentElement.scrollHeight - document.documentElement.clientHeight;
 						
-						console.log($(".ajaxselect_detail[for='"+id+"']"));
-						$(".ajaxselect_detail[for='"+id+"']").after("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
-						//$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
+						$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
 						
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 
