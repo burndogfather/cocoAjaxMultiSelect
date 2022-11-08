@@ -574,8 +574,8 @@
 					_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 						console.log(data);
 						searchtext = $(this).val();
-						
-						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
+						console.log(searchtext);
+						_this.detailshow(id, data, multiple, $(_this).outerWidth()-30, $(_this).position().top+32, $(_this).position().left);
 				
 						if(data){
 							if(data.length >= _this.settings['pageUnit']){
