@@ -583,7 +583,6 @@
 					multiple = false;
 				}
 				let searchtext = $(_this.element).val();
-				console.log(selectedval);
 				if(focus === 'on'){
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						
