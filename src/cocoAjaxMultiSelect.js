@@ -258,6 +258,7 @@
 					multiple = false;
 				}
 				let value = $(this).val();
+				console.log(value);
 				if(value !== ''){
 					selectedval = value.split(',');
 					for(let i=0; i<selectedval.length; i++){
