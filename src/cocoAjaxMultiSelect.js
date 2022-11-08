@@ -292,10 +292,11 @@
 							document.body.offsetHeight, document.documentElement.offsetHeight,
 							document.body.clientHeight, document.documentElement.clientHeight
 						);
+						let overheight = scrollHeight + document.documentElement.scrollHeight - document.documentElement.clientHeight;
 						console.log(document.documentElement.scrollHeight - document.documentElement.clientHeight);
-						console.log(scrollHeight);
+						console.log(overheight);
 						
-						$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+scrollHeight+document.documentElement.scrollHeight - document.documentElement.clientHeight+"px;'></div>");
+						$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+scrollHeight+"px;'></div>");
 						
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 
