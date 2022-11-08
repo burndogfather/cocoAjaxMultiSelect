@@ -562,13 +562,13 @@
 			let _this = this;
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
-			let focus = $(this.element).attr('focus');
 			let multiple = $(this.element).attr('multiple');
 			if(this.settings['arrayInKey']){
 				multiple = false;
 			}
 			page = 1;
 			$(document).on('click.cocoAjaxMultiSelect',"label[for='"+this.$element.attr('id')+"']",function(event){
+				let focus = $(_this.element).attr('focus');
 				console.log(focus);
 				console.log(id);
 				console.log(multiple);
