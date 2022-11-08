@@ -575,7 +575,7 @@
 						console.log(data);
 						searchtext = $(this).val();
 						console.log(searchtext);
-						_this.detailshow(id, data, multiple, $(_this).outerWidth()-30, $(_this).position().top+32, $(_this).position().left);
+						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 				
 						if(data){
 							if(data.length >= _this.settings['pageUnit']){
