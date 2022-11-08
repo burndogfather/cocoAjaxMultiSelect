@@ -571,7 +571,7 @@
 			page = 1;
 			$(document).on('click.cocoAjaxMultiSelect',"label[for='"+this.$element.attr('id')+"']",function(event){
 				
-				console.log(this);
+				console.log(_this);
 				if(focus === 'on'){
 					_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 						console.log(data);
