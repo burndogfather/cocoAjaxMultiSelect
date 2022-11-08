@@ -573,7 +573,7 @@
 					multiple = false;
 				}
 				let searchtext = $(_this.element).val();
-				if(focus === 'on' && searchtext.length > 0){
+				if(focus === 'on'){
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						
 						_this.detailshow(id, data, multiple, $(_this.element).outerWidth()-30, $(_this.element).position().top+32, $(_this.element).position().left);
