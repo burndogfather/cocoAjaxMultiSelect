@@ -560,12 +560,11 @@
 		//검색버튼
 		searchBtn:function(){
 			let _this = this;
-			let focus = $(this).attr('focus');
-			let id = $(this).attr('id');
-			let multiple = $(this).attr('multiple');
-			if(multiple === 'multiple'){
-				multiple = true;
-			}else{
+			let id = $(this.element).attr('id');
+			let value = $(this.element).val();
+			let focus = $(this.element).attr('focus');
+			let multiple = $(this.element).attr('multiple');
+			if(this.settings['arrayInKey']){
 				multiple = false;
 			}
 			page = 1;
