@@ -292,7 +292,8 @@
 							document.body.offsetHeight, document.documentElement.offsetHeight,
 							document.body.clientHeight, document.documentElement.clientHeight
 						);
-						console.log(scrollHeight);
+						
+						console.log(document.documentElement.scrollHeight);
 						
 						$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+scrollHeight+"px;'></div>");
 						
