@@ -568,12 +568,11 @@
 				let id = $(_this.element).attr('id');
 				let value = $(_this.element).val();
 				let multiple = $(_this.element).attr('multiple');
-				console.log(multiple);
-				console.log(_this.settings['arrayInKey']);
-				if(_this.settings['arrayInKey']){
+				if(multiple === 'multiple'){
+					multiple = true;
+				}else{
 					multiple = false;
 				}
-				
 				let searchtext = $(_this.element).val();
 				if(focus === 'on' && searchtext.length > 0){
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
