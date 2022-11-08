@@ -65,6 +65,7 @@
 				$("s[for='"+id+"']").hide();
 			}
 			
+			
 			this.clickListener();
 			this.closeListener();
 			this.inputListener();
@@ -285,6 +286,13 @@
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						//$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
+						
+						let scrollHeight = Math.max(
+							document.body.scrollHeight, document.documentElement.scrollHeight,
+							document.body.offsetHeight, document.documentElement.offsetHeight,
+							document.body.clientHeight, document.documentElement.clientHeight
+						);
+						console.log(scrollHeight);
 						$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over'></div>");
 						
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
