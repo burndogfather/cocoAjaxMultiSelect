@@ -560,19 +560,20 @@
 		//검색버튼
 		searchBtn:function(){
 			let _this = this;
+			let focus = $(this).attr('focus');
+			let id = $(this).attr('id');
+			let multiple = $(this).attr('multiple');
+			if(multiple === 'multiple'){
+				multiple = true;
+			}else{
+				multiple = false;
+			}
+			page = 1;
 			$(document).on('click.cocoAjaxMultiSelect',"label[for='"+this.$element.attr('id')+"']",function(event){
-				page = 1;
-				let focus = $(_this).attr('focus');
-				let id = $(_this).attr('id');
-				let multiple = $(_this).attr('multiple');
-				if(multiple === 'multiple'){
-					multiple = true;
-				}else{
-					multiple = false;
-				}
-				console.log(id);
+				
+				console.log(this);
 				if(focus === 'on'){
-					_this.settings['ajaxCode']($(_this).val(), page, _this.settings['pageUnit']).then((data)=>{
+					_this.settings['ajaxCode']($(this).val(), page, _this.settings['pageUnit']).then((data)=>{
 						console.log(data);
 						searchtext = $(this).val();
 						
