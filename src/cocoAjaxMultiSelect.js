@@ -571,9 +571,9 @@
 				if(_this.settings['arrayInKey']){
 					multiple = false;
 				}
+				console.log(multiple);
 				let searchtext = $(_this.element).val();
-				console.log(searchtext.length);
-				if(focus === 'on' && searchtext !== ''){
+				if(focus === 'on' && searchtext.length > 0){
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						console.log(data);
 						console.log(searchtext);
