@@ -69,7 +69,7 @@
 			this.clickListener();
 			this.closeListener();
 			this.inputListener();
-			this.holdonFocus();
+			//this.holdonFocus();
 			this.checkboxControl();
 			this.searchBtn();
 		},
