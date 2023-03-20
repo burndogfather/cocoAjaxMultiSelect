@@ -265,11 +265,6 @@
 					$(this).val('');//입력값 초기화 > 검색어를 입력할 수 있도록
 					$(this).attr('readonly', false);//키보드입력가능하게
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
-					if($(this).attr('autofocus') === 'off'{
-						$(this).blur();
-					}else{
-						$(this).focus();
-					}
 					
 					if(value !== ''){
 						selectedval = value.split(',');
