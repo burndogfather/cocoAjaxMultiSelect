@@ -123,8 +123,9 @@
 							}
 						}else{
 							for(let i=0; i<data_arr.length; i++){
-								console.log(data_arr[i]);
-								if(selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+								if(checkkey === true && selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
+									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								}else if(checkkey === false && selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
 									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
