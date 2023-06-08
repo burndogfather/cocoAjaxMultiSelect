@@ -618,7 +618,6 @@
 					let __this = _this;
 					let value = $(this).next('label').text();
 					let key = $(this).attr('id');
-					console.log(key);
 					if($(this).is(":checked")){
 						if(multiple){
 							selectedkey.push(key);
@@ -644,6 +643,7 @@
 							}
 						}
 					}
+					console.log(selectedkey);
 					_this.settings['checkedCode'](selectedArray, __this);
 				});
 			}
