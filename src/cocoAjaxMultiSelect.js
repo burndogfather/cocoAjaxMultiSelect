@@ -220,6 +220,7 @@
 							}
 						}else{
 							for(let i=0; i<data_lengh; i++){
+								console.log('COCO_DEBUG : '+selectedval);
 								if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
