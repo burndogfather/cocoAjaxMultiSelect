@@ -274,6 +274,10 @@
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
 					if(value !== ''){
+						if(force_key){
+							selectedkey = force_key.split(',');
+							console.log(selectedkey);
+						}
 						selectedval = value.split(',');
 						for(let i=0; i<selectedval.length; i++){
 							_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
@@ -283,6 +287,7 @@
 								if(data.length > 0){
 									for(let d=0; d<data.length; d++){
 										selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+										
 									}
 								}
 								
