@@ -278,6 +278,11 @@
 					
 					if(force_key){
 						selectedkey = force_key.split(',');
+						selectedval = value.split(',');
+						if(selectedkey.length !=== selectedval.length){
+							alert('ERROR! force_selected_key의 갯수와 value값의 갯수가 다릅니다.'); 
+							throw "stop"; 
+						}
 						for(let i=0; i<selectedkey.length; i++){
 							_this.settings['ajaxCode'](selectedval[i], 1, 1, selectedkey[i]).then((data)=>{
 								if(typeof(selectedArray) === 'undefined'){
