@@ -390,8 +390,9 @@
 				let overfor = $(this).attr('for');
 				if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 					let values = '';
+					let keys = '';
 					
-					if(selectedval !== undefined){
+					if(selectedval !== undefined && selectedkey !== undefined){
 						//모달창을 제대로 닫을때
 						for(let i=0; i<selectedval.length; i++){
 							values += selectedval[i];
@@ -399,6 +400,13 @@
 								values += ',';
 							}
 						}
+						for(let i=0; i<selectedkey.length; i++){
+							keys += selectedkey[i];
+							if(i < selectedkey.length - 1){
+								keys += ',';
+							}
+						}
+						console.log(keys);
 						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
 							_this.settings['blurCode'](selectedArray, _this);
 						});
