@@ -592,8 +592,11 @@
 							$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
 								if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").is('[force_selected_key]')){
 									console.log('OK');
+									_this.settings['blurCode'](selectedArray, _this);
+								}else{
+									_this.settings['blurCode'](selectedArray, _this);
 								}
-								_this.settings['blurCode'](selectedArray, _this);
+								
 							});
 							
 							
