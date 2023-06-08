@@ -643,7 +643,6 @@
 							}
 						}
 					}
-					console.log(selectedkey);
 					_this.settings['checkedCode'](selectedArray, __this);
 				});
 			}
