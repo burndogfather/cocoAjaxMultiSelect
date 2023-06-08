@@ -5,6 +5,7 @@
 	searchtext = null,
 	termTimeout = null,
 	selectedval,
+	selectedkey,
 	selectedArray,
 	canScrollAjax = true,
 	viewCnt = 0,
@@ -259,6 +260,11 @@
 					multiple = false;
 				}
 				let value = $(this).val();
+				if(this.hasAttribute('selected-key')){
+					let key = $(this).attr('selected-key');
+					console.log(key);
+				}
+				
 				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
