@@ -636,6 +636,9 @@
 							selectedval = selectedval.filter(function(f) { 
 								return f !== value; 
 							});
+							selectedkey = selectedkey.filter(function(f) { 
+								return f !== key; 
+							});
 							if(selectedArray[key]){
 								delete selectedArray[key];
 							}
