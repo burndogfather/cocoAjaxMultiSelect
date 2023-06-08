@@ -279,7 +279,7 @@
 					if(force_key){
 						selectedkey = force_key.split(',');
 						selectedval = value.split(',');
-						if(selectedkey.length !=== selectedval.length){
+						if(selectedkey.length !== selectedval.length){
 							alert('ERROR! force_selected_key의 갯수와 value값의 갯수가 다릅니다.'); 
 							throw "stop"; 
 						}
@@ -288,6 +288,7 @@
 								if(typeof(selectedArray) === 'undefined'){
 									selectedArray = new Array();
 								}
+								console.log(data);
 								if(data.length > 0){
 									for(let d=0; d<data.length; d++){
 										selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
