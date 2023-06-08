@@ -9,7 +9,7 @@
 	canScrollAjax = true,
 	viewCnt = 0,
 	defaults = {
-		'ajaxCode': function(input, page, pagging, selected_key=false){ 
+		'ajaxCode': function(input, page, pagging, force_selected_key=false){ 
 			alert('ERROR! ajaxfunc 옵션을 반드시 작성해주세요!'); 
 			throw "stop"; 
 		}, //ajax 호출코드 반드시 동기방식으로 사용해야함.
