@@ -5,7 +5,7 @@
 	searchtext = null,
 	termTimeout = null,
 	selectedval,
-	selectedkey,
+	selectedkey = new Array(),
 	selectedArray,
 	canScrollAjax = true,
 	viewCnt = 0,
