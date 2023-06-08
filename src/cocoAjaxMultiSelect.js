@@ -212,6 +212,7 @@
 					if(selectedkey.length > 0){
 						checkkey = true;
 					}
+					console.log(checkkey);
 					
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_lengh; i++){
