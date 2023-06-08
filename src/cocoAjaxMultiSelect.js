@@ -260,7 +260,7 @@
 				}
 				let value = $(this).val();
 				if(this.hasAttribute('force_selected_key')){
-					console.log(_this.settings['ajaxCode']);
+					console.log(_this.settings['ajaxCode'].prototype.constructor.length);
 				}
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
