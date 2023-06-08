@@ -290,11 +290,12 @@
 										
 									}
 								}
-								
+								console.log(selectedArray);
 							});
 						}
 					}else{
 						selectedval = new Array();
+						selectedkey = new Array();
 						selectedArray = new Array();
 					}
 					
