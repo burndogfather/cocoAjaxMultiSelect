@@ -260,12 +260,12 @@
 					multiple = false;
 				}
 				let value = $(this).val();
+				
+				let force_key = false;
 				if(this.hasAttribute('selected-key')){
-					let key = $(this).attr('selected-key');
-					console.log(key);
+					force_key = $(this).attr('selected-key');
+					console.log(force_key);
 				}
-				
-				
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
 					$(this).attr('autocomplete','off');
@@ -273,25 +273,42 @@
 					$(this).attr('readonly', false);//키보드입력가능하게
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
-					if(value !== ''){
-						selectedval = value.split(',');
-						for(let i=0; i<selectedval.length; i++){
-							_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
+					if(force_key){
+						selectedkey = force_key.split(',');
+						for(let i=0; i<selectedkey.length; i++){
+							_this.settings['ajaxCode'](selectedkey[i], 1, 1).then((data)=>{
 								if(typeof(selectedArray) === 'undefined'){
 									selectedArray = new Array();
 								}
 								if(data.length > 0){
 									for(let d=0; d<data.length; d++){
-										selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+										selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInKey'])];
 									}
 								}
-								
 							});
 						}
 					}else{
-						selectedval = new Array();
-						selectedArray = new Array();
+						if(value !== ''){
+							selectedval = value.split(',');
+							for(let i=0; i<selectedval.length; i++){
+								_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
+									if(typeof(selectedArray) === 'undefined'){
+										selectedArray = new Array();
+									}
+									if(data.length > 0){
+										for(let d=0; d<data.length; d++){
+											selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+										}
+									}
+									
+								});
+							}
+						}else{
+							selectedval = new Array();
+							selectedArray = new Array();
+						}
 					}
+					
 					
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						//$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
