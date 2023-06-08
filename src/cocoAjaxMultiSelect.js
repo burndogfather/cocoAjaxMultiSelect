@@ -86,9 +86,12 @@
 				detail_li += "<ul for='"+id+"' class='ajaxselect_detail' style='height="+this.settings['height']+"'>";	
 			}
 			viewCnt = 0;
-			console.log(data_arr);
-			console.log(selectedkey);
+			
 			if(data_arr){
+				let checkkey = false;
+				if(selectedkey.length > 0){
+					checkkey = true;
+				}
 				if(data_arr.length > 0){
 					
 					if(_this.settings['arrayInImage']){
