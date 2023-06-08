@@ -212,11 +212,16 @@
 					if(selectedkey.length > 0){
 						checkkey = true;
 					}
-					console.log(checkkey);
 					
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_lengh; i++){
-							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+							if(checkkey === true && selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+								if(data_arr[i][String(_this.settings['arrayInImage'])]){
+									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+								}else{
+									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+								}
+							}else if(checkkey === false && selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
