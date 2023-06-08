@@ -5,7 +5,6 @@
 	searchtext = null,
 	termTimeout = null,
 	selectedval,
-	selectedkey,
 	selectedArray,
 	canScrollAjax = true,
 	viewCnt = 0,
@@ -260,12 +259,6 @@
 					multiple = false;
 				}
 				let value = $(this).val();
-				
-				let force_key = false;
-				if(this.hasAttribute('selected-key')){
-					force_key = $(this).attr('selected-key');
-					console.log(force_key);
-				}
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
 					$(this).attr('autocomplete','off');
@@ -274,10 +267,6 @@
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
 					if(value !== ''){
-						if(force_key){
-							selectedkey = force_key.split(',');
-							console.log(selectedkey);
-						}
 						selectedval = value.split(',');
 						for(let i=0; i<selectedval.length; i++){
 							_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
@@ -290,12 +279,10 @@
 										
 									}
 								}
-								console.log(selectedArray);
 							});
 						}
 					}else{
 						selectedval = new Array();
-						selectedkey = new Array();
 						selectedArray = new Array();
 					}
 					
