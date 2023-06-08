@@ -593,7 +593,6 @@
 								if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").is('[force_selected_key]')){
 									console.log('OK');
 								}
-								console.log();
 								_this.settings['blurCode'](selectedArray, _this);
 							});
 							
@@ -621,9 +620,11 @@
 					let key = $(this).attr('id');
 					if($(this).is(":checked")){
 						if(multiple){
+							selectedkey.push(key);
 							selectedval.push(value);
 							selectedArray[key] = value;
 						}else{
+							selectedkey = new Array(key);
 							selectedval = new Array(value);
 							selectedArray = new Array();
 							selectedArray[key] = value;
