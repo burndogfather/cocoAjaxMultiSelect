@@ -208,6 +208,11 @@
 					viewCnt = data_lengh + viewCnt;
 					let more_detail_li = '';
 					
+					let checkkey = false;
+					if(selectedkey.length > 0){
+						checkkey = true;
+					}
+					
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_lengh; i++){
 							if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
@@ -236,7 +241,9 @@
 							}
 						}else{
 							for(let i=0; i<data_lengh; i++){
-								if(selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								if(checkkey === true && selectedval.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
+								}else if(checkkey === false && selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
