@@ -1,5 +1,4 @@
 ;(function($, window, document, undefined){
-	"use strict";
 	var pluginName = 'cocoAjaxMultiSelect',
 	page = 1,
 	searchtext = null,
