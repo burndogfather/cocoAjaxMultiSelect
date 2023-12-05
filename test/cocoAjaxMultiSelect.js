@@ -1,5 +1,5 @@
 ;(function($, window, document, undefined){
-	var pluginName = 'cocoAjaxMultiSelect',
+	var pluginName = 'cocoAjaxMultiSelect_test',
 	page = 1,
 	searchtext = null,
 	termTimeout = null,
@@ -31,7 +31,7 @@
 		'height':300 //select창의 높이값
 	};
 	//메인함수
-	function cocoAjaxMultiSelect(element, options) {
+	function cocoAjaxMultiSelect_test(element, options) {
 		this.element = element;
 		this.$element = $(element);
 		this.settings = $.extend( {}, defaults, options );
@@ -42,7 +42,7 @@
 	};
 	
 	//호출할 수 있도록 프로토타이핑
-	$.extend(cocoAjaxMultiSelect.prototype,{
+	$.extend(cocoAjaxMultiSelect_test.prototype,{
 		init: function(){
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
@@ -276,7 +276,7 @@
 		//클릭시 하단에 select화면이 나옴
 		clickListener:function(){
 			let _this = this;
-			$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+			$(document).on('click.cocoAjaxMultiSelect_test',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect_test']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				let focus = $(this).attr('focus');
@@ -292,7 +292,7 @@
 				let force_key = false;
 				if(this.hasAttribute('force_selected_key')){
 					if(_this.settings['ajaxCode'].prototype.constructor.length !== 4){
-						alert('ERROR! cocoAjaxMultiSelect의 Attribute상 force_selected_key를 사용하기 위해서는 ajaxfunc함수값의 4번째 인자가 반드시 필요합니다!'); 
+						alert('ERROR! cocoAjaxMultiSelect_test의 Attribute상 force_selected_key를 사용하기 위해서는 ajaxfunc함수값의 4번째 인자가 반드시 필요합니다!'); 
 						throw "stop"; 
 					}
 					force_key = $(this).attr('force_selected_key');
@@ -357,7 +357,7 @@
 						);
 						let overheight = scrollHeight + document.documentElement.scrollHeight - document.documentElement.clientHeight;
 						
-						$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
+						$("#"+id+"[type='cocoAjaxMultiSelect_test']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
 						
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 
@@ -383,7 +383,7 @@
 		closeListener:function(){
 			let multiple = this.$element.attr('multiple');
 			let _this = this;
-			$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(event){
+			$(document).on('click.cocoAjaxMultiSelect_test',".ajaxselect_over[for='"+this.$element.attr('id')+"']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				let overfor = $(this).attr('for');
@@ -406,9 +406,9 @@
 							}
 						}
 						
-						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
-							if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").is('[force_selected_key]')){
-								$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").attr('force_selected_key', keys).promise().done(function(){
+						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").val(values).promise().done(function(){
+							if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").is('[force_selected_key]')){
+								$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").attr('force_selected_key', keys).promise().done(function(){
 									_this.settings['blurCode'](selectedArray, _this);
 								});
 							}else{
@@ -434,8 +434,8 @@
 						$("s[for='"+overfor+"']").hide();
 					}
 					
-					$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
-					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
+					$("input[type='cocoAjaxMultiSelect_test']").removeAttr('focus');
+					$("input[type='cocoAjaxMultiSelect_test']").attr('readonly',true);
 					$(".ajaxselect_detail[for='"+overfor+"']").remove();
 					$(".ajaxselect_over[for='"+overfor+"']").remove();
 					
@@ -451,7 +451,7 @@
 			let _this = this;
 			let inputReg = new RegExp(this.settings['regularExpression'], 'g');
 			//엔터키 감지용
-			$(document).on('keypress.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(e){
+			$(document).on('keypress.cocoAjaxMultiSelect_test',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect_test']",function(e){
 				e.stopImmediatePropagation();
 				e.stopPropagation();
 				if(e.keyCode == 13){
@@ -486,7 +486,7 @@
 					}
 				}
 			});
-			$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+			$(document).on('input.cocoAjaxMultiSelect_test',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect_test']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				page = 1;
@@ -555,7 +555,7 @@
 		
 		//select화면을 선택해도 포커스를 강제하기
 		holdonFocus:function(){
-			$(document).on('blur.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
+			$(document).on('blur.cocoAjaxMultiSelect_test',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect_test']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
 				if($(this).attr('focus') == 'on'){
@@ -571,7 +571,7 @@
 			let _this = this;
 			let multiple = this.$element.attr('multiple');
 			if(_this.settings['arrayInImage']){
-				$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] li",function(event){
+				$(document).on('click.cocoAjaxMultiSelect_test',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] li",function(event){
 					event.stopImmediatePropagation();
 					event.stopPropagation();
 					let __this = _this;
@@ -602,9 +602,9 @@
 									keys += ',';
 								}
 							}
-							$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
-								if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").is('[force_selected_key]')){
-									$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").attr('force_selected_key', keys).promise().done(function(){
+							$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").val(values).promise().done(function(){
+								if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").is('[force_selected_key]')){
+									$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").attr('force_selected_key', keys).promise().done(function(){
 										_this.settings['blurCode'](selectedArray, _this);
 									});
 								}else{
@@ -618,8 +618,8 @@
 							$("s[for='"+overfor+"']").hide();
 						}
 						
-						$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
-						$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
+						$("input[type='cocoAjaxMultiSelect_test']").removeAttr('focus');
+						$("input[type='cocoAjaxMultiSelect_test']").attr('readonly',true);
 						$(".ajaxselect_detail[for='"+overfor+"']").remove();
 						$(".ajaxselect_over[for='"+overfor+"']").remove();
 						
@@ -629,7 +629,7 @@
 					$(this).parent().remove();
 				});
 			}else{
-				$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
+				$(document).on('change.cocoAjaxMultiSelect_test',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
 					event.stopImmediatePropagation();
 					event.stopPropagation();
 					let __this = _this;
@@ -671,7 +671,7 @@
 			let _this = this;
 			
 			page = 1;
-			$(document).on('click.cocoAjaxMultiSelect',"label[for='"+this.$element.attr('id')+"']",function(event){
+			$(document).on('click.cocoAjaxMultiSelect_test',"label[for='"+this.$element.attr('id')+"']",function(event){
 				let focus = $(_this.element).attr('focus');
 				let id = $(_this.element).attr('id');
 				let multiple = $(_this.element).attr('multiple');
@@ -710,7 +710,7 @@
 	$.fn[ pluginName ] = function(options){
 		return this.each(function() {
 			if(!$.data(this, pluginName)){
-				$.data(this, pluginName, new cocoAjaxMultiSelect(this, options));
+				$.data(this, pluginName, new cocoAjaxMultiSelect_test(this, options));
 			}
 		});
 	};
