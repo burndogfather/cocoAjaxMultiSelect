@@ -645,22 +645,7 @@
 						
 					}else{
 						if(multiple){
-							/*
-							__this.selectedval = __this.selectedval.filter(function(f) { 
-								return f !== value; 
-							});
-							__this.selectedkey = __this.selectedkey.filter(function(f) { 
-								return f !== key; 
-							});
-							*/
 							if(__this.selectedArray[key]){
-								let idx = __this.selectedArray.indexOf(__this.selectedArray[key]);
-								console.log(__this.selectedkey);
-								console.log(key);
-								console.log(__this.selectedval);
-								console.log(value);
-								console.log(idx);
-								
 								__this.selectedkey.splice(__this.selectedkey.indexOf(key), 1);
 								__this.selectedval.splice(__this.selectedval.indexOf(value), 1);
 								delete __this.selectedArray[key];
