@@ -304,7 +304,6 @@
 					$(this).attr('readonly', false);//키보드입력가능하게
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
-					console.log(force_key);
 					if(force_key){
 						selectedkey = force_key.split(',');
 						selectedval = value.split(',');
