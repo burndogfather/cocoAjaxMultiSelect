@@ -3,9 +3,6 @@
 	page = 1,
 	searchtext = null,
 	termTimeout = null,
-	selectedval,
-	selectedkey = new Array(),
-	selectedArray,
 	canScrollAjax = true,
 	viewCnt = 0,
 	defaults = {
@@ -32,7 +29,9 @@
 	};
 	//메인함수
 	function cocoAjaxMultiSelect_test(element, options) {
-		var data;
+		this.selectedval;
+		this.selectedkey = new Array();
+		this.selectedArray;
 		this.element = element;
 		this.$element = $(element);
 		this.settings = $.extend( {}, defaults, options );
