@@ -3,6 +3,9 @@
 	page = 1,
 	searchtext = null,
 	termTimeout = null,
+	selectedval,
+	selectedkey = new Array(),
+	selectedArray,
 	canScrollAjax = true,
 	viewCnt = 0,
 	defaults = {
@@ -32,9 +35,6 @@
 		this.element = element;
 		this.$element = $(element);
 		this.settings = $.extend( {}, defaults, options );
-		this.selectedval;
-		this.selectedkey;
-		this.selectedArray = new Array();
 		this._defaults = defaults;
 		this._name = pluginName;
 		this.init();
@@ -711,7 +711,6 @@
 	$.fn[ pluginName ] = function(options){
 		return this.each(function() {
 			if(!$.data(this, pluginName)){
-				console.log(this, pluginName);
 				$.data(this, pluginName, new cocoAjaxMultiSelect_test(this, options));
 			}
 		});
