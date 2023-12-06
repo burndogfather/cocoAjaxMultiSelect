@@ -5,8 +5,8 @@
 */
 @font-face {
   font-family: 'xeicon';
-  src: url("fonts/xeicon.eot?3ka2yj");
-  src: url("fonts/xeicon.eot?3ka2yj#iefix") format("embedded-opentype"), url("fonts/xeicon.woff2?3ka2yj") format("woff2"), url("fonts/xeicon.ttf?3ka2yj") format("truetype"), url("fonts/xeicon.woff?3ka2yj") format("woff"), url("fonts/xeicon.svg?3ka2yj#xeicon") format("svg");
+  src: url("//cdn.jsdelivr.net/npm/xeicon@2.3.3/fonts/xeicon.eot?3ka2yj");
+  src: url("//cdn.jsdelivr.net/npm/xeicon@2.3.3/fonts/xeicon.eot?3ka2yj#iefix") format("embedded-opentype"), url("//cdn.jsdelivr.net/npm/xeicon@2.3.3/fonts/xeicon.woff2?3ka2yj") format("woff2"), url("//cdn.jsdelivr.net/npm/xeicon@2.3.3/fonts/xeicon.ttf?3ka2yj") format("truetype"), url("//cdn.jsdelivr.net/npm/xeicon@2.3.3/fonts/xeicon.woff?3ka2yj") format("woff"), url("//cdn.jsdelivr.net/npm/xeicon@2.3.3/fonts/xeicon.svg?3ka2yj#xeicon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
