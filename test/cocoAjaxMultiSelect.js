@@ -653,11 +653,12 @@
 								return f !== key; 
 							});
 							*/
-							console.log(this);
 							if(__this.selectedArray[key]){
 								let idx = __this.selectedArray.indexOf(__this.selectedArray[key]);
 								console.log(__this.selectedkey);
+								console.log(key);
 								console.log(__this.selectedval);
+								console.log(value);
 								console.log(idx);
 								delete __this.selectedArray[key];
 							}
