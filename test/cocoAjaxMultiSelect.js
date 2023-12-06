@@ -55,11 +55,14 @@
 			$(this.element).after("<label for='"+id+"'></label>");
 			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple === 'multiple'){
-				if(value != ''){
+				if(value !== ''){
 					$("s[for='"+id+"']").text(value.split(',').length);
 				}else{
 					$("s[for='"+id+"']").hide();
 					$("s[for='"+id+"']").text('');
+				}
+				if(this.hasAttribute('force_selected_key')){
+					let force_key = $(this).attr('force_selected_key');
 				}
 			}else{
 				$("s[for='"+id+"']").hide();
