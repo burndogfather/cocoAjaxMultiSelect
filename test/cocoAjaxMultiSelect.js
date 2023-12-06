@@ -652,6 +652,7 @@
 								return f !== key; 
 							});
 							if(__this.selectedArray[key]){
+								console.log(key);
 								delete __this.selectedArray[key];
 							}
 						}
