@@ -304,6 +304,7 @@
 						_this.selectedkey = force_key.split(',');
 						_this.selectedval = value.split(',');
 						if(_this.selectedkey.length !== _this.selectedval.length){
+							console.log(_this.selectedkey, _this.selectedval);
 							alert('ERROR! force_selected_key의 갯수와 value값의 갯수가 다릅니다.'); 
 							throw "stop"; 
 						}
