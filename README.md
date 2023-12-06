@@ -45,7 +45,7 @@ Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 
 ```html
 <!-- 종속 라이브러리 -->
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'>
-<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+<script src='https://unpkg.com/jquery@3.7.1/dist/jquery.min.js'></script>
 
 <!-- cocoAjaxMultiSelect 라이브러리 (CDN사용하지 않음) -->
 <link rel='stylesheet' href='https://git.coco.sqs.kr/cocoAjaxMultiSelect/src/cocoAjaxMultiSelect.css'>
