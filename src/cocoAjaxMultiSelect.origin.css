@@ -107,7 +107,8 @@ input[type="cocoAjaxMultiSelect"] + label + s:after {
   content: ")";
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label:before {
-  content: "";
+  content: "\e97a";
+  font-family: xeicon !important;
 }
 input[type="cocoAjaxMultiSelect"][focus="on"] + label:hover {
   cursor: pointer;
