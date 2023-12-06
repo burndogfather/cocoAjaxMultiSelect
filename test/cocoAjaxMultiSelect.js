@@ -710,6 +710,7 @@
 	//함수실행@@
 	$.fn[ pluginName ] = function(options){
 		return this.each(function() {
+			console.log(pluginName, options);
 			if(!$.data(this, pluginName)){
 				$.data(this, pluginName, new cocoAjaxMultiSelect_test(this, options));
 			}
