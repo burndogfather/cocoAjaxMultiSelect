@@ -291,10 +291,6 @@
 				
 				let force_key = false;
 				if(this.hasAttribute('force_selected_key')){
-					if(_this.settings['ajaxCode'].prototype.constructor.length !== 4){
-						alert('ERROR! cocoAjaxMultiSelect_test의 Attribute상 force_selected_key를 사용하기 위해서는 ajaxfunc함수값의 4번째 인자가 반드시 필요합니다!'); 
-						throw "stop"; 
-					}
 					force_key = $(this).attr('force_selected_key');
 				}
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
