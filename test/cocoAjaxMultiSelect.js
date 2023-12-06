@@ -61,9 +61,6 @@
 					$("s[for='"+id+"']").hide();
 					$("s[for='"+id+"']").text('');
 				}
-				if(this.hasAttribute('force_selected_key')){
-					let force_key = $(this).attr('force_selected_key');
-				}
 			}else{
 				$("s[for='"+id+"']").hide();
 			}
