@@ -633,31 +633,30 @@
 					let key = $(this).attr('id');
 					if($(this).is(":checked")){
 						if(multiple){
-							console.log(this);
-							this.selectedkey.push(key);
-							this.selectedval.push(value);
-							this.selectedArray[key] = value;
+							__this.selectedkey.push(key);
+							__this.selectedval.push(value);
+							__this.selectedArray[key] = value;
 						}else{
-							this.selectedkey = new Array(key);
-							this.selectedval = new Array(value);
-							this.selectedArray = new Array();
-							this.selectedArray[key] = value;
+							__this.selectedkey = new Array(key);
+							__this.selectedval = new Array(value);
+							__this.selectedArray = new Array();
+							__this.selectedArray[key] = value;
 						}
 						
 					}else{
 						if(multiple){
-							this.selectedval = this.selectedval.filter(function(f) { 
+							__this.selectedval = __this.selectedval.filter(function(f) { 
 								return f !== value; 
 							});
-							this.selectedkey = this.selectedkey.filter(function(f) { 
+							__this.selectedkey = __this.selectedkey.filter(function(f) { 
 								return f !== key; 
 							});
-							if(this.selectedArray[key]){
-								delete this.selectedArray[key];
+							if(__this.selectedArray[key]){
+								delete __this.selectedArray[key];
 							}
 						}
 					}
-					_this.settings['checkedCode'](this.selectedArray, __this);
+					_this.settings['checkedCode'](__this.selectedArray, __this);
 				});
 			}
 			
