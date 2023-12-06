@@ -645,6 +645,8 @@
 						
 					}else{
 						if(multiple){
+							console.log(__this.selectedval);
+							console.log(value);
 							__this.selectedval = __this.selectedval.filter(function(f) { 
 								return f !== value; 
 							});
