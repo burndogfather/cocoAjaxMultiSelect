@@ -633,6 +633,7 @@
 					let key = $(this).attr('id');
 					if($(this).is(":checked")){
 						if(multiple){
+							console.log(this);
 							this.selectedkey.push(key);
 							this.selectedval.push(value);
 							this.selectedArray[key] = value;
