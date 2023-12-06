@@ -55,7 +55,7 @@ Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 
   
 ### 2. ```html``` 코드상에 아래코드를 입력합니다.
 ```html
-<input id='test' type='cocoAjaxMultiSelect' value='가을,바다,태양,요셉' placeholder='여러명의 이름을 선택' multiple/>
+<input id='test' type='cocoAjaxMultiSelect' value='가을,바다,태양,요셉' force_selected_key='2022062114201994983,2022062114202084646,2022062114201630717,2022062114201813779' placeholder='여러명의 이름을 선택' multiple/>
 
 
 <!--
@@ -63,6 +63,7 @@ Ajax, xhr, fetch등을 이용하여 검색+페이징+다중 선택창을 쉽게 
    
    type : 'cocoAjaxMultiSelect' (필수)
    value : 사전에 선택될 항목을 쉼표로 구분하여 입력 (선택)
+   force_selected_key : 사전에 선택될 항목의 키값을 쉼표로 구분하여 입력 (선택)
    placeholder : 미입력된 화면에서 보여줄 text (선택)
    multiple : 다중선택시 필요 / 미입력시 단일선택으로 적용됨 (선택)
 -->
