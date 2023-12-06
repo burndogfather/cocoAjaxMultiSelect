@@ -95,23 +95,23 @@
 					
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_arr.length; i++){
-							if(checkkey === true && this.selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
+							if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
-							}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+							}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}else{
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"'  name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'  name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}
 							viewCnt++;
@@ -119,23 +119,23 @@
 					}else{
 						if(multiple){
 							for(let i=0; i<data_arr.length; i++){
-								if(checkkey === true && this.selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
-									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
+								}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
-									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}
 								viewCnt++;
 							}
 						}else{
 							for(let i=0; i<data_arr.length; i++){
-								if(checkkey === true && this.selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
-									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
+								}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
-									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}
 								viewCnt++;
 							}
