@@ -652,7 +652,8 @@
 								return f !== key; 
 							});
 							if(__this.selectedArray[key]){
-								console.log(key);
+								let idx = __this.selectedArray.indexOf(__this.selectedArray[key]);
+								console.log(idx);
 								delete __this.selectedArray[key];
 							}
 						}
