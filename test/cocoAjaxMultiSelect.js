@@ -653,6 +653,7 @@
 								return f !== key; 
 							});
 							*/
+							console.log(this);
 							if(__this.selectedArray[key]){
 								let idx = __this.selectedArray.indexOf(__this.selectedArray[key]);
 								console.log(__this.selectedkey);
