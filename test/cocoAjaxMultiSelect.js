@@ -584,27 +584,27 @@
 						let values = '';
 						let keys = '';
 						
-						if(this.selectedval !== undefined && this.selectedkey !== undefined){
+						if(__this.selectedval !== undefined && __this.selectedkey !== undefined){
 							//모달창을 제대로 닫을때
-							for(let i=0; i<this.selectedval.length; i++){
-								values += this.selectedval[i];
-								if(i < this.selectedval.length - 1){
+							for(let i=0; i<__this.selectedval.length; i++){
+								values += __this.selectedval[i];
+								if(i < __this.selectedval.length - 1){
 									values += ',';
 								}
 							}
-							for(let i=0; i<this.selectedkey.length; i++){
-								keys += this.selectedkey[i];
-								if(i < this.selectedkey.length - 1){
+							for(let i=0; i<__this.selectedkey.length; i++){
+								keys += __this.selectedkey[i];
+								if(i < __this.selectedkey.length - 1){
 									keys += ',';
 								}
 							}
 							$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").val(values).promise().done(function(){
 								if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").is('[force_selected_key]')){
 									$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").attr('force_selected_key', keys).promise().done(function(){
-										_this.settings['blurCode'](this.selectedArray, _this);
+										_this.settings['blurCode'](__this.selectedArray, _this);
 									});
 								}else{
-									_this.settings['blurCode'](this.selectedArray, _this);
+									_this.settings['blurCode'](__this.selectedArray, _this);
 								}
 								
 							});
