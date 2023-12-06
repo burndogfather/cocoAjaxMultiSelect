@@ -389,8 +389,6 @@
 					
 					if(_this.selectedval !== undefined && _this.selectedkey !== undefined){
 						//모달창을 제대로 닫을때
-						console.log(_this.selectedval);
-						console.log(_this.selectedkey);
 						for(let i=0; i<_this.selectedval.length; i++){
 							values += _this.selectedval[i];
 							if(i < _this.selectedval.length - 1){
