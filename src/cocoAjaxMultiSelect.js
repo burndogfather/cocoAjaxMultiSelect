@@ -3,13 +3,10 @@
 	page = 1,
 	searchtext = null,
 	termTimeout = null,
-	selectedval,
-	selectedkey = new Array(),
-	selectedArray,
 	canScrollAjax = true,
 	viewCnt = 0,
 	defaults = {
-		'ajaxCode': function(input, page, pagging, force_selected_key=false){ 
+		'ajaxCode': function(input, page, pagging){ 
 			alert('ERROR! ajaxfunc 옵션을 반드시 작성해주세요!'); 
 			throw "stop"; 
 		}, //ajax 호출코드 반드시 동기방식으로 사용해야함.
@@ -32,6 +29,9 @@
 	};
 	//메인함수
 	function cocoAjaxMultiSelect(element, options) {
+		this.selectedval = new Array();
+		this.selectedkey = new Array();
+		this.selectedArray = new Array();
 		this.element = element;
 		this.$element = $(element);
 		this.settings = $.extend( {}, defaults, options );
@@ -55,7 +55,7 @@
 			$(this.element).after("<label for='"+id+"'></label>");
 			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple === 'multiple'){
-				if(value != ''){
+				if(value !== ''){
 					$("s[for='"+id+"']").text(value.split(',').length);
 				}else{
 					$("s[for='"+id+"']").hide();
@@ -88,30 +88,30 @@
 			
 			if(data_arr){
 				let checkkey = false;
-				if(selectedkey.length > 0){
+				if(this.selectedkey.length > 0){
 					checkkey = true;
 				}
 				if(data_arr.length > 0){
 					
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_arr.length; i++){
-							if(checkkey === true && selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
+							if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
-							}else if(checkkey === false && selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+							}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}else{
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
-									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"'  name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li class='img' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'  name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
-									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
+									detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
 							}
 							viewCnt++;
@@ -119,23 +119,23 @@
 					}else{
 						if(multiple){
 							for(let i=0; i<data_arr.length; i++){
-								if(checkkey === true && selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
-									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
+								}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
-									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}
 								viewCnt++;
 							}
 						}else{
 							for(let i=0; i<data_arr.length; i++){
-								if(checkkey === true && selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
-									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
-									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+								if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
+								}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
-									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
+									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}
 								viewCnt++;
 							}
@@ -208,19 +208,19 @@
 					let more_detail_li = '';
 					
 					let checkkey = false;
-					if(selectedkey.length > 0){
+					if(_this.selectedkey.length > 0){
 						checkkey = true;
 					}
 					
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_lengh; i++){
-							if(checkkey === true && selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+							if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
-							}else if(checkkey === false && selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+							}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
@@ -238,9 +238,9 @@
 					}else{
 						if(multiple){
 							for(let i=0; i<data_lengh; i++){
-								if(checkkey === true && selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+								if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 									more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 									more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
@@ -248,9 +248,9 @@
 							}
 						}else{
 							for(let i=0; i<data_lengh; i++){
-								if(checkkey === true && selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+								if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
@@ -291,10 +291,6 @@
 				
 				let force_key = false;
 				if(this.hasAttribute('force_selected_key')){
-					if(_this.settings['ajaxCode'].prototype.constructor.length !== 4){
-						alert('ERROR! cocoAjaxMultiSelect의 Attribute상 force_selected_key를 사용하기 위해서는 ajaxfunc함수값의 4번째 인자가 반드시 필요합니다!'); 
-						throw "stop"; 
-					}
 					force_key = $(this).attr('force_selected_key');
 				}
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
@@ -305,43 +301,43 @@
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
 					if(force_key){
-						selectedkey = force_key.split(',');
-						selectedval = value.split(',');
-						if(selectedkey.length !== selectedval.length){
+						_this.selectedkey = force_key.split(',');
+						_this.selectedval = value.split(',');
+						if(_this.selectedkey.length !== _this.selectedval.length){
 							alert('ERROR! force_selected_key의 갯수와 value값의 갯수가 다릅니다.'); 
 							throw "stop"; 
 						}
-						for(let i=0; i<selectedkey.length; i++){
-							_this.settings['ajaxCode'](selectedval[i], 1, 1, selectedkey[i]).then((data)=>{
-								if(typeof(selectedArray) === 'undefined'){
-									selectedArray = new Array();
+						for(let i=0; i<_this.selectedkey.length; i++){
+							_this.settings['ajaxCode'](_this.selectedval[i], 1, 1, _this.selectedkey[i]).then((data)=>{
+								if(typeof(_this.selectedArray) === 'undefined'){
+									_this.selectedArray = new Array();
 								}
 								if(data.length > 0){
 									for(let d=0; d<data.length; d++){
-										selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+										_this.selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
 									}
 								}
 							});
 						}
 					}else{
 						if(value !== ''){
-							selectedval = value.split(',');
-							for(let i=0; i<selectedval.length; i++){
-								_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
-									if(typeof(selectedArray) === 'undefined'){
-										selectedArray = new Array();
+							_this.selectedval = value.split(',');
+							for(let i=0; i<_this.selectedval.length; i++){
+								_this.settings['ajaxCode'](_this.selectedval[i], 1, 1).then((data)=>{
+									if(typeof(_this.selectedArray) === 'undefined'){
+										_this.selectedArray = new Array();
 									}
 									if(data.length > 0){
 										for(let d=0; d<data.length; d++){
-											selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+											_this.selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
 										}
 									}
 								});
 							}
 						}else{
-							selectedval = new Array();
-							selectedkey = new Array();
-							selectedArray = new Array();
+							_this.selectedval = new Array();
+							_this.selectedkey = new Array();
+							_this.selectedArray = new Array();
 						}
 					}
 					
@@ -391,17 +387,17 @@
 					let values = '';
 					let keys = '';
 					
-					if(selectedval !== undefined && selectedkey !== undefined){
+					if(_this.selectedval !== undefined && _this.selectedkey !== undefined){
 						//모달창을 제대로 닫을때
-						for(let i=0; i<selectedval.length; i++){
-							values += selectedval[i];
-							if(i < selectedval.length - 1){
+						for(let i=0; i<_this.selectedval.length; i++){
+							values += _this.selectedval[i];
+							if(i < _this.selectedval.length - 1){
 								values += ',';
 							}
 						}
-						for(let i=0; i<selectedkey.length; i++){
-							keys += selectedkey[i];
-							if(i < selectedkey.length - 1){
+						for(let i=0; i<_this.selectedkey.length; i++){
+							keys += _this.selectedkey[i];
+							if(i < _this.selectedkey.length - 1){
 								keys += ',';
 							}
 						}
@@ -409,17 +405,17 @@
 						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
 							if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").is('[force_selected_key]')){
 								$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").attr('force_selected_key', keys).promise().done(function(){
-									_this.settings['blurCode'](selectedArray, _this);
+									_this.settings['blurCode'](_this.selectedArray, _this);
 								});
 							}else{
-								_this.settings['blurCode'](selectedArray, _this);
+								_this.settings['blurCode'](_this.selectedArray, _this);
 							}
 							
 						});
 						
 						if(multiple === 'multiple'){
-							if(selectedval.length > 0){
-								$("s[for='"+overfor+"']").text(selectedval.length);
+							if(_this.selectedval.length > 0){
+								$("s[for='"+overfor+"']").text(_this.selectedval.length);
 								$("s[for='"+overfor+"']").show();
 							}else{
 								$("s[for='"+overfor+"']").hide();
@@ -577,38 +573,38 @@
 					let __this = _this;
 					let value = $(this).attr('name');
 					let key = $(this).attr('id');
-					selectedkey = new Array(key);
-					selectedval = new Array(value);
-					selectedArray = new Array();
-					selectedArray[key] = value;
-					_this.settings['checkedCode'](selectedArray, __this);
+					this.selectedkey = new Array(key);
+					this.selectedval = new Array(value);
+					this.selectedArray = new Array();
+					this.selectedArray[key] = value;
+					_this.settings['checkedCode'](this.selectedArray, __this);
 					
 					let overfor = $(this).parent().attr('for');
 					if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 						let values = '';
 						let keys = '';
 						
-						if(selectedval !== undefined && selectedkey !== undefined){
+						if(__this.selectedval !== undefined && __this.selectedkey !== undefined){
 							//모달창을 제대로 닫을때
-							for(let i=0; i<selectedval.length; i++){
-								values += selectedval[i];
-								if(i < selectedval.length - 1){
+							for(let i=0; i<__this.selectedval.length; i++){
+								values += __this.selectedval[i];
+								if(i < __this.selectedval.length - 1){
 									values += ',';
 								}
 							}
-							for(let i=0; i<selectedkey.length; i++){
-								keys += selectedkey[i];
-								if(i < selectedkey.length - 1){
+							for(let i=0; i<__this.selectedkey.length; i++){
+								keys += __this.selectedkey[i];
+								if(i < __this.selectedkey.length - 1){
 									keys += ',';
 								}
 							}
 							$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
 								if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").is('[force_selected_key]')){
 									$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").attr('force_selected_key', keys).promise().done(function(){
-										_this.settings['blurCode'](selectedArray, _this);
+										_this.settings['blurCode'](__this.selectedArray, _this);
 									});
 								}else{
-									_this.settings['blurCode'](selectedArray, _this);
+									_this.settings['blurCode'](__this.selectedArray, _this);
 								}
 								
 							});
@@ -637,30 +633,26 @@
 					let key = $(this).attr('id');
 					if($(this).is(":checked")){
 						if(multiple){
-							selectedkey.push(key);
-							selectedval.push(value);
-							selectedArray[key] = value;
+							__this.selectedkey.push(key);
+							__this.selectedval.push(value);
+							__this.selectedArray[key] = value;
 						}else{
-							selectedkey = new Array(key);
-							selectedval = new Array(value);
-							selectedArray = new Array();
-							selectedArray[key] = value;
+							__this.selectedkey = new Array(key);
+							__this.selectedval = new Array(value);
+							__this.selectedArray = new Array();
+							__this.selectedArray[key] = value;
 						}
 						
 					}else{
 						if(multiple){
-							selectedval = selectedval.filter(function(f) { 
-								return f !== value; 
-							});
-							selectedkey = selectedkey.filter(function(f) { 
-								return f !== key; 
-							});
-							if(selectedArray[key]){
-								delete selectedArray[key];
+							if(__this.selectedArray[key]){
+								__this.selectedkey.splice(__this.selectedkey.indexOf(key), 1);
+								__this.selectedval.splice(__this.selectedval.indexOf(value), 1);
+								delete __this.selectedArray[key];
 							}
 						}
 					}
-					_this.settings['checkedCode'](selectedArray, __this);
+					_this.settings['checkedCode'](__this.selectedArray, __this);
 				});
 			}
 			
@@ -705,6 +697,7 @@
 		
 		
 	});
+	
 	
 	//함수실행@@
 	$.fn[ pluginName ] = function(options){
