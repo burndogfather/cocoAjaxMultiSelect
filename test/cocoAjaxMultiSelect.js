@@ -32,6 +32,7 @@
 	};
 	//메인함수
 	function cocoAjaxMultiSelect_test(element, options) {
+		var data;
 		this.element = element;
 		this.$element = $(element);
 		this.settings = $.extend( {}, defaults, options );
