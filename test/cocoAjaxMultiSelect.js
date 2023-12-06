@@ -3,9 +3,6 @@
 	page = 1,
 	searchtext = null,
 	termTimeout = null,
-	selectedval,
-	selectedkey = new Array(),
-	selectedArray,
 	canScrollAjax = true,
 	viewCnt = 0,
 	defaults = {
