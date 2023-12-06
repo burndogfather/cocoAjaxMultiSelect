@@ -29,9 +29,9 @@
 	};
 	//메인함수
 	function cocoAjaxMultiSelect_test(element, options) {
-		this.selectedval;
+		this.selectedval = new Array();
 		this.selectedkey = new Array();
-		this.selectedArray;
+		this.selectedArray = new Array();
 		this.element = element;
 		this.$element = $(element);
 		this.settings = $.extend( {}, defaults, options );
@@ -88,20 +88,20 @@
 			
 			if(data_arr){
 				let checkkey = false;
-				if(selectedkey.length > 0){
+				if(this.selectedkey.length > 0){
 					checkkey = true;
 				}
 				if(data_arr.length > 0){
 					
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_arr.length; i++){
-							if(checkkey === true && selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
+							if(checkkey === true && this.selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
 									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
 									detail_li += "<li id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
-							}else if(checkkey === false && selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+							}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
 									detail_li += "<li class='img' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' name='"+data_arr[i][String(this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+");'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
@@ -119,9 +119,9 @@
 					}else{
 						if(multiple){
 							for(let i=0; i<data_arr.length; i++){
-								if(checkkey === true && selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
+								if(checkkey === true && this.selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
 									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+								}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
 									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									detail_li += "<li><input type='checkbox' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
@@ -130,9 +130,9 @@
 							}
 						}else{
 							for(let i=0; i<data_arr.length; i++){
-								if(checkkey === true && selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
+								if(checkkey === true && this.selectedkey.includes(data_arr[i][String(this.settings['arrayInKey'])])){
 									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
+								}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(this.settings['arrayInValue'])])){
 									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(this.settings['arrayInKey'])]+"'>"+data_arr[i][String(this.settings['arrayInValue'])]+"</label></li>";
@@ -208,19 +208,19 @@
 					let more_detail_li = '';
 					
 					let checkkey = false;
-					if(selectedkey.length > 0){
+					if(this.selectedkey.length > 0){
 						checkkey = true;
 					}
 					
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_lengh; i++){
-							if(checkkey === true && selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+							if(checkkey === true && this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
-							}else if(checkkey === false && selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+							}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
@@ -238,9 +238,9 @@
 					}else{
 						if(multiple){
 							for(let i=0; i<data_lengh; i++){
-								if(checkkey === true && selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+								if(checkkey === true && this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 									more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 									more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
@@ -248,9 +248,9 @@
 							}
 						}else{
 							for(let i=0; i<data_lengh; i++){
-								if(checkkey === true && selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+								if(checkkey === true && this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
@@ -301,43 +301,43 @@
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
 					if(force_key){
-						selectedkey = force_key.split(',');
-						selectedval = value.split(',');
-						if(selectedkey.length !== selectedval.length){
+						this.selectedkey = force_key.split(',');
+						this.selectedval = value.split(',');
+						if(this.selectedkey.length !== this.selectedval.length){
 							alert('ERROR! force_selected_key의 갯수와 value값의 갯수가 다릅니다.'); 
 							throw "stop"; 
 						}
-						for(let i=0; i<selectedkey.length; i++){
-							_this.settings['ajaxCode'](selectedval[i], 1, 1, selectedkey[i]).then((data)=>{
-								if(typeof(selectedArray) === 'undefined'){
-									selectedArray = new Array();
+						for(let i=0; i<this.selectedkey.length; i++){
+							_this.settings['ajaxCode'](this.selectedval[i], 1, 1, this.selectedkey[i]).then((data)=>{
+								if(typeof(this.selectedArray) === 'undefined'){
+									this.selectedArray = new Array();
 								}
 								if(data.length > 0){
 									for(let d=0; d<data.length; d++){
-										selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+										this.selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
 									}
 								}
 							});
 						}
 					}else{
 						if(value !== ''){
-							selectedval = value.split(',');
-							for(let i=0; i<selectedval.length; i++){
-								_this.settings['ajaxCode'](selectedval[i], 1, 1).then((data)=>{
-									if(typeof(selectedArray) === 'undefined'){
-										selectedArray = new Array();
+							this.selectedval = value.split(',');
+							for(let i=0; i<this.selectedval.length; i++){
+								_this.settings['ajaxCode'](this.selectedval[i], 1, 1).then((data)=>{
+									if(typeof(this.selectedArray) === 'undefined'){
+										this.selectedArray = new Array();
 									}
 									if(data.length > 0){
 										for(let d=0; d<data.length; d++){
-											selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+											this.selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
 										}
 									}
 								});
 							}
 						}else{
-							selectedval = new Array();
-							selectedkey = new Array();
-							selectedArray = new Array();
+							this.selectedval = new Array();
+							this.selectedkey = new Array();
+							this.selectedArray = new Array();
 						}
 					}
 					
@@ -387,17 +387,17 @@
 					let values = '';
 					let keys = '';
 					
-					if(selectedval !== undefined && selectedkey !== undefined){
+					if(this.selectedval !== undefined && this.selectedkey !== undefined){
 						//모달창을 제대로 닫을때
-						for(let i=0; i<selectedval.length; i++){
-							values += selectedval[i];
-							if(i < selectedval.length - 1){
+						for(let i=0; i<this.selectedval.length; i++){
+							values += this.selectedval[i];
+							if(i < this.selectedval.length - 1){
 								values += ',';
 							}
 						}
-						for(let i=0; i<selectedkey.length; i++){
-							keys += selectedkey[i];
-							if(i < selectedkey.length - 1){
+						for(let i=0; i<this.selectedkey.length; i++){
+							keys += this.selectedkey[i];
+							if(i < this.selectedkey.length - 1){
 								keys += ',';
 							}
 						}
@@ -405,17 +405,17 @@
 						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").val(values).promise().done(function(){
 							if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").is('[force_selected_key]')){
 								$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").attr('force_selected_key', keys).promise().done(function(){
-									_this.settings['blurCode'](selectedArray, _this);
+									_this.settings['blurCode'](this.selectedArray, _this);
 								});
 							}else{
-								_this.settings['blurCode'](selectedArray, _this);
+								_this.settings['blurCode'](this.selectedArray, _this);
 							}
 							
 						});
 						
 						if(multiple === 'multiple'){
-							if(selectedval.length > 0){
-								$("s[for='"+overfor+"']").text(selectedval.length);
+							if(this.selectedval.length > 0){
+								$("s[for='"+overfor+"']").text(this.selectedval.length);
 								$("s[for='"+overfor+"']").show();
 							}else{
 								$("s[for='"+overfor+"']").hide();
@@ -573,38 +573,38 @@
 					let __this = _this;
 					let value = $(this).attr('name');
 					let key = $(this).attr('id');
-					selectedkey = new Array(key);
-					selectedval = new Array(value);
-					selectedArray = new Array();
-					selectedArray[key] = value;
-					_this.settings['checkedCode'](selectedArray, __this);
+					this.selectedkey = new Array(key);
+					this.selectedval = new Array(value);
+					this.selectedArray = new Array();
+					this.selectedArray[key] = value;
+					_this.settings['checkedCode'](this.selectedArray, __this);
 					
 					let overfor = $(this).parent().attr('for');
 					if(typeof overfor != 'undefined' && overfor != null && overfor != ''){
 						let values = '';
 						let keys = '';
 						
-						if(selectedval !== undefined && selectedkey !== undefined){
+						if(this.selectedval !== undefined && this.selectedkey !== undefined){
 							//모달창을 제대로 닫을때
-							for(let i=0; i<selectedval.length; i++){
-								values += selectedval[i];
-								if(i < selectedval.length - 1){
+							for(let i=0; i<this.selectedval.length; i++){
+								values += this.selectedval[i];
+								if(i < this.selectedval.length - 1){
 									values += ',';
 								}
 							}
-							for(let i=0; i<selectedkey.length; i++){
-								keys += selectedkey[i];
-								if(i < selectedkey.length - 1){
+							for(let i=0; i<this.selectedkey.length; i++){
+								keys += this.selectedkey[i];
+								if(i < this.selectedkey.length - 1){
 									keys += ',';
 								}
 							}
 							$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").val(values).promise().done(function(){
 								if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").is('[force_selected_key]')){
 									$("#"+String(overfor)+"[type='cocoAjaxMultiSelect_test']").attr('force_selected_key', keys).promise().done(function(){
-										_this.settings['blurCode'](selectedArray, _this);
+										_this.settings['blurCode'](this.selectedArray, _this);
 									});
 								}else{
-									_this.settings['blurCode'](selectedArray, _this);
+									_this.settings['blurCode'](this.selectedArray, _this);
 								}
 								
 							});
@@ -633,30 +633,30 @@
 					let key = $(this).attr('id');
 					if($(this).is(":checked")){
 						if(multiple){
-							selectedkey.push(key);
-							selectedval.push(value);
-							selectedArray[key] = value;
+							this.selectedkey.push(key);
+							this.selectedval.push(value);
+							this.selectedArray[key] = value;
 						}else{
-							selectedkey = new Array(key);
-							selectedval = new Array(value);
-							selectedArray = new Array();
-							selectedArray[key] = value;
+							this.selectedkey = new Array(key);
+							this.selectedval = new Array(value);
+							this.selectedArray = new Array();
+							this.selectedArray[key] = value;
 						}
 						
 					}else{
 						if(multiple){
-							selectedval = selectedval.filter(function(f) { 
+							this.selectedval = this.selectedval.filter(function(f) { 
 								return f !== value; 
 							});
-							selectedkey = selectedkey.filter(function(f) { 
+							this.selectedkey = this.selectedkey.filter(function(f) { 
 								return f !== key; 
 							});
-							if(selectedArray[key]){
-								delete selectedArray[key];
+							if(this.selectedArray[key]){
+								delete this.selectedArray[key];
 							}
 						}
 					}
-					_this.settings['checkedCode'](selectedArray, __this);
+					_this.settings['checkedCode'](this.selectedArray, __this);
 				});
 			}
 			
