@@ -208,19 +208,19 @@
 					let more_detail_li = '';
 					
 					let checkkey = false;
-					if(this.selectedkey.length > 0){
+					if(_this.selectedkey.length > 0){
 						checkkey = true;
 					}
 					
 					if(_this.settings['arrayInImage']){
 						for(let i=0; i<data_lengh; i++){
-							if(checkkey === true && this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+							if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='nonimg' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}
-							}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+							}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 								if(data_arr[i][String(_this.settings['arrayInImage'])]){
 									more_detail_li += "<li id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' class='img' name='"+data_arr[i][String(_this.settings['arrayInValue'])]+"' style='background-image:url("+data_arr[i][String(_this.settings['arrayInImage'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</li>";
 								}else{
@@ -238,9 +238,9 @@
 					}else{
 						if(multiple){
 							for(let i=0; i<data_lengh; i++){
-								if(checkkey === true && this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+								if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 									more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 									more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									more_detail_li += "<li><input type='checkbox' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
@@ -248,9 +248,9 @@
 							}
 						}else{
 							for(let i=0; i<data_lengh; i++){
-								if(checkkey === true && this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
+								if(checkkey === true && _this.selectedkey.includes(data_arr[i][String(_this.settings['arrayInKey'])])){
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
-								}else if(checkkey === false && this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
+								}else if(checkkey === false && _this.selectedval.includes(data_arr[i][String(_this.settings['arrayInValue'])])){
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' checked /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
 								}else{
 									more_detail_li += "<li><input type='radio' name='"+id+"' id='"+data_arr[i][String(_this.settings['arrayInKey'])]+"' /><label for='"+data_arr[i][String(_this.settings['arrayInKey'])]+"'>"+data_arr[i][String(_this.settings['arrayInValue'])]+"</label></li>";
@@ -301,43 +301,43 @@
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
 					
 					if(force_key){
-						this.selectedkey = force_key.split(',');
-						this.selectedval = value.split(',');
-						if(this.selectedkey.length !== this.selectedval.length){
+						_this.selectedkey = force_key.split(',');
+						_this.selectedval = value.split(',');
+						if(_this.selectedkey.length !== _this.selectedval.length){
 							alert('ERROR! force_selected_key의 갯수와 value값의 갯수가 다릅니다.'); 
 							throw "stop"; 
 						}
-						for(let i=0; i<this.selectedkey.length; i++){
-							_this.settings['ajaxCode'](this.selectedval[i], 1, 1, this.selectedkey[i]).then((data)=>{
-								if(typeof(this.selectedArray) === 'undefined'){
-									this.selectedArray = new Array();
+						for(let i=0; i<_this.selectedkey.length; i++){
+							_this.settings['ajaxCode'](_this.selectedval[i], 1, 1, _this.selectedkey[i]).then((data)=>{
+								if(typeof(_this.selectedArray) === 'undefined'){
+									_this.selectedArray = new Array();
 								}
 								if(data.length > 0){
 									for(let d=0; d<data.length; d++){
-										this.selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+										_this.selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
 									}
 								}
 							});
 						}
 					}else{
 						if(value !== ''){
-							this.selectedval = value.split(',');
-							for(let i=0; i<this.selectedval.length; i++){
-								_this.settings['ajaxCode'](this.selectedval[i], 1, 1).then((data)=>{
-									if(typeof(this.selectedArray) === 'undefined'){
-										this.selectedArray = new Array();
+							_this.selectedval = value.split(',');
+							for(let i=0; i<_this.selectedval.length; i++){
+								_this.settings['ajaxCode'](_this.selectedval[i], 1, 1).then((data)=>{
+									if(typeof(_this.selectedArray) === 'undefined'){
+										_this.selectedArray = new Array();
 									}
 									if(data.length > 0){
 										for(let d=0; d<data.length; d++){
-											this.selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
+											_this.selectedArray[data[d][String(_this.settings['arrayInKey'])]] = data[d][String(_this.settings['arrayInValue'])];
 										}
 									}
 								});
 							}
 						}else{
-							this.selectedval = new Array();
-							this.selectedkey = new Array();
-							this.selectedArray = new Array();
+							_this.selectedval = new Array();
+							_this.selectedkey = new Array();
+							_this.selectedArray = new Array();
 						}
 					}
 					
