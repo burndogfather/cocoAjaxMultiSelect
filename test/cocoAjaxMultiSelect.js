@@ -35,6 +35,9 @@
 		this.element = element;
 		this.$element = $(element);
 		this.settings = $.extend( {}, defaults, options );
+		this.selectedval;
+		this.selectedkey;
+		this.selectedArray = new Array();
 		this._defaults = defaults;
 		this._name = pluginName;
 		this.init();
