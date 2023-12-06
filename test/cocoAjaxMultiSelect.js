@@ -660,6 +660,9 @@
 								console.log(__this.selectedval);
 								console.log(value);
 								console.log(idx);
+								
+								__this.selectedkey.splice(__this.selectedkey.indexOf(key), 1);
+								__this.selectedval.splice(__this.selectedval.indexOf(value), 1);
 								delete __this.selectedArray[key];
 							}
 						}
