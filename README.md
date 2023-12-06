@@ -112,21 +112,22 @@ $('#test').cocoAjaxMultiSelect({
         - reject() : ajaxCode내에서 요청실패처리
         - resolve(json데이터) : ajaxCode내에서 요청성공에 대한 동기처리
         
-    checkedCode : 사용자가 선택항목을 변경시 마다 실행되는 코드
+    checkedCode : [선택] 사용자가 선택항목을 변경시 마다 실행되는 코드
         - selectedArray : 사용자가 선택한 항목들의 key-value 형태의 배열
         - _this : 현재의 input태그의 Element  
         
-    blurCode : 사용자가 선택후 Select를 닫을때 실행되는 코드
+    blurCode : [선택] 사용자가 선택후 Select를 닫을때 실행되는 코드
         - selectedArray : 사용자가 선택한 항목들의 key-value 형태의 배열
         - _this : 현재의 input태그의 Element  
     
     arrayInKey : resolve(json데이터)에 입력되는 ajax결과배열의 key 값 (사용자에게 보여지지 않음)
     arrayInValue : resolve(json데이터)에 입력되는 ajax결과배열의 value 값 (사용자에게 보여짐)
-    regularExpression : ajax조회하는 검색어의 정규식 조건
-    delay : 잦은호출을 방지하기 위해 키보드입력시 ajax조회 지연시간
-    pageUnit : 한페이지에 보여질 데이터수
-    scrollLeftLoad : 다음페이지로 추가호출할 스크롤길이
-    height : 선택창의 높이
+    arrayInImage: [선택] resolve(json데이터)에 입력되는 ajax결과배열의 img 경로값 (사용자에게 이미지가 보여짐)
+    regularExpression : [선택] ajax조회하는 검색어의 정규식 조건
+    delay : [선택] 잦은호출을 방지하기 위해 키보드입력시 ajax조회 지연시간
+    pageUnit : [선택] 한페이지에 보여질 데이터수
+    scrollLeftLoad : [선택] 다음페이지로 추가호출할 스크롤길이
+    height : [선택] 선택창의 높이
 **/
 ```
   
