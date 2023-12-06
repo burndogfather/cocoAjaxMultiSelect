@@ -35,7 +35,7 @@ input[type="cocoAjaxMultiSelect_test"] + label:hover {
   cursor: pointer;
 }
 input[type="cocoAjaxMultiSelect_test"] + label:before {
-  content: "";
+  content: "\e942";
   font-family: xeicon !important;
   color: #999;
   font-size: 15px;
@@ -193,7 +193,7 @@ input[type="cocoAjaxMultiSelect_test"][focus="on"] + label + s + .ajaxselect_det
   border: 3px solid #31408E;
 }
 input[type="cocoAjaxMultiSelect_test"][focus="on"] + label + s + .ajaxselect_detail li input[type="radio"]:checked + label:before {
-  content: "";
+  content: "\e92b";
   font-family: xeicon !important;
   color: #31408E;
   font-size: 21px;
@@ -234,7 +234,7 @@ input[type="cocoAjaxMultiSelect_test"][focus="on"] + label + s + .ajaxselect_det
   border: 3px solid #31408E;
 }
 input[type="cocoAjaxMultiSelect_test"][focus="on"] + label + s + .ajaxselect_detail li input[type="checkbox"]:checked + label:before {
-  content: "";
+  content: "\e92d";
   font-family: xeicon !important;
   color: #31408E;
   font-size: 21px;
