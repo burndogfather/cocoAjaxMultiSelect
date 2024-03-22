@@ -50,8 +50,7 @@
 			if(this.settings['arrayInKey']){
 				multiple = false;
 			}
-			$(this.element).attr('autocomplete', 'new-password');
-			$(this.element).attr('autocapitalize', 'off');
+			$(this.element).attr('autocomplete', 'nope');
 			$(this.element).after("<label for='"+id+"'></label>");
 			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
 			if(multiple === 'multiple'){
@@ -295,7 +294,7 @@
 				}
 				if(typeof focus == 'undefined' || focus == null || focus == ''){
 					//닫힌상태에서 열기
-					$(this).attr('autocomplete','off');
+					$(this).attr('autocomplete','nope');
 					$(this).val('');//입력값 초기화 > 검색어를 입력할 수 있도록
 					$(this).attr('readonly', false);//키보드입력가능하게
 					$(this).attr('focus', 'on'); //검색아이콘으로 변경
