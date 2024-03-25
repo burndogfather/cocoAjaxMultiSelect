@@ -625,6 +625,7 @@
 				});
 			}else{
 				$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
+					console.log('test!');
 					event.stopImmediatePropagation();
 					event.stopPropagation();
 					let __this = _this;
