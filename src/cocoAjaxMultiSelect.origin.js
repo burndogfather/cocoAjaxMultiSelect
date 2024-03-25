@@ -658,6 +658,7 @@
 					_this.settings['checkedCode'](__this.selectedArray, __this);
 					
 					if(!multiple){
+						console.log(_this);
 						$(".ajaxselect_over[for='"+key+"']").click();
 						
 					}
