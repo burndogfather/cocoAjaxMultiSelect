@@ -642,11 +642,8 @@
 							__this.selectedArray = new Array();
 							__this.selectedArray[key] = value;
 							
-							_this.settings['blurCode'](__this.selectedArray, _this);
-							$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
-							$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
-							$(".ajaxselect_detail[for='"+overfor+"']").remove();
-							$(".ajaxselect_over[for='"+overfor+"']").remove();
+						
+							
 						}
 						
 					}else{
@@ -659,6 +656,27 @@
 						}
 					}
 					_this.settings['checkedCode'](__this.selectedArray, __this);
+					
+					if(!multiple){
+						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
+							if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").is('[force_selected_key]')){
+								$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").attr('force_selected_key', keys).promise().done(function(){
+									_this.settings['blurCode'](_this.selectedArray, _this);
+									$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
+									$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
+									$(".ajaxselect_detail[for='"+overfor+"']").remove();
+									$(".ajaxselect_over[for='"+overfor+"']").remove();
+								});
+							}else{
+								_this.settings['blurCode'](_this.selectedArray, _this);
+								$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
+								$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
+								$(".ajaxselect_detail[for='"+overfor+"']").remove();
+								$(".ajaxselect_over[for='"+overfor+"']").remove();
+							}
+							
+						});
+					}
 				});
 			}
 			
