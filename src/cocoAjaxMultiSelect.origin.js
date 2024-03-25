@@ -658,7 +658,7 @@
 					_this.settings['checkedCode'](__this.selectedArray, __this);
 					
 					if(!multiple){
-						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(values).promise().done(function(){
+						$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").val(value).promise().done(function(){
 							if($("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").is('[force_selected_key]')){
 								$("#"+String(overfor)+"[type='cocoAjaxMultiSelect']").attr('force_selected_key', keys).promise().done(function(){
 									_this.settings['blurCode'](_this.selectedArray, _this);
