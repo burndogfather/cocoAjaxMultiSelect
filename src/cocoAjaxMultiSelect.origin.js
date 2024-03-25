@@ -567,7 +567,6 @@
 			let multiple = this.$element.attr('multiple');
 			if(_this.settings['arrayInImage']){
 				$(document).on('click.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] li",function(event){
-					console.log('ㅉ얘짜얘ㅉ아ㅒㅉ아ㅒㅉ아ㅒㅏ');
 					event.stopImmediatePropagation();
 					event.stopPropagation();
 					let __this = _this;
