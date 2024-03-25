@@ -625,12 +625,12 @@
 				});
 			}else{
 				$(document).on('change.cocoAjaxMultiSelect',".ajaxselect_detail[for='"+this.$element.attr('id')+"'] input",function(event){
-					console.log('test!');
 					event.stopImmediatePropagation();
 					event.stopPropagation();
 					let __this = _this;
 					let value = $(this).next('label').text();
 					let key = $(this).attr('id');
+					let overfor = $(this).parent().attr('for');
 					if($(this).is(":checked")){
 						if(multiple){
 							__this.selectedkey.push(key);
@@ -641,6 +641,11 @@
 							__this.selectedval = new Array(value);
 							__this.selectedArray = new Array();
 							__this.selectedArray[key] = value;
+							
+							$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
+							$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
+							$(".ajaxselect_detail[for='"+overfor+"']").remove();
+							$(".ajaxselect_over[for='"+overfor+"']").remove();
 						}
 						
 					}else{
