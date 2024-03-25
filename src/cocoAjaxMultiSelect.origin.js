@@ -642,6 +642,7 @@
 							__this.selectedArray = new Array();
 							__this.selectedArray[key] = value;
 							
+							_this.settings['blurCode'](__this.selectedArray, _this);
 							$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
 							$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
 							$(".ajaxselect_detail[for='"+overfor+"']").remove();
