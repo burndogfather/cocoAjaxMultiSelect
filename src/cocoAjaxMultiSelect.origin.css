@@ -278,6 +278,9 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail l
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li label:before {
   margin-top: 0;
 }
+input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail li label:hover {
+  cursor:pointer;
+}
 .ajaxselect_detail {
   margin: 0;
   padding: 0;
