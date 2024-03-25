@@ -658,8 +658,7 @@
 					_this.settings['checkedCode'](__this.selectedArray, __this);
 					
 					if(!multiple){
-						console.log(_this);
-						$(".ajaxselect_over[for='"+key+"']").click();
+						$(".ajaxselect_over[for='"+_this.$element.attr('id')+"']").click();
 						
 					}
 				});
