@@ -342,10 +342,9 @@
 					}
 					
 					
-					console.log(searchtext);
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						//$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
-						
+						$("#"+id+"[type='cocoAjaxMultiSelect']").val(searchtext);
 						
 						let scrollHeight = Math.max(
 							document.body.scrollHeight, document.documentElement.scrollHeight,
