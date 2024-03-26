@@ -279,8 +279,6 @@
 			$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
-				console.log(_this);
-				$(_this).focus();
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
@@ -358,6 +356,7 @@
 						
 						//$("label[for='"+id+"'][ajaxselect_label]").after("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
 						$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
+						$("#"+id+"[type='cocoAjaxMultiSelect']").focus();
 						
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 
