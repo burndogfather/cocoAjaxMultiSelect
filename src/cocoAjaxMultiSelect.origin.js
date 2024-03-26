@@ -487,6 +487,7 @@
 			$(document).on('input.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
+				console.log(this);
 				page = 1;
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
