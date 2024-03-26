@@ -279,6 +279,8 @@
 			$(document).on('click.cocoAjaxMultiSelect',"#"+this.$element.attr('id')+"[type='cocoAjaxMultiSelect']",function(event){
 				event.stopImmediatePropagation();
 				event.stopPropagation();
+				console.log(_this);
+				$(_this).focus();
 				let focus = $(this).attr('focus');
 				let id = $(this).attr('id');
 				let multiple = $(this).attr('multiple');
