@@ -194,8 +194,7 @@
 			});
 			$(".ajaxselect_detail[for='"+id+"']").css({top:top, left:left, width:width, height:this.settings['height']}); //불러온트리의 위치를 보정
 			$("s[for='"+id+"']").hide();
-			$("label[for='"+id+"'][ajaxselect_label]").after("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
-			//$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
+			
 		},
 		
 		//스크롤링하면 추가 데이터 넣기
@@ -347,16 +346,16 @@
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						//$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
 						
-						/*
+						
 						let scrollHeight = Math.max(
 							document.body.scrollHeight, document.documentElement.scrollHeight,
 							document.body.offsetHeight, document.documentElement.offsetHeight,
 							document.body.clientHeight, document.documentElement.clientHeight
 						);
 						let overheight = scrollHeight + document.documentElement.scrollHeight - document.documentElement.clientHeight;
-						*/
+						
 						//$("label[for='"+id+"'][ajaxselect_label]").after("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
-						//$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
+						$("#"+id+"[type='cocoAjaxMultiSelect']").before("<div for='"+id+"' class='ajaxselect_over' style='height:"+overheight+"px;'></div>");
 						
 						_this.detailshow(id, data, multiple, $(this).outerWidth()-30, $(this).position().top+32, $(this).position().left);
 
