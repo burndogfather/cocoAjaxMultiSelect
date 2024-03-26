@@ -547,7 +547,7 @@
 						event.returnValue = false;
 					}
 					canScrollAjax = true;
-					$(this).blur();
+					//$(this).blur();
 				}
 			});
 		},
