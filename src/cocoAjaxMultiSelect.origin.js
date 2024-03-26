@@ -434,7 +434,7 @@
 					}
 					
 					$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
-					$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
+					//$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
 					$(".ajaxselect_detail[for='"+overfor+"']").remove();
 					$(".ajaxselect_over[for='"+overfor+"']").remove();
 					
@@ -618,7 +618,7 @@
 						}
 						
 						$("input[type='cocoAjaxMultiSelect']").removeAttr('focus');
-						$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
+						//$("input[type='cocoAjaxMultiSelect']").attr('readonly',true);
 						$(".ajaxselect_detail[for='"+overfor+"']").remove();
 						$(".ajaxselect_over[for='"+overfor+"']").remove();
 						
