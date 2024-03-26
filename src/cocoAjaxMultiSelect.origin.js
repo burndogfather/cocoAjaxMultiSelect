@@ -342,7 +342,7 @@
 					}
 					
 					
-					
+					console.log(searchtext);
 					_this.settings['ajaxCode'](searchtext, page, _this.settings['pageUnit']).then((data)=>{
 						//$('body').prepend("<div for='"+id+"' class='ajaxselect_over'></div>");
 						
