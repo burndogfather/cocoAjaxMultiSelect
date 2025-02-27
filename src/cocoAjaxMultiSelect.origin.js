@@ -51,12 +51,9 @@
 				multiple = false;
 			}
 			let force_key = false;
-			console.log($(this.element).attr('force_selected_key'));
-			/*
-			if(this.hasAttribute('force_selected_key')){
-				force_key = $(this).attr('force_selected_key');
+			if(this.element.hasAttribute('force_selected_key')){
+				force_key = $(this.element).attr('force_selected_key');
 			}
-			*/
 			console.log(force_key);
 			$(this.element).attr('autocomplete', 'off');
 			$(this.element).after("<label for='"+id+"' ajaxselect_label></label>");
