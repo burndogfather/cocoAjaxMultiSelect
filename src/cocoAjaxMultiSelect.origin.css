@@ -97,6 +97,11 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label:before {
 input[type="cocoAjaxMultiSelect"][focus="on"] + label:hover {
   cursor: pointer;
 }
+input[type="cocoAjaxMultiSelect"][focus="on"] + label + s {
+  text-decoration: none;
+  font-size: 10px;
+  margin-left: -40px;
+}
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail {
   margin: 0;
   list-style: none;
