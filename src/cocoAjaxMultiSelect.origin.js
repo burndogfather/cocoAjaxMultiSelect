@@ -47,10 +47,7 @@
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
-			console.log($(this.element).attr('multiple'));
-			if(this.settings['arrayInKey']){
-				multiple = false;
-			}
+			
 			let force_key = false;
 			if(this.element.hasAttribute('force_selected_key')){
 				force_key = $(this.element).attr('force_selected_key').split(',');
@@ -60,7 +57,6 @@
 			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
 			
 			
-			console.log(multiple);
 			if(multiple === 'multiple'){
 				if(value !== ''){
 					$("s[for='"+id+"']").text(value.split(',').length);
