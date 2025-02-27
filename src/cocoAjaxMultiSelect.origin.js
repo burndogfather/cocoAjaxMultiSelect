@@ -47,6 +47,7 @@
 			let id = $(this.element).attr('id');
 			let value = $(this.element).val();
 			let multiple = $(this.element).attr('multiple');
+			console.log($(this.element).attr('multiple'));
 			if(this.settings['arrayInKey']){
 				multiple = false;
 			}
