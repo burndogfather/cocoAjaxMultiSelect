@@ -100,7 +100,7 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label:hover {
 input[type="cocoAjaxMultiSelect"] + label + s {
   text-decoration: none;
   font-size: 10px;
-  margin-left: -40px;
+  margin-left: -45px;
 }
 input[type="cocoAjaxMultiSelect"] + label + s:before {
   content: '(';
