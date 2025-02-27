@@ -97,18 +97,18 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label:before {
 input[type="cocoAjaxMultiSelect"][focus="on"] + label:hover {
   cursor: pointer;
 }
-input[type="cocoAjaxMultiSelect"][focus="on"] + label + s {
+input[type="cocoAjaxMultiSelect"] + label + s {
   text-decoration: none;
   font-size: 10px;
   margin-left: -40px;
 }
-input[type="cocoAjaxMultiSelect"][focus="on"] + label + s:before {
+input[type="cocoAjaxMultiSelect"] + label + s:before {
   content: '(';
 }
-input[type="cocoAjaxMultiSelect"][focus="on"] + label + s:after {
+input[type="cocoAjaxMultiSelect"] + label + s:after {
   content: '}';
 }
-input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail {
+input[type="cocoAjaxMultiSelect"] + label + s + .ajaxselect_detail {
   margin: 0;
   list-style: none;
   scroll-behavior: smooth;
