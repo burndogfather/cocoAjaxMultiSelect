@@ -57,12 +57,9 @@
 			console.log(force_key);
 			$(this.element).attr('autocomplete', 'off');
 			$(this.element).after("<label for='"+id+"' ajaxselect_label></label>");
-			if(force_key){
-				
-			}else{
-				$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
-			}
+			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
 			
+			console.log(value);
 			if(multiple === 'multiple'){
 				if(value !== ''){
 					$("s[for='"+id+"']").text(value.split(',').length);
