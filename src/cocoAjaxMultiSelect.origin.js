@@ -50,6 +50,11 @@
 			if(this.settings['arrayInKey']){
 				multiple = false;
 			}
+			let force_key = false;
+			if(this.hasAttribute('force_selected_key')){
+				force_key = $(this).attr('force_selected_key');
+			}
+			console.log(force_key);
 			$(this.element).attr('autocomplete', 'off');
 			$(this.element).after("<label for='"+id+"' ajaxselect_label></label>");
 			$("label[for='"+id+"']").after("<s for='"+id+"'></s>");
