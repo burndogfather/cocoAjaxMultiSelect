@@ -102,6 +102,12 @@ input[type="cocoAjaxMultiSelect"][focus="on"] + label + s {
   font-size: 10px;
   margin-left: -40px;
 }
+input[type="cocoAjaxMultiSelect"][focus="on"] + label + s:before {
+  content: '(';
+}
+input[type="cocoAjaxMultiSelect"][focus="on"] + label + s:after {
+  content: '}';
+}
 input[type="cocoAjaxMultiSelect"][focus="on"] + label + s + .ajaxselect_detail {
   margin: 0;
   list-style: none;
