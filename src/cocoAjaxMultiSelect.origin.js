@@ -51,6 +51,9 @@
 			let force_key = false;
 			if(this.element.hasAttribute('force_selected_key')){
 				force_key = $(this.element).attr('force_selected_key').split(',');
+				if(value.split(',').length !== force_key.length){
+					console.log('[cocoAjaxMultiSelect]-사전입력값에 오류가 있습니다!\ㅜvalue에 넣은 값의 수와 force_selected_key값이 서로 다릅니다');
+				}
 			}
 			$(this.element).attr('autocomplete', 'off');
 			$(this.element).after("<label for='"+id+"' ajaxselect_label></label>");
